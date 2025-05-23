@@ -118,14 +118,20 @@ DetermineBackSpritePaletteID:
 	jr nz, .getPaletteID ; Check if trainer?
 
 IF GEN_2_GRAPHICS	
-	ld a, [wPlayerGender]
+    ld a, [wBattleType]   ; Old man?
+    cp 1
+    jr nz, .notOldMan
+	ld a, PAL_BROCK
+	jr .gotPalette
+.notOldMan
+	ld a, [wPlayerGender] ; Gender check
 	and a
-	jr z, .BoyBackPalette
+	jr z, .boyBackPalette
 	ld a, PAL_ERIKA
-	jr .KeepLoadingPaletteStuff1
-.BoyBackPalette
+	jr .gotPalette
+.boyBackPalette
 	ld a, PAL_HERO
-.KeepLoadingPaletteStuff1
+.gotPalette
 ELSE
 	ld a, PAL_REDMON
 ENDC

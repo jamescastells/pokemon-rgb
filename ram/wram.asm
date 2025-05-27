@@ -795,6 +795,7 @@ NEXTU
 wOptionsTextSpeedCursorX:: db
 wOptionsBattleAnimCursorX:: db
 wOptionsBattleStyleCursorX:: db
+wOptionsMusicStyleCursorX:: db
 wOptionsCancelCursorX:: db
 
 NEXTU
@@ -1783,6 +1784,9 @@ wRivalName:: ds NAME_LENGTH
 ; 1: Fast
 ; 3: Medium
 ; 5: Slow
+; bit 4 = music style
+; 0: Gen1
+; 1: Gen2
 wOptions:: db
 
 wObtainedBadges:: flag_array NUM_BADGES

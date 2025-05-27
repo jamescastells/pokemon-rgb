@@ -1,5 +1,5 @@
 SafariZoneNorth_Object:
-	db $0 ; border block
+	db $02 ; border block
 
 	def_warp_events
 	warp_event  2, 35, SAFARI_ZONE_WEST, 1

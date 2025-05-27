@@ -1725,7 +1725,7 @@ _OakSpeechText2B::
 	prompt
 
 _IntroducePlayerText::
-	text "Next, what is"
+	text "First, what is"
 	line "your name?"
 	prompt
 
@@ -1790,10 +1790,9 @@ _ContCharText::
 	text_end
 
 _BoyGirlText::
-    text "First, tell me,"
-    line "are you a boy"
-    cont "or a girl?"
-    prompt
+    text "Are you a boy?"
+    line "Or are you a girl?"
+    done
 
 _boyConfirm::
     text "Right! So you"

@@ -1,5 +1,4 @@
 DEF GEN_2_GRAPHICS EQU 1
-DEF GEN_2_MUSIC    EQU 1
 
 INCLUDE "charmap.asm"
 
@@ -57,3 +56,4 @@ INCLUDE "constants/menu_constants.asm"
 
 INCLUDE "color/wram.asm"
 INCLUDE "color/data/map_palette_constants.asm"
+

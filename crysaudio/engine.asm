@@ -2453,7 +2453,15 @@ _PlayMusic::
 	ld [hl], e ; song number
 	inc hl
 	ld [hl], d ; (always 0)
-	ld hl, Music
+.ObtainWhichMusic:
+	call ObtainedStoredMusicOption
+	cp $0
+	jr z, .loadgen1music
+	ld hl, Gen2Music
+	jr .continue
+.loadgen1music
+	ld hl, Gen1Music
+.continue
 	add hl, de ; three
 	add hl, de ; byte
 	add hl, de ; pointer
@@ -2496,6 +2504,15 @@ _PlayMusic::
 	ld [wMusicNoiseSampleSet], a
 	call MusicOn
 	ret
+
+ObtainedStoredMusicOption:
+    ld a, [wOptions]
+    and %00010000   ; mask bit 4
+    srl a           ; shift it into bit 3
+    srl a           ; into bit 2
+    srl a           ; into bit 1
+    srl a           ; into bit 0
+	ret 
 
 _PlayCry::
 ; Play cry de using parameters:

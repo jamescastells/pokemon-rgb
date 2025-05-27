@@ -281,8 +281,13 @@ DisplayTwoOptionMenu:
 	res 6, [hl] ; turn on the printing delay
 	ld a, [wTwoOptionMenuID]
 	cp NO_YES_MENU
-	jr nz, .notNoYesMenu
-; No/Yes menu
+	jr z, .specialMenu
+	cp NORTH_WEST_MENU
+	jr z, .specialMenu
+	jr .notNoYesMenu
+
+.specialMenu
+; No/Yes menu, or gender menu
 ; this menu type ignores the B button
 ; it only seems to be used when confirming the deletion of a save file
 	xor a

@@ -41,8 +41,8 @@ _FightingDojoText_5ce98::
 _FightingDojoText_5ce9d::
 	text "Ho!"
 
-	para "Stay and train at"
-	line "Karate with us!"
+	para "Stay and train"
+	line "with us!"
 	done
 
 _FightingDojoBattleText1::

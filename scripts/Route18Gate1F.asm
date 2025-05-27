@@ -24,9 +24,25 @@ Route18GateScript0:
 	xor a
 	ldh [hJoyHeld], a
 	ld a, [wCoordIndex]
-	cp $1
-	jr z, .asm_498c6
-	ld a, [wCoordIndex]
+	cp $1					; always simulate one movement step to enforce control lock
+	jr nz, .simulate_move
+
+; player is already at top, simulate dummy move anyway
+	ld a, PLAYER_DIR_UP
+	ld [wPlayerMovingDirection], a
+	ld a, 0
+	ld [wSimulatedJoypadStatesIndex], a
+	ld b, 0
+	ld c, 1
+	ld a, D_UP
+	ld hl, wSimulatedJoypadStatesEnd
+	call FillMemory
+	call StartSimulatingJoypadStates
+	ld a, $1
+	ld [wRoute18Gate1FCurScript], a
+	ret
+
+.simulate_move
 	dec a
 	ld [wSimulatedJoypadStatesIndex], a
 	ld b, 0
@@ -36,10 +52,6 @@ Route18GateScript0:
 	call FillMemory
 	call StartSimulatingJoypadStates
 	ld a, $1
-	ld [wRoute18Gate1FCurScript], a
-	ret
-.asm_498c6
-	ld a, $2
 	ld [wRoute18Gate1FCurScript], a
 	ret
 

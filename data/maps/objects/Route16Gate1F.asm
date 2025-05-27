@@ -16,6 +16,6 @@ Route16Gate1F_Object:
 
 	def_object_events
 	object_event  4,  5, SPRITE_GUARD, STAY, DOWN, 1 ; person
-	object_event  4,  3, SPRITE_GAMBLER, STAY, NONE, 2 ; person
+	object_event  4,  2, SPRITE_GAMBLER, STAY, NONE, 2 ; person
 
 	def_warps_to ROUTE_16_GATE_1F

@@ -1601,6 +1601,19 @@ ItemUsePokedoll:
 	ld a, [wIsInBattle]
 	dec a
 	jp nz, ItemUseNotTime
+
+	callfar IsGhostBattle
+	jp z, ItemUseNotTime ; prevent escape from ghost battles
+
+	ld a, [wEnemyMonSpecies]
+	cp RESTLESS_SOUL
+	jr nz, .notARestlessSoul	
+	ld a, [wCurMap]			; it's the Marowak ghost
+	cp POKEMON_TOWER_6F		; but am I in the tower?
+	jr nz, .notARestlessSoul
+	jp z, ItemUseNotTime ; yes I am! Can't use the doll!
+	
+	.notARestlessSoul
 	ld a, $01
 	ld [wEscapedFromBattle], a
 	jp PrintItemUseTextAndRemoveItem
@@ -1771,15 +1784,15 @@ WakeUpEntireParty:
 	ret
 
 Route12SnorlaxFluteCoords:
-	dbmapcoord  9, 62 ; one space West of Snorlax
-	dbmapcoord 10, 61 ; one space North of Snorlax
-	dbmapcoord 10, 63 ; one space South of Snorlax
-	dbmapcoord 11, 62 ; one space East of Snorlax
+	dbmapcoord  9, 60 ; one space West of Snorlax
+	dbmapcoord 10, 59 ; one space North of Snorlax
+	dbmapcoord 10, 61 ; one space South of Snorlax
+	dbmapcoord 11, 60 ; one space East of Snorlax
 	db -1 ; end
 
 Route16SnorlaxFluteCoords:
-	dbmapcoord 27, 10 ; one space East of Snorlax
-	dbmapcoord 25, 10 ; one space West of Snorlax
+	dbmapcoord 27, 12 ; one space East of Snorlax
+	dbmapcoord 25, 12 ; one space West of Snorlax
 	db -1 ; end
 
 PlayedFluteNoEffectText:

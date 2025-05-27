@@ -55,7 +55,7 @@ _SafariZoneEntranceText_753bb::
 	done
 
 _SafariZoneEntranceText_753c0::
-	text "Good Luck!"
+	text "Good luck!"
 	done
 
 _SafariZoneEntranceText_753c5::

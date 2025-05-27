@@ -44,12 +44,16 @@ Music_Cities1AlternateTempo::
 	ld c, 100
 	call DelayFrames ; wait for the fade-out to finish
 	ld c, 0 ; BANK(Music_Cities1)
-	ld a, MUSIC_CITIES1
+	ld a, MUSIC_VIRIDIAN
 	call PlayMusic
 	ld hl, wChannel1MusicAddress
-IF GEN_2_MUSIC
+	call ObtainedStoredMusicOption
+	cp $0
+	jr z, .gen1_music
+.gen2_music
 	ld de, Music_ViridianCity_Ch1_AltStart
-ELSE
+	jr .overwritechannel
+.gen1_music
 	ld de, Music_Cities1_Ch1_AlternateTempo
-ENDC
+.overwritechannel
 	jp Audio1_OverwriteChannelPointer

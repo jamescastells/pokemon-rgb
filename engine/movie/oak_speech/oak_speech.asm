@@ -32,12 +32,7 @@ SetDefaultNames:
 	jp CopyData
 
 OakSpeech:
-	ld a, SFX_STOP_ALL_MUSIC
-	call PlaySound
-	ld a, 0 ; BANK(Music_Routes2)
-	ld c, a
-	ld a, MUSIC_ROUTES2
-	call PlayMusic
+	call StopMusic
 	call ClearScreen
 	call LoadTextBoxTilePatterns
 	call SetDefaultNames
@@ -65,6 +60,14 @@ ENDC
 	;ld a, [wd732]
 	;bit 1, a ; possibly a debug mode bit
 	;jp nz, .skipChoosingNames
+	ld hl, BoyGirlText  ; added to the same file as the other oak text
+  	call PrintText     ; show this text
+  	call BoyGirlChoice ; added routine at the end of this file
+	ld a, [wCurrentMenuItem]
+   	ld [wPlayerGender], a ; store player's gender. 00 for boy, 01 for girl
+	call ClearScreen
+	ld a, MUSIC_OAKS_INTRO
+	call PlayMusic
 	ld de, ProfOakPic
 	lb bc, BANK(ProfOakPic), $00
 	call IntroDisplayPicCenteredOrUpperRight
@@ -95,26 +98,6 @@ ENDC
 	nop
 	nop
 	nop
-	ld de, ProfOakPic
-	lb bc, BANK(ProfOakPic), $00
-	call IntroDisplayPicCenteredOrUpperRight
-	call FadeInIntroPic
-	ld hl, BoyGirlText  ; added to the same file as the other oak text
-  	call PrintText     ; show this text
-  	call BoyGirlChoice ; added routine at the end of this file
-   	ld a, [wCurrentMenuItem]
-   	ld [wPlayerGender], a ; store player's gender. 00 for boy, 01 for girl
-
-	and a
-	jr z, .notGirl
-	ld hl, girlConfirm
-	jr .isAGirl
-.notGirl
-	ld hl, boyConfirm
-.isAGirl
-  	call PrintText
-	call GBFadeOutToWhite
-
 	call GetRedPalID ; HAX
 	ld de, RedPicFront
 	lb bc, BANK(RedPicFront), $00
@@ -250,6 +233,15 @@ FadeInIntroPic:
 	dec b
 	jr nz, .next
 	ret
+
+ObtainWhichTrackToPlay:
+    ld a, [wOptions]
+    and %00010000   ; mask bit 4
+    srl a           ; shift it into bit 3
+    srl a           ; into bit 2
+    srl a           ; into bit 1
+    srl a           ; into bit 0
+	ret 
 
 IntroFadePalettes:
 	db %01010100

@@ -182,19 +182,16 @@ RocketHideout4BattleText4:
 
 RocketHideout4EndBattleText4:
 	text_far _RocketHideout4EndBattleText4
-	text_end
-
-RocketHideout4AfterBattleText4:
 	text_asm
-	ld hl, RocketHideout4Text_455ec
-	call PrintText
-	CheckAndSetEvent EVENT_ROCKET_DROPPED_LIFT_KEY
-	jr nz, .asm_455e9
+	SetEvent EVENT_ROCKET_DROPPED_LIFT_KEY		; Drop the key immediately, as in Yellow 
 	ld a, HS_ROCKET_HIDEOUT_B4F_ITEM_5
 	ld [wMissableObjectIndex], a
 	predef ShowObject
-.asm_455e9
 	jp TextScriptEnd
+
+RocketHideout4AfterBattleText4:
+	text_far RocketHideout4Text_455ec
+	text_end
 
 RocketHideout4Text_455ec:
 	text_far _RocketHideout4Text_455ec

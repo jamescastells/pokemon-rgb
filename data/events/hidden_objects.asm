@@ -368,7 +368,7 @@ GameCornerHiddenObjects:
 	db -1 ; end
 
 CeladonHotelHiddenObjects:
-	hidden_object 13,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
+	;hidden_object 13,  3, SPRITE_FACING_UP, OpenPokemonCenterPC
 	hidden_object  0,  4, SPRITE_FACING_LEFT, PrintBenchGuyText
 	db -1 ; end
 
@@ -413,8 +413,8 @@ RockTunnelPokecenterHiddenObjects:
 	db -1 ; end
 
 ViridianForestHiddenObjects:
-	hidden_object  1, 18, POTION, HiddenItems
-	hidden_object 16, 42, ANTIDOTE, HiddenItems
+	hidden_object  1, 24, POTION, HiddenItems
+	hidden_object 16, 48, ANTIDOTE, HiddenItems
 	db -1 ; end
 
 MtMoon3HiddenObjects:

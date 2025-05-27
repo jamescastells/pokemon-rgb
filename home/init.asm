@@ -95,17 +95,20 @@ DEF rLCDC_DEFAULT EQU %11100011
 
 	ei
 
+	farcall CheckForPlayerNameInSRAM	; we check for save at init now, so it loads the proper songs
+	jr nc, .initialize    ; if carry not set, skip LoadSAV
+	predef LoadSAV
+	jr .continue
+.initialize
+	farcall InitOptions
+
+.continue
 	predef LoadSGB
 
 ;	ld a, 0 ; BANK(SFX_Shooting_Star)
 ;	ld [wAudioROMBank], a
 ;	ld [wAudioSavedROMBank], a
-	ld a, $9c
-	ldh [hAutoBGTransferDest + 1], a
-	xor a
-	ldh [hAutoBGTransferDest], a
-	dec a
-	ld [wUpdateSpritesEnabled], a
+	farcall InitOptions2
 
 	predef PlayIntro
 

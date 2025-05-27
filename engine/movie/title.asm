@@ -4,12 +4,12 @@ CopyFixedLengthText:
 	jp CopyData
 
 SetDefaultNamesBeforeTitlescreen::
-	ld hl, NintenText
-	ld de, wPlayerName
-	call CopyFixedLengthText
-	ld hl, SonyText
-	ld de, wRivalName
-	call CopyFixedLengthText
+	;ld hl, NintenText
+	;ld de, wPlayerName
+	;call CopyFixedLengthText
+	;ld hl, SonyText
+	;ld de, wRivalName
+	;call CopyFixedLengthText
 	xor a
 	ldh [hWY], a
 	ld [wLetterPrintingDelayFlags], a

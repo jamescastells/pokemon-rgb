@@ -82,6 +82,20 @@ VermilionCityScript4:
 VermilionCityScript2:
 	ld a, $ff
 	ld [wJoyIgnore], a
+	ld a, [wXCoord]
+	cp $13
+	jr nz, .justMoveUp
+	ld a, D_UP
+	ld [wSimulatedJoypadStatesEnd], a
+	ld [wSimulatedJoypadStatesEnd + 1], a
+	ld a, D_LEFT
+	ld [wSimulatedJoypadStatesEnd + 2], a
+	ld a, 3
+	ld [wSimulatedJoypadStatesIndex], a
+	call StartSimulatingJoypadStates
+	ld [wVermilionCityCurScript], a
+	ret
+.justMoveUp
 	ld a, D_UP
 	ld [wSimulatedJoypadStatesEnd], a
 	ld [wSimulatedJoypadStatesEnd + 1], a

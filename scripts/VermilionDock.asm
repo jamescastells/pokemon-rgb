@@ -11,12 +11,39 @@ VermilionDock_Script:
 	CheckEventReuseHL EVENT_GOT_HM01
 	ret z
 	ld a, [wDestinationWarpID]
-	cp $1
-	ret nz
+	cp $2
+	jr z, .exitingSSAnne
+	ld a, [wDestinationWarpID]
+	cp $3
+	jr z, .exitingSSAnne
+	ret
+.exitingSSAnne	
 	CheckEventReuseHL EVENT_SS_ANNE_LEFT
 	jp z, VermilionDockSSAnneLeavesScript
 	SetEventReuseHL EVENT_STARTED_WALKING_OUT_OF_DOCK
 	call Delay3
+	ld a, [wXCoord]
+	cp $12
+	jr nz, .moveUp
+	.moveLeftAndUp
+	ld hl, wd730
+	set 7, [hl]
+	ld hl, wSimulatedJoypadStatesEnd
+	ld a, D_UP
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	;ld a, D_LEFT
+	;ld [hl], a
+	ld a, $3		; one movement to the left
+	ld [wSimulatedJoypadStatesIndex], a
+	xor a
+	ld [wSpritePlayerStateData2MovementByte1], a
+	ld [wOverrideSimulatedJoypadStatesMask], a
+	dec a
+	ld [wJoyIgnore], a
+	ret
+	.moveUp
 	ld hl, wd730
 	set 7, [hl]
 	ld hl, wSimulatedJoypadStatesEnd
@@ -298,13 +325,13 @@ TruckCheck:
 	ld a, [wd728]
 	bit 0, a ; using Strength?
 	jr z, NoTruckAction
-	; the position for moving the truck is 22,0
+	; the position for moving the truck is 26, 4
 	ld hl, wYCoord
 	ld a, [hli]
-	and a
+	cp 4
 	jr nz, NoTruckAction
 	ld a, [hl]
-	cp 22
+	cp 26
 	jr nz, NoTruckAction
 	; if the player is trying to walk left
 	ld a, [wPlayerMovingDirection]
@@ -335,7 +362,8 @@ TruckCheck:
 	call CopyData
 	ld a, $c
 	ld [wNewTileBlockID], a ; used to be wd09f
-	ld bc, $a
+	ld b, 2
+	ld c, 12
 	predef ReplaceTileBlock
 	; moving the truck
 	ld a, SFX_PUSH_BOULDER
@@ -358,7 +386,8 @@ TruckCheck:
 	jr nz, .movingtruck
 	ld a, $3
 	ld [wNewTileBlockID], a ; used to be wd09f
-	ld bc, $9
+	ld b, 2
+	ld c, 11
 	predef ReplaceTileBlock
 	farcall AnimateBoulderDust
 	call ShowMew
@@ -384,7 +413,8 @@ ChangeTruckTile:
 	res 5, [hl]
 	res 7, [hl]
 	ret z
-	ld bc, $9 
+	ld b, 2
+	ld c, 11
 	call GetOWCoord
 	ld a, [hl]
 	cp $3

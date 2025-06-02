@@ -2256,7 +2256,11 @@ wCardKeyDoorX:: db
 wFirstLockTrashCanIndex:: db
 wSecondLockTrashCanIndex:: db
 
-	ds 2
+	ds 1
+
+wGameStage:: db
+	; $00 = before champion fight
+	; $01 = post game
 
 wEventFlags:: flag_array NUM_EVENTS
 

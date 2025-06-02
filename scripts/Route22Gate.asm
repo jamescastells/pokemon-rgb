@@ -18,18 +18,38 @@ Route22Gate_ScriptPointers:
 	dw Route22GateScript2
 
 Route22GateScript0:
+.checkLeagueEntrance
 	ld hl, Route22GateScriptCoords
 	call ArePlayerCoordsInArray
-	ret nc
+	jr nc, .checkRoute28Entrance
 	xor a
 	ldh [hJoyHeld], a
 	ld a, $1
 	ldh [hSpriteIndexOrTextID], a
 	jp DisplayTextID
+.checkRoute28Entrance
+	ld a, [wGameStage]
+	and a
+	jr nz, .letHimThrough
+	ld hl, Route22GateScriptCoords2
+	call ArePlayerCoordsInArray
+	ret nc
+	xor a
+	ldh [hJoyHeld], a
+	ld a, $3
+	ldh [hSpriteIndexOrTextID], a
+	jp DisplayTextID
+.letHimThrough
+	ret
 
 Route22GateScriptCoords:
-	dbmapcoord  4,  2
-	dbmapcoord  5,  2
+	dbmapcoord  12,  2
+	dbmapcoord  13,  2
+	db -1 ; end
+
+Route22GateScriptCoords2:
+	dbmapcoord  3,  4
+	dbmapcoord  3,  5
 	db -1 ; end
 
 Route22GateScript_1e6ba:
@@ -51,10 +71,13 @@ Route22GateScript1:
 	ld a, $0
 	ld [wRoute22GateCurScript], a
 Route22GateScript2:
+	jr Route22GateScript0.checkRoute28Entrance
 	ret
 
 Route22Gate_TextPointers:
 	dw Route22GateText1
+	dw Route22GateText2
+	dw Route22GateText3
 
 Route22GateText1:
 	text_asm
@@ -91,3 +114,41 @@ Route22GateText_1e71a:
 	text_far _Route22GateText_1e71a
 	sound_get_item_1
 	text_end
+
+Route22GateText2:
+	text_asm
+	ld a, [wGameStage] ; check if the player is champion
+	and a
+	jr nz, Route22GateText_MtSilverCome
+.fallthrough
+	ld hl, Route22GateText_MtSilver
+	call PrintText
+	jp TextScriptEnd
+
+Route22GateText3:
+	text_asm
+	ld a, PLAYER_DIR_UP
+	ld [wPlayerMovingDirection], a
+	ld hl, Route22GateText_MtSilver
+	call PrintText
+	call Route22GateScript_MoveLeft
+	ld a, $1
+	ld [wRoute22GateCurScript], a
+	jp TextScriptEnd
+
+Route22GateText_MtSilver:
+	text_far _Route22GateText_MtSilver
+	text_end
+
+Route22GateText_MtSilverCome:
+	text_far _Route22GateText_MtSilverCome
+	text_end
+
+Route22GateScript_MoveLeft:
+	ld a, $1
+	ld [wSimulatedJoypadStatesIndex], a
+	ld a, D_RIGHT
+	ld [wSimulatedJoypadStatesEnd], a
+	ld [wSpritePlayerStateData1FacingDirection], a
+	ld [wJoyIgnore], a
+	jp StartSimulatingJoypadStates

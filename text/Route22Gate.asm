@@ -20,3 +20,24 @@ _Route22GateText_1e71a::
 	line "BOULDERBADGE!"
 	cont "Go right ahead!@"
 	text_end
+
+_Route22GateText_MtSilver::
+	text "MT.SILVER is"
+	line "this way."
+	para "It's a very"
+	line "dangerous place."
+	cont "You better stay"
+	cont "out of there."
+	done
+
+_Route22GateText_MtSilverCome::
+	text "You're the CHAMPION"
+	line "of the LEAGUE!"
+	para "This is MT. SILVER."
+	para "Normally, I would"
+	line "not let you come"
+	cont "through, but since"
+	cont "you're very strong,"
+	cont "I'm sure you will"
+	cont "not have any issues."
+	done

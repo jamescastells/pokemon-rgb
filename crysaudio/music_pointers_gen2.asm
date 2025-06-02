@@ -62,3 +62,5 @@ Gen2Music:
 	dba Music_VictoryRoad ; Cerulean's Cave
 	dba Music_RocketTheme ; Rocket hideout
 	dba Music_Route30	; Oak's intro
+	dba Music_IndigoPlateau ; Route 28
+	dba Music_Lighthouse ; Mt Silver Cave

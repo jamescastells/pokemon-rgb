@@ -62,7 +62,8 @@
 	const MUSIC_CERULEANCAVE
 	const ROCKET_HIDEOUT
 	const MUSIC_OAKS_INTRO
-
+	const MUSIC_ROUTE28
+	const MUSIC_MTSILVERCAVE
 	const NUM_SONGS
 
 	const_def

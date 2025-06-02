@@ -62,3 +62,6 @@ Gen1Music:
 	dba Music_Dungeon1 ; Cerulean's Cave
 	dba Music_Dungeon1 ; Rocket Hideout
 	dba Music_Routes2 ; Oak's intro
+	dba Music_Dungeon1 ; Route 28
+	dba Music_Dungeon2 ; Mt Silver Cave
+	

@@ -1,9 +1,14 @@
-SetDefaultNames:
+PrepareOakSpeech:
 	ld a, [wLetterPrintingDelayFlags]
 	push af
 	ld a, [wOptions]
 	push af
-	ld a, [wd732]
+	; Retrieve BIT_DEBUG_MODE set in DebugMenu for StartNewGameDebug.
+	; BUG: StartNewGame carries over BIT_ALWAYS_ON_BIKE from previous save files,
+	; which causes CheckForceBikeOrSurf to not return.
+	; To fix this in debug builds, reset BIT_ALWAYS_ON_BIKE here or in StartNewGame.
+	; In non-debug builds, the instructions can be removed.
+	ld a, [wStatusFlags6]
 	push af
 	ld hl, wPlayerName
 	ld bc, wBoxDataEnd - wPlayerName
@@ -14,7 +19,7 @@ SetDefaultNames:
 	xor a
 	call FillMemory
 	pop af
-	ld [wd732], a
+	ld [wStatusFlags6], a
 	pop af
 	ld [wOptions], a
 	pop af
@@ -22,11 +27,14 @@ SetDefaultNames:
 	ld a, [wOptionsInitialized]
 	and a
 	call z, InitOptions
-	ld hl, NintenText
+	; These debug names are used for StartNewGameDebug.
+	; TestBattle uses the debug names from DebugMenu.
+	; A variant of this process is performed in PrepareTitleScreen.
+	ld hl, DebugNewGamePlayerName
 	ld de, wPlayerName
 	ld bc, NAME_LENGTH
 	call CopyData
-	ld hl, SonyText
+	ld hl, DebugNewGameRivalName
 	ld de, wRivalName
 	ld bc, NAME_LENGTH
 	jp CopyData
@@ -35,17 +43,17 @@ OakSpeech:
 	call StopMusic
 	call ClearScreen
 	call LoadTextBoxTilePatterns
-	call SetDefaultNames
+	call PrepareOakSpeech
 	predef InitPlayerData2
 	ld hl, wNumBoxItems
 	ld a, POTION
-	ld [wcf91], a
+	ld [wCurItem], a
 	ld a, 1
 	ld [wItemQuantity], a
-	call AddItemToInventory  ; give one potion
+	call AddItemToInventory
 	ld a, [wDefaultMap]
 	ld [wDestinationMap], a
-	call SpecialWarpIn
+	call PrepareForSpecialWarp
 	xor a
 	ldh [hTileAnimations], a
 IF GEN_2_GRAPHICS
@@ -57,17 +65,9 @@ ENDC
 	nop
 	nop
 	nop
-	;ld a, [wd732]
-	;bit 1, a ; possibly a debug mode bit
-	;jp nz, .skipChoosingNames
-	ld hl, BoyGirlText  ; added to the same file as the other oak text
-  	call PrintText     ; show this text
-  	call BoyGirlChoice ; added routine at the end of this file
-	ld a, [wCurrentMenuItem]
-   	ld [wPlayerGender], a ; store player's gender. 00 for boy, 01 for girl
-	call ClearScreen
-	ld a, MUSIC_OAKS_INTRO
-	call PlayMusic
+	;ld a, [wStatusFlags6]
+	;bit BIT_DEBUG_MODE, a
+	;jp nz, .skipSpeech
 	ld de, ProfOakPic
 	lb bc, BANK(ProfOakPic), $00
 	call IntroDisplayPicCenteredOrUpperRight
@@ -75,11 +75,11 @@ ENDC
 	ld hl, OakSpeechText1
 	call PrintText
 	call GBFadeOutToWhite
-
+	;call ClearScreen
 	call GetNidorinoPalID ; HAX
 	ld a, GLOOM
-	ld [wd0b5], a
-	ld [wcf91], a
+	ld [wCurSpecies], a
+	ld [wCurPartySpecies], a
 	call GetMonHeader
 	hlcoord 6, 4
 	call LoadFlippedFrontSpriteByMonIndex
@@ -98,11 +98,31 @@ ENDC
 	nop
 	nop
 	nop
+	ld de, ProfOakPic
+	lb bc, BANK(ProfOakPic), $00
+	call IntroDisplayPicCenteredOrUpperRight
+	call FadeInIntroPic
+	ld hl, BoyGirlText  ; added to the same file as the other oak text
+  	call PrintText     ; show this text
+  	call BoyGirlChoice ; added routine at the end of this file
+   	ld a, [wCurrentMenuItem]
+   	ld [wPlayerGender], a ; store player's gender. 00 for boy, 01 for girl
+
+	and a
+	jr z, .redHero
+	ld hl, girlConfirm
+	jr .greenHero
+.redHero
+	ld hl, boyConfirm
+.greenHero
+  	call PrintText
+	call GBFadeOutToWhite
+
 	call GetRedPalID ; HAX
 	ld de, RedPicFront
 	lb bc, BANK(RedPicFront), $00
 	ld a, [wPlayerGender] 	; check gender
-	and a      				; check gender
+	and a
 	jr z, .NotGreen1
 	ld de, GreenPicFront
 	lb bc, BANK(GreenPicFront), $00
@@ -121,21 +141,21 @@ ENDC
 	ld hl, IntroduceRivalText
 	call PrintText
 	call ChooseRivalName
-.skipChoosingNames
+.skipSpeech
 	call GBFadeOutToWhite
 	call GetRedPalID ; HAX
 	ld de, RedPicFront
 	lb bc, BANK(RedPicFront), $00
   	ld a, [wPlayerGender] ; check gender
-  	and a      ; check gender
+  	and a
   	jr z, .NotGreen2
   	ld de, GreenPicFront
-       	lb bc, Bank(GreenPicFront), $00
-.NotGreen2:
+	lb bc, Bank(GreenPicFront), $00
+.NotGreen2:	
 	call IntroDisplayPicCenteredOrUpperRight
 	call GBFadeInFromWhite
-	ld a, [wd72d]
-	and a
+	ld a, [wStatusFlags3]
+	and a ; ???
 	jr nz, .next
 	ld hl, OakSpeechText3
 	call PrintText
@@ -153,14 +173,14 @@ ENDC
 	ld hl, vSprites
 	lb bc, BANK(RedSprite), $0C
 	ld a, [wPlayerGender] ; check gender
-	and a      ; check gender
+	and a
 	jr z, .NotGreen3
 	ld de,GreenSprite
 	lb bc, BANK(GreenSprite), $0C
 .NotGreen3:
  	ld hl, vSprites
 	call CopyVideoData
-	ld de,ShrinkPic1
+	ld de, ShrinkPic1
 	lb bc, BANK(ShrinkPic1), $00
 	call IntroDisplayPicCenteredOrUpperRight
 	ld c, 4
@@ -201,6 +221,7 @@ OakSpeechText1:
 	text_end
 OakSpeechText2:
 	text_far _OakSpeechText2A
+	; BUG: The cry played does not match the sprite displayed.
 	sound_cry_gloom
 	text_far _OakSpeechText2B
 	text_end
@@ -213,6 +234,7 @@ IntroduceRivalText:
 OakSpeechText3:
 	text_far _OakSpeechText3
 	text_end
+
 BoyGirlText: ; This is new so we had to add a reference to get it to compile
 	text_far _BoyGirlText
 	text_end
@@ -222,6 +244,7 @@ boyConfirm:
 girlConfirm:
 	text_far _girlConfirm
 	text_end
+
 FadeInIntroPic:
 	ld hl, IntroFadePalettes
 	ld b, 6
@@ -244,12 +267,12 @@ ObtainWhichTrackToPlay:
 	ret 
 
 IntroFadePalettes:
-	db %01010100
-	db %10101000
-	db %11111100
-	db %11111000
-	db %11110100
-	db %11100100
+	dc 1, 1, 1, 0
+	dc 2, 2, 2, 0
+	dc 3, 3, 3, 0
+	dc 3, 3, 2, 0
+	dc 3, 3, 1, 0
+	dc 3, 2, 1, 0
 
 MovePicLeft:
 	ld a, 119
@@ -292,7 +315,7 @@ IntroDisplayPicCenteredOrUpperRight:
 	xor a
 	ldh [hStartTileID], a
 	predef_jump CopyUncompressedPicToTilemap
-
+	
 	; displays boy/girl choice
 	BoyGirlChoice::
  	   call SaveScreenTilesToBuffer1

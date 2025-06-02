@@ -2453,7 +2453,7 @@ _PlayMusic::
 	ld [hl], e ; song number
 	inc hl
 	ld [hl], d ; (always 0)
-.ObtainWhichMusic:
+; Gen 1 or Gen 2 Music?
 	call ObtainedStoredMusicOption
 	cp $0
 	jr z, .loadgen1music
@@ -2506,13 +2506,10 @@ _PlayMusic::
 	ret
 
 ObtainedStoredMusicOption:
-    ld a, [wOptions]
-    and %00010000   ; mask bit 4
-    srl a           ; shift it into bit 3
-    srl a           ; into bit 2
-    srl a           ; into bit 1
-    srl a           ; into bit 0
-	ret 
+	ld a, [wOptions]
+	and TEXT_MUSIC_MASK  ; Isolate bit 4
+	swap a               ; ABCD EFGH > EFGH ABCD, Places the relevant bit.
+	ret
 
 _PlayCry::
 ; Play cry de using parameters:

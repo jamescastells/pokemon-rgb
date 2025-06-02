@@ -25,7 +25,7 @@ Route22GateScript0:
 	xor a
 	ldh [hJoyHeld], a
 	ld a, $1
-	ldh [hSpriteIndexOrTextID], a
+	ldh [hTextID], a
 	jp DisplayTextID
 .checkRoute28Entrance
 	ld a, [wGameStage]
@@ -37,7 +37,7 @@ Route22GateScript0:
 	xor a
 	ldh [hJoyHeld], a
 	ld a, $3
-	ldh [hSpriteIndexOrTextID], a
+	ldh [hTextID], a
 	jp DisplayTextID
 .letHimThrough
 	ret
@@ -90,7 +90,7 @@ Route22GateText1:
 	ld a, $1
 	jr .asm_1e6fe
 .asm_1e6f6
-	ld hl, Route22GateText_1e71a
+	ld hl, Route22GateGuardGoRightAheadText
 	call PrintText
 	ld a, $2
 .asm_1e6fe
@@ -98,20 +98,20 @@ Route22GateText1:
 	jp TextScriptEnd
 
 Route22GateText_1e704:
-	text_far _Route22GateText_1e704
+	text_far _Route22GateGuardNoBoulderbadgeText
 	text_asm
 	ld a, SFX_DENIED
 	call PlaySoundWaitForCurrent
 	call WaitForSoundToFinish
-	ld hl, Route22GateText_1e715
+	ld hl, Route22GateGuardNoBoulderbadgeText
 	ret
 
-Route22GateText_1e715:
-	text_far _Route22GateText_1e715
+Route22GateGuardNoBoulderbadgeText:
+	text_far _Route22GateGuardNoBoulderbadgeText
 	text_end
 
-Route22GateText_1e71a:
-	text_far _Route22GateText_1e71a
+Route22GateGuardGoRightAheadText:
+	text_far _Route22GateGuardGoRightAheadText
 	sound_get_item_1
 	text_end
 

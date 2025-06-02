@@ -37,7 +37,7 @@ DEF FIRST_ROUTE_MAP EQU const_value
 	map_const ROUTE_5,                       10, 18 ; $10
 	map_const ROUTE_6,                       10, 18 ; $11
 	map_const ROUTE_7,                       10,  9 ; $12
-	map_const ROUTE_8,                       28,  11 ; $13
+	map_const ROUTE_8,                       28, 11 ; $13
 	map_const ROUTE_9,                       30,  9 ; $14
 	map_const ROUTE_10,                      10, 35 ; $15
 	map_const ROUTE_11,                      30,  9 ; $16
@@ -45,9 +45,9 @@ DEF FIRST_ROUTE_MAP EQU const_value
 	map_const ROUTE_13,                      30,  9 ; $18
 	map_const ROUTE_14,                      11, 27 ; $19
 	map_const ROUTE_15,                      30,  9 ; $1A
-	map_const ROUTE_16,                      20,  10 ; $1B
+	map_const ROUTE_16,                      20, 10 ; $1B
 	map_const ROUTE_17,                      10, 72 ; $1C
-	map_const ROUTE_18,                      25,  11 ; $1D
+	map_const ROUTE_18,                      25, 11 ; $1D
 	map_const ROUTE_19,                      10, 27 ; $1E
 	map_const ROUTE_20,                      50,  9 ; $1F
 	map_const ROUTE_21,                      10, 45 ; $20
@@ -115,7 +115,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const VERMILION_MART,                 4,  4 ; $5B
 	map_const VERMILION_GYM,                  5,  9 ; $5C
 	map_const VERMILION_PIDGEY_HOUSE,         4,  4 ; $5D
-	map_const VERMILION_DOCK,                19,  10 ; $5E
+	map_const VERMILION_DOCK,                19, 10 ; $5E
 	map_const SS_ANNE_1F,                    20,  9 ; $5F
 	map_const SS_ANNE_2F,                    20,  9 ; $60
 	map_const SS_ANNE_3F,                    10,  3 ; $61

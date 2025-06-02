@@ -1,6 +1,7 @@
 AerodactylFossil:
 	ld a, FOSSIL_AERODACTYL
-	ld [wcf91], a
+	ld [wCurPartySpecies], a
+	ld d, PAL_AERODACTYL
 	call DisplayMonFrontSpriteInBox
 	call EnableAutoTextBoxDrawing
 	tx_pre AerodactylFossilText
@@ -12,7 +13,8 @@ AerodactylFossilText::
 
 KabutopsFossil:
 	ld a, FOSSIL_KABUTOPS
-	ld [wcf91], a
+	ld [wCurPartySpecies], a
+	ld d, PAL_KABUTOPS
 	call DisplayMonFrontSpriteInBox
 	call EnableAutoTextBoxDrawing
 	tx_pre KabutopsFossilText
@@ -24,19 +26,24 @@ KabutopsFossilText::
 
 DisplayMonFrontSpriteInBox:
 ; Displays a pokemon's front sprite in a pop-up window.
-; [wcf91] = pokemon internal id number
 	ld a, 1
 	ldh [hAutoBGTransferEnabled], a
 	call Delay3
+	ld e, 7
+	farcall LoadSGBPalette
+	ld a, 2
+	ldh [rSVBK], a
+	ld [W2_ForceBGPUpdate], a
 	xor a
+	ldh [rSVBK], a
 	ldh [hWY], a
 	call SaveScreenTilesToBuffer1
 	ld a, MON_SPRITE_POPUP
 	ld [wTextBoxID], a
 	call DisplayTextBoxID
 	call UpdateSprites
-	ld a, [wcf91]
-	ld [wd0b5], a
+	ld a, [wCurPartySpecies]
+	ld [wCurSpecies], a
 	call GetMonHeader
 	ld de, vChars1 tile $31
 	call LoadMonFrontSprite

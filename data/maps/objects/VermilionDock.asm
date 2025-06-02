@@ -1,5 +1,8 @@
+	object_const_def
+	const_export VERMILION_DOCK_MEW
+
 VermilionDock_Object:
-	db $0D ; border block
+	db $0d ; border block
 
 	def_warp_events
 	warp_event 17,  4, LAST_MAP, 6
@@ -10,6 +13,6 @@ VermilionDock_Object:
 	def_bg_events
 
 	def_object_events
-	object_event 25,  4, SPRITE_FAIRY, STAY, DOWN, 1, MEW, 50
+	object_event 27,  4, SPRITE_MEW, STAY, DOWN, TEXT_VERMILION_DOCK_MEW, MEW, 50
 
 	def_warps_to VERMILION_DOCK

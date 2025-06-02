@@ -50,7 +50,7 @@ Music_Cities1AlternateTempo::
 	call ObtainedStoredMusicOption
 	cp $0
 	jr z, .gen1_music
-.gen2_music
+;fall through to gen2_music
 	ld de, Music_ViridianCity_Ch1_AltStart
 	jr .overwritechannel
 .gen1_music

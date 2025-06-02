@@ -15,7 +15,7 @@ This hack was originally posted [here](https://www.romhacking.net/hacks/8100/).
 - BurstXShadowzX on DeviantArt for Green's graphics
 - [Vortyne](https://github.com/Vortyne) and the [pureRGB team](https://github.com/Vortyne/pureRGB) for the Mew-under-the-truck code.
 - [Thoth-33](https://github.com/thoth-33) for originally creating this hack, creating the party icons, coloring gender, porting Yellow's starter distributors, and coloring Pokéballs.
-- [Me](https://github.com/jamescastells) :) for reviving this project and noticing some bugs.
+- [lost_james](https://github.com/jamescastells) For reviving the project, map edits, the audio switch and noticing some bugs.
 
 ## Download
 

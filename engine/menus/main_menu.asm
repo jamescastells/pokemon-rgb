@@ -1,9 +1,17 @@
 EXPORT CheckForPlayerNameInSRAM
 EXPORT InitOptions
-EXPORT InitOptions2
 
 MainMenu:
-
+; Moved to home\init.asm
+;	call InitOptions
+;	xor a
+;	ld [wOptionsInitialized], a
+;	inc a
+;	ld [wSaveFileStatus], a
+;	call CheckForPlayerNameInSRAM
+;	jr nc, .mainMenuLoop
+	
+;	predef LoadSAV
 .mainMenuLoop
 	ld c, 20
 	call DelayFrames
@@ -15,14 +23,14 @@ MainMenu:
 	ld [hli], a
 	ld [hl], a
 	ld [wDefaultMap], a
-	ld hl, wd72e
-	res 6, [hl]
+	ld hl, wStatusFlags4
+	res BIT_LINK_CONNECTED, [hl]
 	call ClearScreen
 	call RunDefaultPaletteCommand
 	call LoadTextBoxTilePatterns
 	call LoadFontTilePatterns
-	ld hl, wd730
-	set 6, [hl]
+	ld hl, wStatusFlags5
+	set BIT_NO_TEXT_DELAY, [hl]
 	ld a, [wSaveFileStatus]
 	cp 1
 	jr z, .noSaveFile
@@ -44,8 +52,8 @@ MainMenu:
 	ld de, NewGameText
 	call PlaceString
 .next2
-	ld hl, wd730
-	res 6, [hl]
+	ld hl, wStatusFlags5
+	res BIT_NO_TEXT_DELAY, [hl]
 	call UpdateSprites
 	xor a
 	ld [wCurrentMenuItem], a
@@ -79,13 +87,13 @@ MainMenu:
 	cp 1
 	jp z, StartNewGame
 	call DisplayOptionMenu
-	ld a, 1
+	ld a, TRUE
 	ld [wOptionsInitialized], a
 	jp .mainMenuLoop
 .choseContinue
 	call DisplayContinueGameInfo
 	ld hl, wCurrentMapScriptFlags
-	set 5, [hl]
+	set BIT_CUR_MAP_LOADED_1, [hl]
 .inputLoop
 	xor a
 	ldh [hJoyPressed], a
@@ -93,10 +101,10 @@ MainMenu:
 	ldh [hJoyHeld], a
 	call Joypad
 	ldh a, [hJoyHeld]
-	bit 0, a
+	bit BIT_A_BUTTON, a
 	jr nz, .pressedA
-	bit 1, a
-	jp nz, .mainMenuLoop ; pressed B
+	bit BIT_B_BUTTON, a
+	jp nz, .mainMenuLoop
 	jr .inputLoop
 .pressedA
 	call GBPalWhiteOutWithDelay3
@@ -108,18 +116,18 @@ MainMenu:
 	ld a, [wNumHoFTeams]
 	and a
 	jp z, SpecialEnterMap
-	ld a, [wCurMap] ; map ID
+	ld a, [wCurMap]
 	cp HALL_OF_FAME
 	jp nz, SpecialEnterMap
 	xor a
 	ld [wDestinationMap], a
-	ld hl, wd732
-	set 2, [hl] ; fly warp or dungeon warp
-	call SpecialWarpIn
+	ld hl, wStatusFlags6
+	set BIT_FLY_OR_DUNGEON_WARP, [hl]
+	call PrepareForSpecialWarp
 	jp SpecialEnterMap
 
 InitOptions:
-	ld a, TEXT_DELAY_FAST
+	ld a, 1 << BIT_FAST_TEXT_DELAY
 	ld [wLetterPrintingDelayFlags], a
 	ld a, TEXT_DELAY_MEDIUM
 	ld [wOptions], a
@@ -141,8 +149,8 @@ InitOptions2:
 LinkMenu:
 	xor a
 	ld [wLetterPrintingDelayFlags], a
-	ld hl, wd72e
-	set 6, [hl]
+	ld hl, wStatusFlags4
+	set BIT_LINK_CONNECTED, [hl]
 	ld hl, LinkMenuEmptyText
 	call PrintText
 	call SaveScreenTilesToBuffer1
@@ -157,21 +165,26 @@ LinkMenu:
 	ld de, CableClubOptionsText
 	call PlaceString
 	xor a
-	ld [wUnusedCD37], a
-	ld [wd72d], a
+	ld [wUnusedLinkMenuByte], a
+	ld [wCableClubDestinationMap], a
 	ld hl, wTopMenuItemY
-	ld a, $7
+	ld a, 7
 	ld [hli], a
-	ld a, $6
+	ASSERT wTopMenuItemY + 1 == wTopMenuItemX
+	ld a, 6
 	ld [hli], a
+	ASSERT wTopMenuItemX + 1 == wCurrentMenuItem
 	xor a
 	ld [hli], a
 	inc hl
-	ld a, $2
+	ASSERT wCurrentMenuItem + 2 == wMaxMenuItem
+	ld a, 2
 	ld [hli], a
+	ASSERT wMaxMenuItem + 1 == wMenuWatchedKeys
+	ASSERT 2 + 1 == A_BUTTON | B_BUTTON
 	inc a
-	; ld a, A_BUTTON | B_BUTTON
-	ld [hli], a ; wMenuWatchedKeys
+	ld [hli], a
+	ASSERT wMenuWatchedKeys + 1 == wLastMenuItem
 	xor a
 	ld [hl], a
 .waitForInputLoop
@@ -233,7 +246,7 @@ LinkMenu:
 	ld c, " "
 	ld d, "▷"
 	ld a, [wLinkMenuSelectionSendBuffer]
-	and (B_BUTTON << 2) ; was B button pressed?
+	and B_BUTTON << 2 ; was B button pressed?
 	jr nz, .updateCursorPosition
 ; A button was pressed
 	ld a, [wCurrentMenuItem]
@@ -256,7 +269,7 @@ LinkMenu:
 	call DelayFrames
 	call LoadScreenTilesFromBuffer1
 	ld a, [wLinkMenuSelectionSendBuffer]
-	and (B_BUTTON << 2) ; was B button pressed?
+	and B_BUTTON << 2 ; was B button pressed?
 	jr nz, .choseCancel ; cancel if B pressed
 	ld a, [wCurrentMenuItem]
 	cp $2
@@ -269,16 +282,16 @@ LinkMenu:
 	jr nz, .next
 	ld a, TRADE_CENTER
 .next
-	ld [wd72d], a
+	ld [wCableClubDestinationMap], a
 	ld hl, PleaseWaitText
 	call PrintText
 	ld c, 50
 	call DelayFrames
-	ld hl, wd732
-	res 1, [hl]
+	ld hl, wStatusFlags6
+	res BIT_DEBUG_MODE, [hl]
 	ld a, [wDefaultMap]
 	ld [wDestinationMap], a
-	call SpecialWarpIn
+	call PrepareForSpecialWarp
 	ld c, 20
 	call DelayFrames
 	xor a
@@ -297,8 +310,8 @@ LinkMenu:
 	ld hl, LinkCanceledText
 	vc_hook Wireless_net_end
 	call PrintText
-	ld hl, wd72e
-	res 6, [hl]
+	ld hl, wStatusFlags4
+	res BIT_LINK_CONNECTED, [hl]
 	ret
 
 WhereWouldYouLikeText:
@@ -314,8 +327,12 @@ LinkCanceledText:
 	text_end
 
 StartNewGame:
-	ld hl, wd732
-	res 1, [hl]
+	ld hl, wStatusFlags6
+	; Ensure debug mode is not used when starting a regular new game.
+	; Debug mode persists in saved games for both debug and non-debug builds, and is
+	; only reset here by the main menu.
+	res BIT_DEBUG_MODE, [hl]
+	; fallthrough
 StartNewGameDebug:
 	call OakSpeech
 	ld c, 20
@@ -327,9 +344,9 @@ SpecialEnterMap::
 	ldh [hJoyPressed], a
 	ldh [hJoyHeld], a
 	ldh [hJoy5], a
-	ld [wd72d], a
-	ld hl, wd732
-	set 0, [hl] ; count play time
+	ld [wCableClubDestinationMap], a
+	ld hl, wStatusFlags6
+	set BIT_GAME_TIMER_COUNTING, [hl]
 	call ResetPlayerSpriteData
 	ld c, 20
 	call DelayFrames
@@ -473,7 +490,8 @@ DisplayOptionMenu:
 	xor a
 	ld [wCurrentMenuItem], a
 	ld [wLastMenuItem], a
-	inc a
+	ASSERT BIT_FAST_TEXT_DELAY == 0
+	inc a ; 1 << BIT_FAST_TEXT_DELAY
 	ld [wLetterPrintingDelayFlags], a
 	ld [wOptionsCancelCursorX], a
 	ld a, 2 ; text speed cursor Y coordinate
@@ -547,7 +565,7 @@ DisplayOptionMenu:
 	inc hl
 	jr .updateMenuVariables
 .upPressed
-    cp 2            ; is cursor already at the top?
+	cp 2            ; is cursor already at the top?
 	jr z, .wrapToCancel
 	cp 6
 	ld b, -4
@@ -579,17 +597,17 @@ DisplayOptionMenu:
 	jp .loop
 .cursorInBattleAnimation
 	ld a, [wOptionsBattleAnimCursorX] ; battle animation cursor X coordinate
-	xor $0b ; toggle between 1 and 10
+	xor 1 ^ 10 ; toggle between 1 and 10
 	ld [wOptionsBattleAnimCursorX], a
 	jp .eraseOldMenuCursor
 .cursorInBattleStyle
 	ld a, [wOptionsBattleStyleCursorX] ; battle style cursor X coordinate
-	xor $0b ; toggle between 1 and 10
+	xor 1 ^ 10 ; toggle between 1 and 10
 	ld [wOptionsBattleStyleCursorX], a
 	jp .eraseOldMenuCursor
 .cursorInMusicStyle
-	ld a, [wOptionsMusicStyleCursorX] ; battle style cursor X coordinate
-	xor $0b ; toggle between 1 and 10
+	ld a, [wOptionsMusicStyleCursorX] ; music style cursor X coordinate
+	xor 1 ^ 10 ; toggle between 1 and 10
 	ld [wOptionsMusicStyleCursorX], a
 	call SetOptionsFromCursorPositions	; saves the options so the next step is properly run
 	call UpdateMusic					; updates the music at real time
@@ -668,28 +686,28 @@ SetOptionsFromCursorPositions:
 	dec a
 	jr z, .battleAnimationOn
 .battleAnimationOff
-	set 7, d
+	set BIT_BATTLE_ANIMATION, d
 	jr .checkBattleStyle
 .battleAnimationOn
-	res 7, d
+	res BIT_BATTLE_ANIMATION, d
 .checkBattleStyle
 	ld a, [wOptionsBattleStyleCursorX] ; battle style cursor X coordinate
 	dec a
 	jr z, .battleStyleShift
 .battleStyleSet
-	set 6, d
+	set BIT_BATTLE_SHIFT, d
 	jr .checkMusicStyle
 .battleStyleShift
-	res 6, d
+	res BIT_BATTLE_SHIFT, d
 .checkMusicStyle
 	ld a, [wOptionsMusicStyleCursorX] ; music style cursor X coordinate
 	cp 10
 	jr z, .musicGen2
 .musicGen1
-	res 4, d
+	res BIT_MUSIC_STYLE , d
 	jr .storeOptions
 .musicGen2
-	set 4, d
+	set BIT_MUSIC_STYLE , d
 .storeOptions
 	ld a, d
 	ld [wOptions], a
@@ -702,6 +720,7 @@ SetCursorPositionsFromOptions:
 	ld b, a            ; <-- STORE full wOptions here for bit tests
 	and $0f            ; mask bits 0–3 (text speed)
 	ld c, a
+;	and $3f
 	push bc
 	ld de, 2
 	call IsInArray
@@ -711,29 +730,28 @@ SetCursorPositionsFromOptions:
 	ld [wOptionsTextSpeedCursorX], a ; text speed cursor X coordinate
 	hlcoord 0, 2
 	call .placeUnfilledRightArrow
-
+;	sla c
 	ld a, b
-	bit 7, a           ; battle animation
-	ld a, 1
+	bit BIT_BATTLE_ANIMATION, a
+	ld a, 1 ; On
 	jr z, .storeBattleAnimationCursorX
-	ld a, 10
+	ld a, 10 ; Off
 .storeBattleAnimationCursorX
-	ld [wOptionsBattleAnimCursorX], a
+	ld [wOptionsBattleAnimCursorX], a ; battle animation cursor X coordinate
 	hlcoord 0, 6
 	call .placeUnfilledRightArrow
-
+;	sla c
 	ld a, b
-	bit 6, a           ; battle style
+	bit BIT_BATTLE_SHIFT, a
 	ld a, 1
 	jr z, .storeBattleStyleCursorX
 	ld a, 10
 .storeBattleStyleCursorX
-	ld [wOptionsBattleStyleCursorX], a
+	ld [wOptionsBattleStyleCursorX], a ; battle style cursor X coordinate
 	hlcoord 0, 10
 	call .placeUnfilledRightArrow
-
 	ld a, b
-	bit 4, a           ; music style
+	bit BIT_MUSIC_STYLE, a           ; music style
 	ld a, 1
 	jr z, .storeMusicStyleCursorX
 	ld a, 10

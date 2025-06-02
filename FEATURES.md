@@ -1,4 +1,4 @@
-# Features
+# FeaturesAdd commentMore actions
 
 This hack adds gender selection to the beginning of the game during Oak’s speech. There are two characters to choose from: Red (Boy) and Green (Girl). If you chose the female character, the player character sprite is green (in the overworld, battle screen, town map screen, trainer card, etc). All references to the player character’s gender in the games script have been gender neutralized (ie, Mom says “all boys leave home” to “all kids leave home”). The male character is red. The sprites for the girl character were made by BurstXShadowzX on DeviantArt and adapted into the rom.
 
@@ -12,7 +12,7 @@ Special thanks to Danny-E33. He provided much insight into the function of his c
 
 Note: While this hack shares inspiration from hacks like Satin and Gender Selection, it does not contain any of their code. The ASM hacking to add additional character options was written from the ground up by the author.
 
-## Version 1-2:
+## Version 1-2 changes
 
 General changes:
 
@@ -32,7 +32,7 @@ Pokémon trades have been adjusted:
 - Cinnabar Island Raichu for Electrode trade has been replaced by Machoke for Magmar (Named Apollo, Machoke evolves upon receipt.)
 - Cinnabar Island Venemoth for Tangela trade has been replaced by Kadabra for Kangaskhan (Named Houdini, Kadabra evolves upon receipt.)
 
-## Version 3:
+# Version 3:
 
 - Ability to play as rival removed to create space for other sprites
 - The Super Nerd in Mt. Moon will allow you to take both fossils after defeating him.
@@ -47,4 +47,9 @@ Pokémon trades have been adjusted:
 1. After receiving Cut from the Captain of the SS Anne, you must lose a battle to a trainer on the ship. This will teleport you away from the ship without it leaving.
 2. After receiving both Surf and Strength, return to the SS Anne. Surf from the dock to the right to the landing there. 3. Activate Strength and push the truck from the right. Mew is under the truck.
 
-
+Version 4:
+- Unique overwold sprites have been added for all Pokemon that appear in the overworld.
+- A switch to swap between Gen1 and Gen2 music has been added to the options menu.
+- Maps such as the Safari Zone, Viridian Forest and Vermilion Dock that were previously surrounded by a visible black box have been extended to hide this. 
+- Certain features like the coloring of party icons and the Oak fight have been cleaned up.
+- Small color fixes, like the back sprite of the old man in the catching tutorial and the bird in the fly animation.

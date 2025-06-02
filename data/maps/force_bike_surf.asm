@@ -4,7 +4,7 @@ ENDM
 
 ForcedBikeOrSurfMaps:
 	; map id, x, y
-	force_bike_surf ROUTE_16,            17, 12		; Force bike on cycling road
+	force_bike_surf ROUTE_16,            17, 12
 	force_bike_surf ROUTE_16,            17, 13
 	force_bike_surf ROUTE_18,            33,  8
 	force_bike_surf ROUTE_18,            33,  9

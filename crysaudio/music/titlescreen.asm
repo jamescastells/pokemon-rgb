@@ -1,3 +1,4 @@
+;Changes to allow proper looping of instruments.
 Music_TitleScreen:
 	channel_count 4
 	channel 1, Music_TitleScreen_Ch1

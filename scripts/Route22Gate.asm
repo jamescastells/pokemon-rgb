@@ -28,10 +28,9 @@ Route22GateScript0:
 	ldh [hTextID], a
 	jp DisplayTextID
 .checkRoute28Entrance
-	ld a, [wGameStage]
-	and a
-	jr nz, .letHimThrough
-	ld hl, Route22GateScriptCoords2
+	CheckEvent PLAYER_IS_CHAMPION
+	ret nz								; Player is champion
+	ld hl, Route22GateScriptCoords2		; Player is not champion
 	call ArePlayerCoordsInArray
 	ret nc
 	xor a
@@ -39,8 +38,6 @@ Route22GateScript0:
 	ld a, $3
 	ldh [hTextID], a
 	jp DisplayTextID
-.letHimThrough
-	ret
 
 Route22GateScriptCoords:
 	dbmapcoord  12,  2
@@ -117,11 +114,13 @@ Route22GateGuardGoRightAheadText:
 
 Route22GateText2:
 	text_asm
-	ld a, [wGameStage] ; check if the player is champion
-	and a
-	jr nz, Route22GateText_MtSilverCome
+	CheckEvent PLAYER_IS_CHAMPION ; check if the player is champion
+	jr z, .fallthrough
+	ld hl, Route22GateText_MtSilverCome ; Player is champion
+	call PrintText
+	jp TextScriptEnd
 .fallthrough
-	ld hl, Route22GateText_MtSilver
+	ld hl, Route22GateText_MtSilver			; Player is not champion
 	call PrintText
 	jp TextScriptEnd
 

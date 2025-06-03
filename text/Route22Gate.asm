@@ -33,11 +33,12 @@ _Route22GateText_MtSilver::
 _Route22GateText_MtSilverCome::
 	text "You're the CHAMPION"
 	line "of the LEAGUE!"
-	para "This is MT. SILVER."
+	para "This is MT.SILVER."
 	para "Normally, I would"
 	line "not let you come"
-	cont "through, but since"
-	cont "you're very strong,"
-	cont "I'm sure you will"
-	cont "not have any issues."
+	cont "through, but"
+	cont "since you're very"
+	cont "strong, I'm sure"
+	cont "you will not have"
+	cont "any issues."
 	done

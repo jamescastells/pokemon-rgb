@@ -82,14 +82,12 @@ ENDC
 	ld [wJoyIgnore], a
 	ld a, [wXCoord]
 	cp 22 ; is the player standing on the right side of the bridge?
-	cp 22 ; is the player standing on the right side of the bridge?
 	jr z, .playerOnRightSideOfBridge
 	ld a, CERULEANCITY_RIVAL
 	ldh [hSpriteIndex], a
 	ld a, SPRITESTATEDATA2_MAPX
 	ldh [hSpriteDataOffset], a
 	call GetPointerWithinSpriteStateData2
-	ld [hl], 27
 	ld [hl], 27
 .playerOnRightSideOfBridge
 	ld a, HS_CERULEAN_RIVAL
@@ -106,13 +104,9 @@ ENDC
 CeruleanCityCoords1:
 	dbmapcoord 32,  7
 	dbmapcoord 32,  9
-	dbmapcoord 32,  7
-	dbmapcoord 32,  9
 	db -1 ; end
 
 CeruleanCityCoords2:
-	dbmapcoord 22,  6
-	dbmapcoord 23,  6
 	dbmapcoord 22,  6
 	dbmapcoord 23,  6
 	db -1 ; end

@@ -3,63 +3,60 @@
 MapHSPointers:
 ; entries correspond to map ids
 	table_width 2
-	dw PalletTownHS
-	dw ViridianCityHS
-	dw PewterCityHS
-	dw CeruleanCityHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw SaffronCityHS
-	dw NoHS
-	dw Route1HS
-	dw Route2HS
-	dw NoHS
-	dw Route4HS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw Route9HS
-	dw NoHS
-	dw NoHS
-	dw Route12HS
-	dw NoHS
-	dw NoHS
-	dw Route15HS
-	dw Route16HS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw Route22HS
-	dw NoHS
-	dw Route24HS
-	dw Route25HS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw BluesHouseHS
-	dw OaksLabHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw ViridianGymHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw ViridianForestHS
+	dw PalletTownHS			; Pallet town
+	dw ViridianCityHS		; Virdian city
+	dw PewterCityHS			; Petwer city
+	dw CeruleanCityHS		; Cerulean City
+	dw NoHS					; Lavender Town
+	dw NoHS					; Vermilion City
+	dw NoHS					; Celadon City
+	dw NoHS					; Fuchsia City
+	dw NoHS					; Cinnabar Island
+	dw NoHS					; Indigo Plateau
+	dw SaffronCityHS		; Saffron City
+	dw NoHS					; Unused map
+	dw Route1HS				; Route 1
+	dw Route2HS				; Route 2
+	dw NoHS					; Route 3
+	dw Route4HS				; Route 4
+	dw NoHS					; Route 5
+	dw NoHS					; Route 6
+	dw NoHS					; Route 7
+	dw NoHS					; Route 8
+	dw Route9HS				; Route 9
+	dw NoHS					; Route 10
+	dw NoHS					; Route 11
+	dw Route12HS			; Route 12
+	dw NoHS					; Route 13
+	dw NoHS					; Route 14
+	dw Route15HS			; Route 15
+	dw Route16HS			; Route 16
+	dw NoHS					; Route 17
+	dw NoHS					; Route 18
+	dw NoHS					; Route 19
+	dw NoHS					; Route 20
+	dw NoHS					; Route 21
+	dw Route22HS			; Route 22
+	dw NoHS					; Route 23
+	dw Route24HS			; Route 24
+	dw Route25HS			; Route 25
+	dw NoHS					; Route 28
+	dw NoHS					; Mt. Silver
+	dw NoHS					; Red's house 1f
+	dw NoHS					; Red's house 2f
+	dw BluesHouseHS			; Blue's house
+	dw OaksLabHS			; Oak's lab
+	dw NoHS					; Viridian Pokecenter
+	dw NoHS					; Viridian Pokemart
+	dw NoHS					; Viridian school house
+	dw NoHS					; Viridian nickname house
+	dw ViridianGymHS		; Viridian gym
+	dw NoHS					; Digglet's cave Route 2
+	dw NoHS					; Viridian Forest North Gate
+	dw NoHS					; Route 2 trade house
+	dw NoHS					; Route 2 gate
+	dw NoHS					; Viridian Forest South Gate
+	dw ViridianForestHS		; Viridian Forest
 	dw Museum1FHS
 	dw NoHS
 	dw NoHS
@@ -243,19 +240,22 @@ MapHSPointers:
 	dw NoHS
 	dw SilphCo9FHS
 	dw SilphCo10FHS
-	dw SilphCo11FHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw UnusedMapF4HS
-	dw NoHS
-	dw NoHS
-	dw NoHS
+	dw SilphCo11FHS					; Silph Co 11F
+	dw NoHS							; Silph Co Elevator
+	dw NoHS							; Unused map
+	dw NoHS							; Unused map
+	dw NoHS							; Trade center
+	dw NoHS							; Coloseum
+	dw NoHS							; Unused map
+	dw NoHS							; Unused map
+	dw NoHS							; Unused map
+	dw UnusedMapF4HS				; Unused map
+	dw NoHS							; Lorelei's room
+	dw NoHS							; Bruno's room
+	dw NoHS							; Agatha's room
+	dw NoHS							; Mt. Silver Cave 1F
+	dw NoHS							; Mt. Silver Cave 2F
+	dw NoHS							; Mt. Silver Cave 3F
 	assert_table_length NUM_MAPS
 	dw -1 ; end
 

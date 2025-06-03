@@ -40,7 +40,12 @@ PrepareOakSpeech:
 	jp CopyData
 
 OakSpeech:
-	call StopMusic
+	ld a, SFX_STOP_ALL_MUSIC
+	call PlaySound
+	ld a, 0
+	ld c, a
+	ld a, MUSIC_OAKS_INTRO
+	call PlayMusic
 	call ClearScreen
 	call LoadTextBoxTilePatterns
 	call PrepareOakSpeech

@@ -1607,19 +1607,6 @@ ItemUsePokeDoll:
 	ld a, [wIsInBattle]
 	dec a
 	jp nz, ItemUseNotTime
-
-	callfar IsGhostBattle
-	jp z, ItemUseNotTime ; prevent escape from ghost battles
-
-	ld a, [wEnemyMonSpecies]
-	cp RESTLESS_SOUL
-	jr nz, .notARestlessSoul	
-	ld a, [wCurMap]			; it's the Marowak ghost
-	cp POKEMON_TOWER_6F		; but am I in the tower?
-	jr nz, .notARestlessSoul
-	jp z, ItemUseNotTime ; yes I am! Can't use the doll!
-	
-	.notARestlessSoul
 	ld a, $01
 	ld [wBattleResult], a
 	ld [wEscapedFromBattle], a

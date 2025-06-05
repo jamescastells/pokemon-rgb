@@ -586,7 +586,7 @@ DisplayOptionMenu:
 	jr .updateMenuVariables
 .wrapToCancel
 	ld b, 14                   ; 2 → 16
-    ld hl, wOptionsTextSpeedCursorX
+	ld hl, wOptionsCancelCursorX
     jr .updateMenuVariables
 .updateMenuVariables
 	add b

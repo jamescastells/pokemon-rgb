@@ -225,7 +225,6 @@
 ; Route 1 events
 	const_next $3C0
 	const EVENT_GOT_POTION_SAMPLE
-	const PLAYER_IS_CHAMPION
 
 ; Route 2 events
 	const_next $3D8
@@ -780,6 +779,12 @@ DEF INDIGO_PLATEAU_EVENTS_END EQU const_value - 1
 	const EVENT_SEAFOAM4_BOULDER2_DOWN_HOLE
 	const_skip 8
 	const EVENT_BEAT_ARTICUNO
+	
+; Post Game events
+	const_next $9E0
+	const EVENT_PLAYER_IS_CHAMPION
+	const EVENT_LT_SURGE_REMATCH
+	const EVENT_LT_SURGE_REMATCH_BEAT
 
 ; End of events
 	const_next $A00

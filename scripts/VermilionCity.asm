@@ -51,8 +51,11 @@ VermilionCityDefaultScript:
 	ld a, TEXT_VERMILIONCITY_SAILOR1
 	ldh [hTextID], a
 	call DisplayTextID
+	CheckEvent EVENT_PLAYER_IS_CHAMPION
+	jr z, .check_ticket			; set z for debug
 	CheckEvent EVENT_SS_ANNE_LEFT
 	jr nz, .ship_departed
+.check_ticket
 	ld b, S_S_TICKET
 	predef GetQuantityOfItemInBag
 	ld a, b
@@ -89,6 +92,7 @@ VermilionCityPlayerExitShipScript:
 	ld a, D_UP
 	ld [wSimulatedJoypadStatesEnd], a
 	ld [wSimulatedJoypadStatesEnd + 1], a
+	ld [wSimulatedJoypadStatesEnd + 2], a
 	ld a, [wXCoord]
 	cp $13
 	jr nz, .justMoveUp ;fallthrough
@@ -98,7 +102,7 @@ VermilionCityPlayerExitShipScript:
 	ld [wSimulatedJoypadStatesIndex], a
 	jr .startMove
 .justMoveUp
-	ld a, 2
+	ld a, 3
 	ld [wSimulatedJoypadStatesIndex], a
 .startMove
 	call StartSimulatingJoypadStates
@@ -171,8 +175,11 @@ VermilionCityGambler1Text:
 
 VermilionCitySailor1Text:
 	text_asm
+	CheckEvent EVENT_PLAYER_IS_CHAMPION
+	jr z, .welcome		; set z for debug
 	CheckEvent EVENT_SS_ANNE_LEFT
 	jr nz, .ship_departed
+.welcome
 	ld a, [wSpritePlayerStateData1FacingDirection]
 	cp SPRITE_FACING_RIGHT
 	jr z, .greet_player
@@ -180,12 +187,25 @@ VermilionCitySailor1Text:
 	call ArePlayerCoordsInArray
 	jr nc, .greet_player_and_check_ticket
 .greet_player
+	CheckEvent EVENT_PLAYER_IS_CHAMPION
+	jr z, .greet_player_ship_has_returned	; set z for debug
 	ld hl, .WelcomeToSSAnneText
 	call PrintText
 	jr .end
+.greet_player_ship_has_returned
+	ld hl, .ShipHasReturnedText
+	call PrintText
+	jr .end
 .greet_player_and_check_ticket
+	CheckEvent EVENT_PLAYER_IS_CHAMPION
+	jr z, .greet_player_ship_has_returned_and_check_ticket	; set z for debug
 	ld hl, .DoYouHaveATicketText
 	call PrintText
+	jr .check_ticket
+.greet_player_ship_has_returned_and_check_ticket
+	ld hl, .DoYouHaveATicketTextAgain
+	call PrintText
+.check_ticket
 	ld b, S_S_TICKET
 	predef GetQuantityOfItemInBag
 	ld a, b
@@ -203,6 +223,7 @@ VermilionCitySailor1Text:
 .ship_departed
 	ld hl, .ShipSetSailText
 	call PrintText
+	jr .end
 .end
 	jp TextScriptEnd
 
@@ -219,6 +240,10 @@ VermilionCitySailor1Text:
 	text_far _VermilionCitySailor1DoYouHaveATicketText
 	text_end
 
+.DoYouHaveATicketTextAgain:
+	text_far _VermilionCitySailor1DoYouHaveATicketTextAgain
+	text_end	
+
 .FlashedTicketText:
 	text_far _VermilionCitySailor1FlashedTicketText
 	text_end
@@ -229,6 +254,10 @@ VermilionCitySailor1Text:
 
 .ShipSetSailText:
 	text_far _VermilionCitySailor1ShipSetSailText
+	text_end
+
+.ShipHasReturnedText:
+	text_far _VermilionCitySailor1ShipReturnedText
 	text_end
 
 VermilionCityGambler2Text:

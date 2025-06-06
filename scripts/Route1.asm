@@ -16,13 +16,13 @@ Route1_ScriptPointers:
 	dw_const Route1OakStartBattleScript, SCRIPT_ROUTE1_OAK_START_BATTLE
 	dw_const Route1OakAfterBattleScript, SCRIPT_ROUTE1_OAK_AFTER_BATTLE
 	dw_const Route1OakExitScript,        SCRIPT_ROUTE1_OAK_EXIT
-	dw_const Route1NoopScript,           SCRIPT_Route1_NOOP
+	dw_const Route1NoopScript,           SCRIPT_ROUTE1_NOOP
 
 Route1NoopScript:
 	ret
 
 Route1DefaultScript:
-	CheckEvent PLAYER_IS_CHAMPION
+	CheckEvent EVENT_PLAYER_IS_CHAMPION
 	ret z
 	ld hl, .PlayerCoordinatesArray
 	call ArePlayerCoordsInArray
@@ -185,8 +185,11 @@ Route1OakExitScript:
 	ld a, HS_OAKS_LAB_OAK_1 
 	ld [wMissableObjectIndex], a
 	predef ShowObject
+	ld a, HS_OAKS_LAB_SCIENTIST 
+	ld [wMissableObjectIndex], a
+	predef HideObject
 	call PlayDefaultMusic
-	ld a, SCRIPT_Route1_NOOP
+	ld a, SCRIPT_ROUTE1_NOOP
 	ld [wRoute1CurScript], a
 	ret
 

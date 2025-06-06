@@ -40,7 +40,7 @@ MapHSPointers:
 	dw NoHS					; Route 23
 	dw Route24HS			; Route 24
 	dw Route25HS			; Route 25
-	dw NoHS					; Route 28
+	dw Route28HS			; Route 28
 	dw NoHS					; Mt. Silver
 	dw NoHS					; Red's house 1f
 	dw NoHS					; Red's house 2f
@@ -97,9 +97,9 @@ MapHSPointers:
 	dw NoHS
 	dw NoHS
 	dw NoHS
+	dw VermilionGymHS		; Vermilion's Gym
 	dw NoHS
-	dw NoHS
-	dw VermilionDockHS
+	dw VermilionDockHS		; Vermilion's Dock
 	dw NoHS
 	dw SSAnne2FHS
 	dw NoHS
@@ -238,8 +238,8 @@ MapHSPointers:
 	dw NoHS
 	dw NoHS
 	dw NoHS
-	dw SilphCo9FHS
-	dw SilphCo10FHS
+	dw SilphCo9FHS					; Silph Co 9F
+	dw SilphCo10FHS					; Silph Co 10F
 	dw SilphCo11FHS					; Silph Co 11F
 	dw NoHS							; Silph Co Elevator
 	dw NoHS							; Unused map
@@ -322,6 +322,11 @@ Route24HS:
 	db ROUTE_24, ROUTE24_TM_THUNDER_WAVE, SHOW
 Route25HS:
 	db ROUTE_25, ROUTE25_TM_SEISMIC_TOSS, SHOW
+Route28HS:	
+	db ROUTE_28, ROUTE28_BIRD1, SHOW
+	db ROUTE_28, ROUTE28_BIRD2, SHOW
+	db ROUTE_28, ROUTE28_BIRD3, SHOW
+	db ROUTE_28, ROUTE28_LT_SURGE, HIDE
 BluesHouseHS:
 	db BLUES_HOUSE, BLUESHOUSE_DAISY1,   SHOW
 	db BLUES_HOUSE, BLUESHOUSE_DAISY2,   HIDE
@@ -335,6 +340,7 @@ OaksLabHS:
 	db OAKS_LAB, OAKSLAB_POKEDEX1,             SHOW
 	db OAKS_LAB, OAKSLAB_POKEDEX2,             SHOW
 	db OAKS_LAB, OAKSLAB_OAK2,                 HIDE
+	db OAKS_LAB, OAKSLAB_SCIENTIST3,           HIDE 
 ViridianGymHS:
 	db VIRIDIAN_GYM, VIRIDIANGYM_GIOVANNI, SHOW
 	db VIRIDIAN_GYM, VIRIDIANGYM_REVIVE,   SHOW
@@ -422,6 +428,9 @@ MtMoonB2FHS:
 	db MT_MOON_B2F, MTMOONB2F_TM_MEGA_PUNCH, SHOW
 CeruleanTradeHouseHS:
 	db CERULEAN_TRADE_HOUSE, CERULEANTRADEHOUSE_BULBASAUR, SHOW
+VermilionGymHS:
+	db VERMILION_GYM, VERMILIONGYM_LT_SURGE1, SHOW
+	db VERMILION_GYM, VERMILIONGYM_LT_SURGE2, HIDE
 VermilionDockHS:
 	db VERMILION_DOCK, VERMILION_DOCK_MEW, HIDE
 SSAnne2FHS:

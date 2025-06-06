@@ -6,50 +6,50 @@ Route22Gate_Script:
 	ld a, [wYCoord]
 	cp 4
 	ld a, ROUTE_23
-	jr c, .asm_1e69a
+	jr c, .set_last_map
 	ld a, ROUTE_22
-.asm_1e69a
+.set_last_map
 	ld [wLastMap], a
 	ret
 
 Route22Gate_ScriptPointers:
-	dw Route22GateScript0
-	dw Route22GateScript1
-	dw Route22GateScript2
+	def_script_pointers
+	dw_const Route22GateDefaultScript,      SCRIPT_ROUTE22GATE_DEFAULT
+	dw_const Route22GatePlayerMovingScript, SCRIPT_ROUTE22GATE_PLAYER_MOVING
+	dw_const Route22GateNoopScript,         SCRIPT_ROUTE22GATE_NOOP
 
-Route22GateScript0:
-.checkLeagueEntrance
+Route22GateDefaultScript:
 	ld hl, Route22GateScriptCoords
 	call ArePlayerCoordsInArray
 	jr nc, .checkRoute28Entrance
 	xor a
 	ldh [hJoyHeld], a
-	ld a, $1
+	ld a, TEXT_ROUTE22GATE_GUARD
 	ldh [hTextID], a
 	jp DisplayTextID
 .checkRoute28Entrance
-	CheckEvent PLAYER_IS_CHAMPION
-	ret nz								; Player is champion
+	CheckEvent EVENT_PLAYER_IS_CHAMPION
+	ret z			;set to z for debug	; Player is champion
 	ld hl, Route22GateScriptCoords2		; Player is not champion
 	call ArePlayerCoordsInArray
 	ret nc
 	xor a
 	ldh [hJoyHeld], a
-	ld a, $3
+	ld a, TEXT_ROUTE28GATE_GUARD_STOP
 	ldh [hTextID], a
 	jp DisplayTextID
 
 Route22GateScriptCoords:
-	dbmapcoord  12,  2
-	dbmapcoord  13,  2
+	dbmapcoord  8,  2
+	dbmapcoord  9,  2
 	db -1 ; end
 
 Route22GateScriptCoords2:
-	dbmapcoord  3,  4
-	dbmapcoord  3,  5
+	dbmapcoord  1,  4
+	dbmapcoord  1,  5
 	db -1 ; end
 
-Route22GateScript_1e6ba:
+Route22GateMovePlayerDownScript:
 	ld a, $1
 	ld [wSimulatedJoypadStatesIndex], a
 	ld a, D_DOWN
@@ -58,53 +58,54 @@ Route22GateScript_1e6ba:
 	ld [wJoyIgnore], a
 	jp StartSimulatingJoypadStates
 
-Route22GateScript1:
+Route22GatePlayerMovingScript:
 	ld a, [wSimulatedJoypadStatesIndex]
 	and a
 	ret nz
 	xor a
 	ld [wJoyIgnore], a
 	call Delay3
-	ld a, $0
+	ld a, SCRIPT_ROUTE22GATE_DEFAULT
 	ld [wRoute22GateCurScript], a
-Route22GateScript2:
-	jr Route22GateScript0.checkRoute28Entrance
+Route22GateNoopScript:
+	jr Route22GateDefaultScript.checkRoute28Entrance
 	ret
 
 Route22Gate_TextPointers:
-	dw Route22GateText1
-	dw Route22GateText2
-	dw Route22GateText3
+	def_text_pointers
+	dw_const Route22GateGuardText, TEXT_ROUTE22GATE_GUARD
+	dw_const Route28GateGuardText, TEXT_ROUTE28GATE_GUARD
+	dw_const Route28GateGuardStopText, TEXT_ROUTE28GATE_GUARD_STOP
 
-Route22GateText1:
+Route22GateGuardText:
 	text_asm
 	ld a, [wObtainedBadges]
 	bit BIT_BOULDERBADGE, a
-	jr nz, .asm_1e6f6
-	ld hl, Route22GateText_1e704
+	jr nz, .has_boulderbadge
+	ld hl, Route22GateGuardNoBoulderbadgeText
 	call PrintText
-	call Route22GateScript_1e6ba
-	ld a, $1
-	jr .asm_1e6fe
-.asm_1e6f6
+	call Route22GateMovePlayerDownScript
+	ld a, SCRIPT_ROUTE22GATE_PLAYER_MOVING
+	jr .set_current_script
+.has_boulderbadge
 	ld hl, Route22GateGuardGoRightAheadText
 	call PrintText
-	ld a, $2
-.asm_1e6fe
+	ld a, SCRIPT_ROUTE22GATE_NOOP
+.set_current_script
 	ld [wRoute22GateCurScript], a
 	jp TextScriptEnd
 
-Route22GateText_1e704:
+Route22GateGuardNoBoulderbadgeText:
 	text_far _Route22GateGuardNoBoulderbadgeText
 	text_asm
 	ld a, SFX_DENIED
 	call PlaySoundWaitForCurrent
 	call WaitForSoundToFinish
-	ld hl, Route22GateGuardNoBoulderbadgeText
+	ld hl, Route22GateGuardICantLetYouPassText
 	ret
 
-Route22GateGuardNoBoulderbadgeText:
-	text_far _Route22GateGuardNoBoulderbadgeText
+Route22GateGuardICantLetYouPassText:
+	text_far _Route22GateGuardICantLetYouPassText
 	text_end
 
 Route22GateGuardGoRightAheadText:
@@ -112,26 +113,26 @@ Route22GateGuardGoRightAheadText:
 	sound_get_item_1
 	text_end
 
-Route22GateText2:
+Route28GateGuardText:
 	text_asm
-	CheckEvent PLAYER_IS_CHAMPION ; check if the player is champion
-	jr z, .fallthrough
+;	CheckEvent EVENT_PLAYER_IS_CHAMPION ; check if the player is champion
+;	jr z, .notChampion
 	ld hl, Route22GateText_MtSilverCome ; Player is champion
 	call PrintText
 	jp TextScriptEnd
-.fallthrough
-	ld hl, Route22GateText_MtSilver			; Player is not champion
-	call PrintText
-	jp TextScriptEnd
+;.notChampion
+;	ld hl, Route22GateText_MtSilver
+;	call PrintText
+;	jp TextScriptEnd ; this is not necessary as the coords above check for champ, but can be reused later when construction is complete
 
-Route22GateText3:
+Route28GateGuardStopText:
 	text_asm
 	ld a, PLAYER_DIR_UP
 	ld [wPlayerMovingDirection], a
 	ld hl, Route22GateText_MtSilver
 	call PrintText
-	call Route22GateScript_MoveLeft
-	ld a, $1
+	call Route22GateScript_MoveRight
+	ld a, SCRIPT_ROUTE22GATE_PLAYER_MOVING
 	ld [wRoute22GateCurScript], a
 	jp TextScriptEnd
 
@@ -143,7 +144,7 @@ Route22GateText_MtSilverCome:
 	text_far _Route22GateText_MtSilverCome
 	text_end
 
-Route22GateScript_MoveLeft:
+Route22GateScript_MoveRight:
 	ld a, $1
 	ld [wSimulatedJoypadStatesIndex], a
 	ld a, D_RIGHT

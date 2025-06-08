@@ -2855,7 +2855,7 @@ IsNextTileShoreOrWater:
 	and a
 	ret
 
-; shore tiles
+; shore tilesAdd commentMore actions
 ShoreTiles:
        db $48, $32
 WaterTile:

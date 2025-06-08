@@ -184,7 +184,7 @@ CeruleanCityRivalDefeatedScript:
 	ldh [hSpriteIndex], a
 	call SetSpriteMovementBytesToFF
 	ld a, [wXCoord]
-	cp 22 ; is the player standing on the left side of the bridge?
+	cp 22 ; is the player standing on the right side of the bridge?
 	jr nz, .playerOnRightSideOfBridge
 	ld de, CeruleanCityMovement4
 	jr .skip

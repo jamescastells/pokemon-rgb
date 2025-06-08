@@ -1631,7 +1631,8 @@ wEvolutionOccurred:: db
 
 wVBlankSavedROMBank:: db
 
-	ds 1
+; Used in Mt Silver script to make it run faster
+wSkipRedraw:: db
 
 wIsKeyItem:: db
 
@@ -2079,7 +2080,9 @@ wSeafoamIslandsB3FCurScript:: db
 wRoute23CurScript:: db
 wSeafoamIslandsB4FCurScript:: db
 wRoute18Gate1FCurScript:: db
-	ds 6
+wRoute28CurScript:: db
+wMtSilverCurScript:: db
+	ds 4
 wGameProgressFlagsEnd::
 
 wPlayerGender::

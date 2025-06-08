@@ -108,6 +108,12 @@ ColorOverworldSprite::
 	cp BILLS_HOUSE
 	ld a, SPR_PAL_BROWN
 	jr z, .norandomColor
+	
+	; Erika is blue
+	ld a, [wCurMap]
+	cp MT_SILVER
+	ld a, SPR_PAL_BLUE
+	jr z, .norandomColor
 
 	; This is a (somewhat) random but consistent color
 	ldh a, [hSpriteOffset2]
@@ -134,9 +140,17 @@ ColorOverworldSprite::
 	jr z, .flying
 	ld a, [wPlayerGender]
 	and a
+IF DEF(_BLUE)
+	ld a, SPR_PAL_BLUE
+ELSE ; _RED
 	ld a, SPR_PAL_ORANGE
+ENDC
 	jr z, .norandomColor
+IF DEF(_BLUE)
+	ld a, SPR_PAL_BROWN
+ELSE
 	ld a, SPR_PAL_GREEN
+ENDC
 	jr .norandomColor
 .surfing
 	ld a, SPR_PAL_EMOJI
@@ -416,7 +430,11 @@ SpritePaletteAssignments: ; Characters on the overworld
 	db SPR_PAL_ORANGE
 
 	; 0x02: SPRITE_BLUE
+IF DEF(_BLUE)
+	db SPR_PAL_ORANGE
+ELSE ; _RED
 	db SPR_PAL_BLUE
+ENDC
 
 	; 0x03: SPRITE_OAK
 	db SPR_PAL_BROWN
@@ -590,7 +608,7 @@ SpritePaletteAssignments: ; Characters on the overworld
 	db SPR_PAL_ORANGE
 
 	; 0x3c: SPRITE_SEEL
-	db SPR_PAL_BLUE
+	db SPR_PAL_EMOJI
 
 	; 0x-1: SPRITE_SANDSHREW
 	db SPR_PAL_BROWN

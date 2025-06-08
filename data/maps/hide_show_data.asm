@@ -3,60 +3,60 @@
 MapHSPointers:
 ; entries correspond to map ids
 	table_width 2
-	dw PalletTownHS			; Pallet town
-	dw ViridianCityHS		; Virdian city
-	dw PewterCityHS			; Petwer city
-	dw CeruleanCityHS		; Cerulean City
-	dw NoHS					; Lavender Town
-	dw NoHS					; Vermilion City
-	dw NoHS					; Celadon City
-	dw NoHS					; Fuchsia City
-	dw NoHS					; Cinnabar Island
-	dw NoHS					; Indigo Plateau
-	dw SaffronCityHS		; Saffron City
-	dw NoHS					; Unused map
-	dw Route1HS				; Route 1
-	dw Route2HS				; Route 2
-	dw NoHS					; Route 3
-	dw Route4HS				; Route 4
-	dw NoHS					; Route 5
-	dw NoHS					; Route 6
-	dw NoHS					; Route 7
-	dw NoHS					; Route 8
-	dw Route9HS				; Route 9
-	dw NoHS					; Route 10
-	dw NoHS					; Route 11
-	dw Route12HS			; Route 12
-	dw NoHS					; Route 13
-	dw NoHS					; Route 14
-	dw Route15HS			; Route 15
-	dw Route16HS			; Route 16
-	dw NoHS					; Route 17
-	dw NoHS					; Route 18
-	dw NoHS					; Route 19
-	dw NoHS					; Route 20
-	dw NoHS					; Route 21
-	dw Route22HS			; Route 22
-	dw NoHS					; Route 23
-	dw Route24HS			; Route 24
-	dw Route25HS			; Route 25
-	dw NoHS					; Route 28
-	dw NoHS					; Mt. Silver
-	dw NoHS					; Red's house 1f
-	dw NoHS					; Red's house 2f
-	dw BluesHouseHS			; Blue's house
-	dw OaksLabHS			; Oak's lab
-	dw NoHS					; Viridian Pokecenter
-	dw NoHS					; Viridian Pokemart
-	dw NoHS					; Viridian school house
-	dw NoHS					; Viridian nickname house
-	dw ViridianGymHS		; Viridian gym
-	dw NoHS					; Digglet's cave Route 2
-	dw NoHS					; Viridian Forest North Gate
-	dw NoHS					; Route 2 trade house
-	dw NoHS					; Route 2 gate
-	dw NoHS					; Viridian Forest South Gate
-	dw ViridianForestHS		; Viridian Forest
+	dw PalletTownHS
+	dw ViridianCityHS
+	dw PewterCityHS
+	dw CeruleanCityHS
+	dw NoHS
+	dw NoHS
+	dw NoHS
+	dw NoHS
+	dw NoHS
+	dw NoHS
+	dw SaffronCityHS
+	dw NoHS
+	dw Route1HS
+	dw Route2HS
+	dw NoHS
+	dw Route4HS
+	dw NoHS
+	dw NoHS
+	dw NoHS
+	dw NoHS
+	dw Route9HS
+	dw NoHS
+	dw NoHS
+	dw Route12HS
+	dw NoHS
+	dw NoHS
+	dw Route15HS
+	dw Route16HS
+	dw NoHS
+	dw NoHS
+	dw NoHS
+	dw NoHS
+	dw NoHS
+	dw Route22HS
+	dw NoHS
+	dw Route24HS
+	dw Route25HS
+	dw Route28HS
+	dw MtSilverHS ; MT_SILVER
+	dw NoHS
+	dw NoHS
+	dw BluesHouseHS
+	dw OaksLabHS
+	dw NoHS
+	dw NoHS
+	dw NoHS
+	dw NoHS
+	dw ViridianGymHS
+	dw NoHS
+	dw NoHS
+	dw NoHS
+	dw NoHS
+	dw NoHS
+	dw ViridianForestHS
 	dw Museum1FHS
 	dw NoHS
 	dw NoHS
@@ -97,7 +97,7 @@ MapHSPointers:
 	dw NoHS
 	dw NoHS
 	dw NoHS
-	dw NoHS
+	dw VermilionGymHS
 	dw NoHS
 	dw VermilionDockHS
 	dw NoHS
@@ -139,7 +139,7 @@ MapHSPointers:
 	dw NoHS
 	dw CeladonMansionRoofHouseHS
 	dw NoHS
-	dw NoHS
+	dw CeladonGymHS
 	dw GameCornerHS
 	dw NoHS
 	dw NoHS
@@ -256,6 +256,22 @@ MapHSPointers:
 	dw NoHS							; Mt. Silver Cave 1F
 	dw NoHS							; Mt. Silver Cave 2F
 	dw NoHS							; Mt. Silver Cave 3F
+	dw SilphCo11FHS
+	dw NoHS
+	dw NoHS
+	dw NoHS
+	dw NoHS
+	dw NoHS
+	dw NoHS
+	dw NoHS
+	dw NoHS
+	dw UnusedMapF4HS
+	dw NoHS
+	dw NoHS
+	dw NoHS
+	dw NoHS ; MT_SILVER_CAVE_1F
+	dw NoHS ; MT_SILVER_CAVE_2F
+	dw NoHS ; MT_SILVER_CAVE_3F
 	assert_table_length NUM_MAPS
 	dw -1 ; end
 
@@ -264,6 +280,7 @@ NoHS:
 
 MissableObjects:
 ; entries correspond to HS_* constants (see constants/hide_show_constants)
+	table_width 3
 	table_width 3
 ; format: map id, object id, HIDE/SHOW
 
@@ -298,7 +315,7 @@ SaffronCityHS:
 	db SAFFRON_CITY, SAFFRONCITY_ROCKET8,        SHOW
 	db SAFFRON_CITY, SAFFRONCITY_ROCKET9,        HIDE
 Route1HS:
-	db ROUTE_1, ROUTE1_OAK, HIDE ; PROF OAK fight. To test, change to SHOW	
+	db ROUTE_1, ROUTE1_OAK, HIDE ; TempLocation
 Route2HS:
 	db ROUTE_2, ROUTE2_MOON_STONE, SHOW
 	db ROUTE_2, ROUTE2_HP_UP,      SHOW
@@ -322,6 +339,17 @@ Route24HS:
 	db ROUTE_24, ROUTE24_TM_THUNDER_WAVE, SHOW
 Route25HS:
 	db ROUTE_25, ROUTE25_TM_SEISMIC_TOSS, SHOW
+Route28HS:	
+	db ROUTE_28, ROUTE28_BIRD1,    SHOW
+	db ROUTE_28, ROUTE28_BIRD2,    SHOW
+	db ROUTE_28, ROUTE28_BIRD3,    SHOW
+	db ROUTE_28, ROUTE28_LT_SURGE, HIDE
+MtSilverHS:
+	db MT_SILVER, MT_SILVER_ERIKA,       HIDE
+	db MT_SILVER, MT_SILVER_BLAINE,      HIDE
+	db MT_SILVER, MT_SILVER_KOGA,        HIDE
+	db MT_SILVER, MT_SILVER_CAVE_GUARD1, SHOW
+	db MT_SILVER, MT_SILVER_CAVE_GUARD2, HIDE
 BluesHouseHS:
 	db BLUES_HOUSE, BLUESHOUSE_DAISY1,   SHOW
 	db BLUES_HOUSE, BLUESHOUSE_DAISY2,   HIDE
@@ -335,6 +363,7 @@ OaksLabHS:
 	db OAKS_LAB, OAKSLAB_POKEDEX1,             SHOW
 	db OAKS_LAB, OAKSLAB_POKEDEX2,             SHOW
 	db OAKS_LAB, OAKSLAB_OAK2,                 HIDE
+	db OAKS_LAB, OAKSLAB_SCIENTIST3,           HIDE
 ViridianGymHS:
 	db VIRIDIAN_GYM, VIRIDIANGYM_GIOVANNI, SHOW
 	db VIRIDIAN_GYM, VIRIDIANGYM_REVIVE,   SHOW
@@ -366,6 +395,9 @@ MrFujisHouseHS:
 	db MR_FUJIS_HOUSE, MRFUJISHOUSE_MR_FUJI, HIDE
 CeladonMansionRoofHouseHS:
 	db CELADON_MANSION_ROOF_HOUSE, CELADONMANSION_ROOF_HOUSE_EEVEE_POKEBALL, SHOW
+CeladonGymHS:
+	db CELADON_GYM, CELADONGYM_ERIKA1, SHOW
+	db CELADON_GYM, CELADONGYM_ERIKA2, HIDE
 GameCornerHS:
 	db GAME_CORNER, GAMECORNER_ROCKET, SHOW
 WardensHouseHS:
@@ -422,6 +454,9 @@ MtMoonB2FHS:
 	db MT_MOON_B2F, MTMOONB2F_TM_MEGA_PUNCH, SHOW
 CeruleanTradeHouseHS:
 	db CERULEAN_TRADE_HOUSE, CERULEANTRADEHOUSE_BULBASAUR, SHOW
+VermilionGymHS:
+	db VERMILION_GYM, VERMILIONGYM_LT_SURGE1, SHOW
+	db VERMILION_GYM, VERMILIONGYM_LT_SURGE2, HIDE
 VermilionDockHS:
 	db VERMILION_DOCK, VERMILION_DOCK_MEW, HIDE
 SSAnne2FHS:

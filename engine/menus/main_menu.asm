@@ -566,7 +566,9 @@ DisplayOptionMenu:
 	jr .updateMenuVariables
 .upPressed
 	cp 2            ; is cursor already at the top?
-	jr z, .wrapToCancel
+	ld b, 14                   ; 2 → 16
+    ld hl, wOptionsCancelCursorX ;fallthrough
+	jr z, .updateMenuVariables
 	cp 6
 	ld b, -4
 	ld hl, wOptionsTextSpeedCursorX
@@ -582,12 +584,7 @@ DisplayOptionMenu:
 	inc hl
 	jr z, .updateMenuVariables
 	ld b, 16
-	inc hl
-	jr .updateMenuVariables
-.wrapToCancel
-	ld b, 14                   ; 2 → 16
-	ld hl, wOptionsCancelCursorX
-    jr .updateMenuVariables
+	inc hl ; fallthrough
 .updateMenuVariables
 	add b
 	ld [wTopMenuItemY], a
@@ -780,7 +777,7 @@ TextSpeedOptionData:
 	db  1, TEXT_DELAY_FAST
 	db  7, -1 ; end (default X coordinate)
 
-CheckForPlayerNameInSRAM:
+CheckForPlayerNameInSRAM::
 ; Check if the player name data in SRAM has a string terminator character
 ; (indicating that a name may have been saved there) and return whether it does
 ; in carry.

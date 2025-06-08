@@ -36,8 +36,8 @@ RoofPalettes:
 	dw IndigoRoof    ; ROUTE_23
 	dw CeruleanRoof  ; ROUTE_24
 	dw CeruleanRoof  ; ROUTE_25
-	dw IndigoRoof  ; ROUTE_28
-	dw IndigoRoof ; MT.SILVER
+	dw IndigoRoof    ; ROUTE_28
+	dw IndigoRoof    ; MT_SILVER
 
 PalletRoof:
 	RGB 31,31,31

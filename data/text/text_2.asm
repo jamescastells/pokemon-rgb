@@ -598,7 +598,7 @@ _Route15UpstairsBinocularsText2::
 	line "is washed up"
 	cont "upon the shore."
 	done
-
+	
 _AerodactylFossilText::
 	text "AERODACTYL Fossil"
 	line "A primitive and"
@@ -1739,15 +1739,20 @@ _IntroducePlayerText::
 	prompt
 
 _IntroduceRivalText::
+IF DEF(_BLUE)
+	text "He is your neigh-"
+	line "bor. He's been"
+ELSE ; _RED
 	text "This is my grand-"
 	line "son. He's been"
+ENDC
 	cont "your rival since"
 	cont "you were a baby."
 
 	para "...Erm, what is"
 	line "his name again?"
 	prompt
-
+	
 _OakSpeechText3::
 	text "<PLAYER>!"
 
@@ -1806,11 +1811,13 @@ _BoyGirlText::
     done
 
 _boyConfirm::
-    text "Right! So you are"
-    line "a boy."
+    text "That's right!"
+    line "You're a boy."
+    cont "I knew that."
     prompt
 
 _girlConfirm::
-    text "Right! So you are"
-    line "a girl."
+    text "That's right!"
+    line "You're a girl."
+    cont "I knew that."
     prompt

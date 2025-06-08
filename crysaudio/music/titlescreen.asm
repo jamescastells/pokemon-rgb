@@ -582,7 +582,8 @@ Music_TitleScreen_Ch2:
 
 Music_TitleScreen_Ch3:
 	stereo_panning FALSE, TRUE
-.playChannel3
+	.playChannel3
+	vibrato 16, 1, 4
 	pitch_offset 1
 	note_type 12, 1, 6
 	octave 3

@@ -10,4 +10,3 @@
 	tilepal 0, RED, RED, BROWN, GRAY, GRAY, GRAY, GRAY, GRAY
 	tilepal 0, YELLOW, YELLOW, GRAY, GRAY, RED, RED, GRAY, GRAY
 	tilepal 0, RED, RED
-	

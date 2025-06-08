@@ -15,7 +15,12 @@ VermilionDock_Script:
 	jr z, .exitingSSAnne
 	ld a, [wDestinationWarpID]
 	cp $3
+	cp $2
+	jr z, .exitingSSAnne
+	ld a, [wDestinationWarpID]
+	cp $3
 	ret nz
+.exitingSSAnne	
 .exitingSSAnne	
 	CheckEventReuseHL EVENT_SS_ANNE_LEFT
 	jp z, VermilionDockSSAnneLeavesScript
@@ -101,6 +106,10 @@ VermilionDockSSAnneLeavesScript:
 	ld [wUpdateSpritesEnabled], a
 	ld d, $0
 	ld e, $9 ; increasing this one extends the animation and the tail end of the boat doesnt disappear.
+	ld a, [wXCoord]
+	cp $12
+	jr nz, .shift_columns_up
+	dec e
 .shift_columns_up
 	ld hl, $2
 	add hl, bc

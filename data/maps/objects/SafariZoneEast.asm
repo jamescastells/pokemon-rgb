@@ -5,7 +5,7 @@
 	const_export SAFARIZONEEAST_TM_EGG_BOMB
 
 SafariZoneEast_Object:
-	db $02 ; border block
+	db $2 ; border block
 
 	def_warp_events
 	warp_event  4,  4, SAFARI_ZONE_NORTH, 7

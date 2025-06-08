@@ -1,4 +1,4 @@
-# Features
+# FeaturesAdd commentMore actions
 
 This hack adds gender selection to the beginning of the game during Oak’s speech. There are two characters to choose from: Red (Boy) and Green (Girl). If you chose the female character, the player character sprite is green (in the overworld, battle screen, town map screen, trainer card, etc). All references to the player character’s gender in the games script have been gender neutralized (ie, Mom says “all boys leave home” to “all kids leave home”). The male character is red. The sprites for the girl character were made by BurstXShadowzX on DeviantArt and adapted into the rom.
 
@@ -12,6 +12,7 @@ Special thanks to Danny-E33. He provided much insight into the function of his c
 
 Note: While this hack shares inspiration from hacks like Satin and Gender Selection, it does not contain any of their code. The ASM hacking to add additional character options was written from the ground up by the author.
 
+## Version 1-2 changes
 ## Version 1-2 changes
 
 General changes:

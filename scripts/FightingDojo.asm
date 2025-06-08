@@ -297,6 +297,7 @@ FightingDojoHitmonchanPokeBallText:
 	ld c, 30
 	call GivePokemon
 	jr nc, .done
+
 	; once Poké Ball is taken, hide sprite
 	ld a, HS_FIGHTING_DOJO_GIFT_2
 	ld [wMissableObjectIndex], a

@@ -32,6 +32,15 @@ LoreleiSprite::          INCBIN "gfx/sprites/lorelei.2bpp"
 
 SECTION "NPC Sprites 2", ROMX
 
+IF DEF(_BLUE)
+RedBikeSprite::          INCBIN "gfx/sprites/blue_bike.2bpp"
+RedRunSprite::           INCBIN "gfx/sprites/blue_run.2bpp"
+RedSprite::              INCBIN "gfx/sprites/blue.2bpp"
+GreenBikeSprite::        INCBIN "gfx/sprites/yellow_bike.2bpp"
+GreenRunSprite::         INCBIN "gfx/sprites/yellow_run.2bpp"
+GreenSprite::            INCBIN "gfx/sprites/yellow.2bpp"
+BlueSprite::             INCBIN "gfx/sprites/red.2bpp"
+ELSE ; _RED
 RedBikeSprite::          INCBIN "gfx/sprites/red_bike.2bpp"
 RedRunSprite::           INCBIN "gfx/sprites/red_run.2bpp"
 RedSprite::              INCBIN "gfx/sprites/red.2bpp"
@@ -39,6 +48,7 @@ GreenBikeSprite::        INCBIN "gfx/sprites/green_bike.2bpp"
 GreenRunSprite::         INCBIN "gfx/sprites/green_run.2bpp"
 GreenSprite::            INCBIN "gfx/sprites/green.2bpp"
 BlueSprite::             INCBIN "gfx/sprites/blue.2bpp"
+ENDC
 OakSprite::              INCBIN "gfx/sprites/oak.2bpp"
 YoungsterSprite::        INCBIN "gfx/sprites/youngster.2bpp"
 MonsterSprite::          INCBIN "gfx/sprites/monster.2bpp"
@@ -71,12 +81,12 @@ MomSprite::              INCBIN "gfx/sprites/mom.2bpp"
 BaldingGuySprite::       INCBIN "gfx/sprites/balding_guy.2bpp"
 LittleBoySprite::        INCBIN "gfx/sprites/little_boy.2bpp"
 GameboyKidSprite::       INCBIN "gfx/sprites/gameboy_kid.2bpp"
-AgathaSprite::           INCBIN "gfx/sprites/agatha.2bpp"
+SeelSprite::             INCBIN "gfx/sprites/seel.2bpp"
 
 SECTION "NPC Sprites 3", ROMX
 
+AgathaSprite::           INCBIN "gfx/sprites/agatha.2bpp"
 FairySprite::            INCBIN "gfx/sprites/fairy.2bpp"
-SeelSprite::             INCBIN "gfx/sprites/seel.2bpp"
 SandshrewSprite::        INCBIN "gfx/sprites/sandshrew.2bpp"
 OddishSprite::           INCBIN "gfx/sprites/oddish.2bpp"
 BulbasaurSprite::        INCBIN "gfx/sprites/bulbasaur.2bpp"

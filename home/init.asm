@@ -106,7 +106,7 @@ DEF rLCDC_DEFAULT EQU (1 << rLCDC_ENABLE) | (1 << rLCDC_WINDOW_TILEMAP) | (1 << 
 	predef LoadSAV
 .continue
 	predef LoadSGB
-
+		
 ;	ld a, 0 ; BANK(SFX_Shooting_Star)
 ;	ld [wAudioROMBank], a
 ;	ld [wAudioSavedROMBank], a
@@ -125,6 +125,11 @@ DEF rLCDC_DEFAULT EQU (1 << rLCDC_ENABLE) | (1 << rLCDC_WINDOW_TILEMAP) | (1 << 
 	call ClearSprites
 	ld a, rLCDC_DEFAULT
 	ldh [rLCDC], a
+	
+	call CheckForPlayerNameInSRAM
+	jr nc, .noSave
+	predef LoadSAV
+.noSave
 
 	jp PrepareTitleScreen
 

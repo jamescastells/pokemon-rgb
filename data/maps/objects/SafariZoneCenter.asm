@@ -2,7 +2,7 @@
 	const_export SAFARIZONECENTER_NUGGET
 
 SafariZoneCenter_Object:
-	db $02 ; border block
+	db $2 ; border block
 
 	def_warp_events
 	warp_event 18, 29, SAFARI_ZONE_GATE, 3

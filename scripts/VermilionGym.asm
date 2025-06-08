@@ -54,6 +54,11 @@ VermilionGym_ScriptPointers:
 	dw_const DisplayEnemyTrainerTextAndStartBattle, SCRIPT_VERMILIONGYM_START_BATTLE
 	dw_const EndTrainerBattle,                      SCRIPT_VERMILIONGYM_END_BATTLE
 	dw_const VermilionGymLTSurgeAfterBattleScript,  SCRIPT_VERMILIONGYM_LT_SURGE_AFTER_BATTLE
+	dw_const VermilionGymLTSurgeExitScript,         SCRIPT_VERMILIONGYM_LT_SURGE_EXIT
+	dw_const VermilionGymNoopScript,                SCRIPT_VERMILIONGYM_NOOP
+
+VermilionGymNoopScript:
+ret
 
 VermilionGymLTSurgeAfterBattleScript:
 	ld a, [wIsInBattle]
@@ -61,7 +66,8 @@ VermilionGymLTSurgeAfterBattleScript:
 	jp z, VermilionGymResetScripts
 	ld a, D_RIGHT | D_LEFT | D_UP | D_DOWN
 	ld [wJoyIgnore], a
-
+	CheckEvent EVENT_LT_SURGE_REMATCH
+	jr nz, LTSurgeRematchPostBattle
 VermilionGymLTSurgeReceiveTM24Script:
 	ld a, TEXT_VERMILIONGYM_LT_SURGE_THUNDER_BADGE_INFO
 	ldh [hTextID], a
@@ -89,6 +95,61 @@ VermilionGymLTSurgeReceiveTM24Script:
 	SetEventRange EVENT_BEAT_VERMILION_GYM_TRAINER_0, EVENT_BEAT_VERMILION_GYM_TRAINER_2
 
 	jp VermilionGymResetScripts
+	
+LTSurgeRematchPostBattle:
+	ld a, TEXT_VERMILIONGYM_REMATCH_POST_BATTLE
+	ldh [hTextID], a
+	call DisplayTextID
+	ld a, VERMILIONGYM_LT_SURGE1
+	ldh [hSpriteIndex], a
+	call SetSpriteMovementBytesToFF
+	ld a, [wXCoord]
+	cp 4
+	jr nz, .player_standing_left
+	ld de, .LTSurgeWalkDownMovement
+	jr .move_sprite
+.player_standing_left
+	ld de, .LTSurgeWalkLeftMovement
+.move_sprite
+	ld a, VERMILIONGYM_LT_SURGE1
+	ldh [hSpriteIndex], a
+	call MoveSprite
+	ld a, SCRIPT_VERMILIONGYM_LT_SURGE_EXIT
+	ld [wVermilionGymCurScript], a
+	jp VermilionGym_Script
+	
+.LTSurgeWalkLeftMovement:
+	db NPC_MOVEMENT_LEFT
+	db NPC_MOVEMENT_DOWN
+.LTSurgeWalkDownMovement:
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
+	db -1 ; end
+	
+VermilionGymLTSurgeExitScript:
+	ld a, [wStatusFlags5]
+	bit BIT_SCRIPTED_NPC_MOVEMENT, a
+	ret nz
+	xor a
+	ld [wJoyIgnore], a
+	ld a, HS_VERMILION_GYM_LT_SURGE1
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	ld a, HS_ROUTE_28_BIRD1
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	ld a, HS_ROUTE_28_BIRD2
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	ld a, HS_ROUTE_28_BIRD3
+	ld [wMissableObjectIndex], a
+	predef HideObject
+	SetEvent EVENT_LT_SURGE_REMATCH_BEAT
+	ld a, SCRIPT_VERMILIONGYM_NOOP
+	ld [wVermilionGymCurScript], a
+	ret
 
 VermilionGym_TextPointers:
 	def_text_pointers
@@ -96,10 +157,12 @@ VermilionGym_TextPointers:
 	dw_const VermilionGymGentlemanText,               TEXT_VERMILIONGYM_GENTLEMAN
 	dw_const VermilionGymSuperNerdText,               TEXT_VERMILIONGYM_SUPER_NERD
 	dw_const VermilionGymSailorText,                  TEXT_VERMILIONGYM_SAILOR
+	dw_const VermilionGymLTSurgePostGameText,         TEXT_VERMILIONGYM_LT_SURGE_POSTGAME
 	dw_const VermilionGymGymGuideText,                TEXT_VERMILIONGYM_GYM_GUIDE
 	dw_const VermilionGymLTSurgeThunderBadgeInfoText, TEXT_VERMILIONGYM_LT_SURGE_THUNDER_BADGE_INFO
 	dw_const VermilionGymLTSurgeReceivedTM24Text,     TEXT_VERMILIONGYM_LT_SURGE_RECEIVED_TM24
 	dw_const VermilionGymLTSurgeTM24NoRoomText,       TEXT_VERMILIONGYM_LT_SURGE_TM24_NO_ROOM
+	dw_const VermilionGymRematchPostBattleText,       TEXT_VERMILIONGYM_REMATCH_POST_BATTLE
 
 VermilionGymTrainerHeaders:
 	def_trainers 2
@@ -121,6 +184,8 @@ VermilionGymLTSurgeText:
 	call DisableWaitingAfterTextDisplay
 	jr .text_script_end
 .got_tm24_already
+	CheckEvent EVENT_LT_SURGE_REMATCH
+	jr nz, .LTSurgeRematch
 	ld hl, .PostBattleAdviceText
 	call PrintText
 	jr .text_script_end
@@ -141,6 +206,22 @@ VermilionGymLTSurgeText:
 	ld [wGymLeaderNo], a
 	xor a
 	ldh [hJoyHeld], a
+	jr .endBattle
+ .LTSurgeRematch
+ 	ld hl, .PreBattleRematchText
+ 	call PrintText
+ 	call Delay3
+ 	ld hl, wStatusFlags3
+ 	set BIT_TALKED_TO_TRAINER, [hl]
+ 	set BIT_PRINT_END_BATTLE_TEXT, [hl]
+ 	ld hl, VermilionGymRematchDefeatedText
+ 	ld de, VermilionGymRematchVictoryText
+ 	call SaveEndBattleTextPointers
+ 	ld a, OPP_LT_SURGE
+ 	ld [wCurOpponent], a
+ 	ld a, 2
+ 	ld [wTrainerNo], a
+.endBattle
 	ld a, SCRIPT_VERMILIONGYM_LT_SURGE_AFTER_BATTLE
 	ld [wVermilionGymCurScript], a
 	ld [wCurMapScript], a
@@ -153,6 +234,10 @@ VermilionGymLTSurgeText:
 
 .PostBattleAdviceText:
 	text_far _VermilionGymLTSurgePostBattleAdviceText
+	text_end
+	
+.PreBattleRematchText
+	text_far _VermilionGymRematchPreBattleText
 	text_end
 
 VermilionGymLTSurgeThunderBadgeInfoText:
@@ -171,6 +256,18 @@ VermilionGymLTSurgeTM24NoRoomText:
 
 VermilionGymLTSurgeReceivedThunderBadgeText:
 	text_far _VermilionGymLTSurgeReceivedThunderBadgeText
+	text_end
+	
+VermilionGymRematchDefeatedText:
+	text_far _VermilionGymRematchDefeatedText
+	text_end
+
+VermilionGymRematchVictoryText:
+	text_far _VermilionGymRematchVictoryText
+	text_end
+
+VermilionGymRematchPostBattleText:
+	text_far _VermilionGymRematchPostBattleText
 	text_end
 
 VermilionGymGentlemanText:
@@ -227,6 +324,16 @@ VermilionGymSailorAfterBattleText:
 	text_far _VermilionGymSailorAfterBattleText
 	text_end
 
+VermilionGymLTSurgePostGameText:
+	text_asm
+	ld hl, VermilionGymLTSurgeGoodLuckText
+	call PrintText
+	jp TextScriptEnd
+	
+VermilionGymLTSurgeGoodLuckText:
+	text_far _VermilionGymLTSurgeGoodLuckText
+	text_end
+
 VermilionGymGymGuideText:
 	text_asm
 	ld a, [wBeatGymFlags]
@@ -248,3 +355,4 @@ VermilionGymGymGuideText:
 .BeatLTSurgeText:
 	text_far _VermilionGymGymGuideBeatLTSurgeText
 	text_end
+	

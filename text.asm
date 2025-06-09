@@ -138,7 +138,6 @@ SECTION "Text 6", ROMX
 INCLUDE "text/Route24_2.asm"
 INCLUDE "text/Route25.asm"
 INCLUDE "text/Route28.asm"
-INCLUDE "text/Route28.asm"
 INCLUDE "text/MtSilver.asm"
 INCLUDE "text/MtSilver1F.asm"
 INCLUDE "text/MtSilver2F.asm"

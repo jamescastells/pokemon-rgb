@@ -22,9 +22,10 @@ _Route22GateGuardGoRightAheadText::
 	text_end
 
 _Route22GateText_MtSilver::
-	text "The route to"
-	line "MT.SILVER is"
-	cont "still under"
+	text "This route leads"
+	line "to MT.SILVER."
+	para "However, it's"
+	line "still under"
 	cont "construction."
 	para "You should stay"
 	line "out for now."

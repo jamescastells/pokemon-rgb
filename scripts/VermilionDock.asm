@@ -21,7 +21,6 @@ VermilionDock_Script:
 	cp $3
 	ret nz
 .exitingSSAnne	
-.exitingSSAnne	
 	CheckEventReuseHL EVENT_SS_ANNE_LEFT
 	jp z, VermilionDockSSAnneLeavesScript
 	SetEventReuseHL EVENT_STARTED_WALKING_OUT_OF_DOCK

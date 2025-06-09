@@ -3,29 +3,29 @@
 MapHSPointers:
 ; entries correspond to map ids
 	table_width 2
-	dw PalletTownHS
-	dw ViridianCityHS
-	dw PewterCityHS
-	dw CeruleanCityHS
+	dw PalletTownHS		; PALLET_TOWN
+	dw ViridianCityHS	; VIRIDIAN_CITY
+	dw PewterCityHS		; PEWTER_CITY
+	dw CeruleanCityHS	; CERULEAN_CITY
+	dw NoHS				
 	dw NoHS
 	dw NoHS
 	dw NoHS
 	dw NoHS
 	dw NoHS
+	dw SaffronCityHS	; SAFFRON_CITY
 	dw NoHS
-	dw SaffronCityHS
-	dw NoHS
-	dw Route1HS
-	dw Route2HS
-	dw NoHS
-	dw Route4HS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw Route9HS
-	dw NoHS
-	dw NoHS
+	dw Route1HS			; ROUTE_1
+	dw Route2HS			; ROUTE_2
+	dw NoHS				; ROUTE_3
+	dw Route4HS			; ROUTE_4
+	dw NoHS				; ROUTE_5
+	dw NoHS				; ROUTE_6
+	dw NoHS				; ROUTE_7
+	dw NoHS				; ROUTE_8
+	dw Route9HS			; ROUTE_9
+	dw NoHS				; ROUTE_10
+	dw NoHS				; ROUTE_11
 	dw Route12HS
 	dw NoHS
 	dw NoHS
@@ -40,23 +40,23 @@ MapHSPointers:
 	dw NoHS
 	dw Route24HS
 	dw Route25HS
-	dw Route28HS
-	dw MtSilverHS ; MT_SILVER
+	dw Route28HS		; ROUTE_28
+	dw MtSilverHS		; MT_SILVER
 	dw NoHS
 	dw NoHS
-	dw BluesHouseHS
-	dw OaksLabHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw ViridianGymHS
+	dw BluesHouseHS		; BLUES_HOUSE
+	dw OaksLabHS		; OAKS_LAB
 	dw NoHS
 	dw NoHS
 	dw NoHS
 	dw NoHS
+	dw ViridianGymHS	; VIRIDIAN_GYM
 	dw NoHS
-	dw ViridianForestHS
+	dw NoHS
+	dw NoHS
+	dw NoHS
+	dw NoHS
+	dw ViridianForestHS	; VIRIDIAN_FOREST
 	dw Museum1FHS
 	dw NoHS
 	dw NoHS
@@ -64,11 +64,11 @@ MapHSPointers:
 	dw NoHS
 	dw NoHS
 	dw NoHS
-	dw MtMoon1FHS
+	dw MtMoon1FHS		; MT_MOON_1F
 	dw NoHS
 	dw MtMoonB2FHS
 	dw NoHS
-	dw CeruleanTradeHouseHS
+	dw CeruleanTradeHouseHS	; CERULEAN_TRADE_HOUSE
 	dw NoHS
 	dw NoHS
 	dw NoHS
@@ -88,20 +88,20 @@ MapHSPointers:
 	dw NoHS
 	dw NoHS
 	dw NoHS
-	dw PowerPlantHS
+	dw PowerPlantHS		; POWER_PLANT
 	dw NoHS
 	dw NoHS
 	dw NoHS
 	dw NoHS
-	dw BillsHouseHS
+	dw BillsHouseHS		; BILLS_HOUSE
 	dw NoHS
 	dw NoHS
 	dw NoHS
-	dw VermilionGymHS
+	dw VermilionGymHS	; VERMILION_GYM
 	dw NoHS
-	dw VermilionDockHS
+	dw VermilionDockHS	; VERMILION_DOCK
 	dw NoHS
-	dw SSAnne2FHS
+	dw SSAnne2FHS		; SS_ANNE_2F
 	dw NoHS
 	dw NoHS
 	dw NoHS
@@ -125,7 +125,7 @@ MapHSPointers:
 	dw NoHS
 	dw NoHS
 	dw NoHS
-	dw ChampionsRoomHS
+	dw ChampionsRoomHS		; CHAMPIONS_ROOM
 	dw NoHS
 	dw NoHS
 	dw NoHS
@@ -231,47 +231,31 @@ MapHSPointers:
 	dw NoHS
 	dw NoHS
 	dw NoHS
-	dw CeruleanCave2FHS
-	dw CeruleanCaveB1FHS
-	dw CeruleanCaveHS
+	dw CeruleanCave2FHS				; CERULEAN_CAVE_2F
+	dw CeruleanCaveB1FHS			; CERULEAN_CAVE_B1F
+	dw CeruleanCaveHS				; CERULEAN_CAVE_1F
 	dw NoHS
 	dw NoHS
 	dw NoHS
 	dw NoHS
 	dw SilphCo9FHS
 	dw SilphCo10FHS
-	dw SilphCo11FHS					; Silph Co 11F
-	dw NoHS							; Silph Co Elevator
+	dw SilphCo11FHS					; SILPH_CO_11F
+	dw NoHS							; SILPH_CO_ELEVATOR
 	dw NoHS							; Unused map
 	dw NoHS							; Unused map
-	dw NoHS							; Trade center
-	dw NoHS							; Coloseum
+	dw NoHS							; TRADE_CENTER
+	dw NoHS							; COLOSSEUM
 	dw NoHS							; Unused map
 	dw NoHS							; Unused map
 	dw NoHS							; Unused map
 	dw UnusedMapF4HS				; Unused map
-	dw NoHS							; Lorelei's room
-	dw NoHS							; Bruno's room
-	dw NoHS							; Agatha's room
-	dw NoHS							; Mt. Silver Cave 1F
-	dw NoHS							; Mt. Silver Cave 2F
-	dw NoHS							; Mt. Silver Cave 3F
-	dw SilphCo11FHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw UnusedMapF4HS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS ; MT_SILVER_CAVE_1F
-	dw NoHS ; MT_SILVER_CAVE_2F
-	dw NoHS ; MT_SILVER_CAVE_3F
+	dw NoHS							; LORELEIS_ROOM
+	dw NoHS							; BRUNOS_ROOM
+	dw NoHS							; AGATHAS_ROOM
+	dw NoHS							; MT_SILVER_CAVE_1F
+	dw NoHS							; MT_SILVER_CAVE_2F
+	dw NoHS							; MT_SILVER_CAVE_3F
 	assert_table_length NUM_MAPS
 	dw -1 ; end
 

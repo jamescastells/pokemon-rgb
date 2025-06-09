@@ -167,3 +167,20 @@ _VermilionCityGymSignText::
 _VermilionCityHarborSignText::
 	text "VERMILION HARBOR"
 	done
+
+_VermilionCitySailor1ShipReturnedText::
+	text "Welcome!"
+	para "The S.S.ANNE has"
+	line "returned to"
+	cont "VERMILION CITY!"
+	done
+
+_VermilionCitySailor1DoYouHaveATicketTextAgain::
+	text "Welcome!"
+	para "The S.S.ANNE has"
+	line "returned to"
+	cont "VERMILION CITY!"
+
+	para "Excuse me, do you"
+	line "have your ticket?"
+	prompt

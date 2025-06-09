@@ -262,10 +262,6 @@ VermilionCitySailor1Text:
 	text_far _VermilionCitySailor1ShipSetSailText
 	text_end
 
-.ShipHasReturnedText:
-	text_far _VermilionCitySailor1ShipReturnedText
-	text_end
-
 VermilionCityGambler2Text:
 	text_far _VermilionCityGambler2Text
 	text_end

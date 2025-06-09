@@ -26,6 +26,6 @@ _Route28LTSurgeText_Done::
 	done
 	
 _Route28SignText::
-	text "NEW ROUTE:"
-	line "Under Construction"
+	text "Road to"
+	line "MT.SILVER"
 	done

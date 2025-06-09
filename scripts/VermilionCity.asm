@@ -51,8 +51,11 @@ VermilionCityDefaultScript:
 	ld a, TEXT_VERMILIONCITY_SAILOR1
 	ldh [hTextID], a
 	call DisplayTextID
+	CheckEvent EVENT_PLAYER_IS_CHAMPION
+	jr z, .check_ticket			; set z for debug
 	CheckEvent EVENT_SS_ANNE_LEFT
 	jr nz, .ship_departed
+.check_ticket
 	ld b, S_S_TICKET
 	predef GetQuantityOfItemInBag
 	ld a, b
@@ -89,6 +92,7 @@ VermilionCityPlayerExitShipScript:
 	ld a, D_UP
 	ld [wSimulatedJoypadStatesEnd], a
 	ld [wSimulatedJoypadStatesEnd + 1], a
+	ld [wSimulatedJoypadStatesEnd + 2], a
 	ld a, [wXCoord]
 	cp $13
 	jr nz, .justMoveUp ;fallthrough
@@ -98,7 +102,7 @@ VermilionCityPlayerExitShipScript:
 	ld [wSimulatedJoypadStatesIndex], a
 	jr .startMove
 .justMoveUp
-	ld a, 2
+	ld a, 3
 	ld [wSimulatedJoypadStatesIndex], a
 .startMove
 	call StartSimulatingJoypadStates
@@ -171,6 +175,8 @@ VermilionCityGambler1Text:
 
 VermilionCitySailor1Text:
 	text_asm
+	CheckEvent EVENT_PLAYER_IS_CHAMPION
+	jr z, .welcome		; set z for debug
 	CheckEvent EVENT_PLAYER_IS_CHAMPION
 	jr z, .welcome		; set z for debug
 	CheckEvent EVENT_SS_ANNE_LEFT
@@ -254,6 +260,10 @@ VermilionCitySailor1Text:
 
 .ShipSetSailText:
 	text_far _VermilionCitySailor1ShipSetSailText
+	text_end
+
+.ShipHasReturnedText:
+	text_far _VermilionCitySailor1ShipReturnedText
 	text_end
 
 VermilionCityGambler2Text:

@@ -34,6 +34,16 @@ _VermilionCitySailor1DoYouHaveATicketText::
 	line "have a ticket?"
 	prompt
 
+_VermilionCitySailor1DoYouHaveATicketTextAgain::
+	text "Welcome!"
+	para "The S.S.ANNE has"
+	line "returned to"
+	cont "VERMILION CITY!"
+
+	para "Excuse me, do you"
+	line "have your ticket?"
+	prompt
+
 _VermilionCitySailor1FlashedTicketText::
 	text "<PLAYER> flashed"
 	line "the S.S.TICKET!"
@@ -55,6 +65,13 @@ _VermilionCitySailor1YouNeedATicketText::
 
 _VermilionCitySailor1ShipSetSailText::
 	text "The ship set sail."
+	done
+
+_VermilionCitySailor1ShipReturnedText::
+	text "Welcome!"
+	para "The S.S.ANNE has"
+	line "returned to"
+	cont "VERMILION CITY!"
 	done
 
 _VermilionCityGambler2Text::

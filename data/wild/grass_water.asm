@@ -253,6 +253,7 @@ WildDataPointers:
 	dw MtSilver1FWildMons		   ; MT.SILVER CAVE 1F
 	dw MtSilver2FWildMons		   ; MT.SILVER CAVE 2F
 	dw MtSilver3FWildMons		   ; MT.SILVER CAVE 3F
+	dw CinnabarVolcanoWildMons		; CINNABAR VOLCANO
 	assert_table_length NUM_MAPS
 	dw -1 ; end
 
@@ -331,3 +332,4 @@ INCLUDE "data/wild/maps/DiglettsCave.asm"
 INCLUDE "data/wild/maps/MtSilver1F.asm"
 INCLUDE "data/wild/maps/MtSilver2F.asm"
 INCLUDE "data/wild/maps/MtSilver3F.asm"
+INCLUDE "data/wild/maps/CinnabarVolcano.asm"

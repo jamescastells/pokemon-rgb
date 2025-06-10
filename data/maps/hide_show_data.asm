@@ -256,6 +256,7 @@ MapHSPointers:
 	dw NoHS							; MT_SILVER_CAVE_1F
 	dw NoHS							; MT_SILVER_CAVE_2F
 	dw NoHS							; MT_SILVER_CAVE_3F
+	dw NoHS							; CINNABAR_VOLCANO
 	assert_table_length NUM_MAPS
 	dw -1 ; end
 

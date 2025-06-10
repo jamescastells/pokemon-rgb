@@ -254,4 +254,5 @@ MapHeaderBanks::
 	db BANK(MtSilver1F_h)
 	db BANK(MtSilver2F_h)
 	db BANK(MtSilver3F_h)
+	db BANK(CinnabarVolcano_h)
 	assert_table_length NUM_MAPS

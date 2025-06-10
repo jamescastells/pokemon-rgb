@@ -1244,3 +1244,8 @@ INCLUDE "data/maps/headers/MtSilver3F.asm"
 INCLUDE "scripts/MtSilver3F.asm"
 INCLUDE "data/maps/objects/MtSilver3F.asm"
 MtSilver3F_Blocks: INCBIN "maps/MtSilver3F.blk"
+
+INCLUDE "data/maps/headers/CinnabarVolcano.asm"
+INCLUDE "scripts/CinnabarVolcano.asm"
+INCLUDE "data/maps/objects/CinnabarVolcano.asm"
+CinnabarVolcano_Blocks: INCBIN "maps/CinnabarVolcano.blk"

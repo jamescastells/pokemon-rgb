@@ -24,7 +24,7 @@ ENDM
 	map_const VERMILION_CITY,                20, 18 ; $05
 	map_const CELADON_CITY,                  25, 18 ; $06
 	map_const FUCHSIA_CITY,                  20, 18 ; $07
-	map_const CINNABAR_ISLAND,               10,  9 ; $08
+	map_const CINNABAR_ISLAND,               10,  11 ; $08
 	map_const INDIGO_PLATEAU,                10,  9 ; $09
 	map_const SAFFRON_CITY,                  20, 18 ; $0A
 DEF NUM_CITY_MAPS EQU const_value
@@ -49,8 +49,8 @@ DEF FIRST_ROUTE_MAP EQU const_value
 	map_const ROUTE_17,                      10, 72 ; $1C
 	map_const ROUTE_18,                      25, 11 ; $1D
 	map_const ROUTE_19,                      10, 27 ; $1E
-	map_const ROUTE_20,                      50,  9 ; $1F
-	map_const ROUTE_21,                      10, 45 ; $20
+	map_const ROUTE_20,                      50, 12 ; $1F
+	map_const ROUTE_21,                      10, 43 ; $20
 	map_const ROUTE_22,                      20,  9 ; $21
 	map_const ROUTE_23,                      10, 72 ; $22
 	map_const ROUTE_24,                      11, 18 ; $23
@@ -272,6 +272,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const MT_SILVER_CAVE_1F,			  8, 18 ; $F8
 	map_const MT_SILVER_CAVE_2F,			 13, 17 ; $F9
 	map_const MT_SILVER_CAVE_3F,			 10, 17 ; $FA
+	map_const CINNABAR_VOLCANO,				 18, 18 ; $FB
 DEF NUM_MAPS EQU const_value
 
 ; Indoor maps, such as houses, use this as the Map ID in their exit warps

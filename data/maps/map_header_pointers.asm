@@ -254,4 +254,5 @@ MapHeaderPointers::
 	dw MtSilver1F_h
 	dw MtSilver2F_h
 	dw MtSilver3F_h
+	dw CinnabarVolcano_h
 	assert_table_length NUM_MAPS

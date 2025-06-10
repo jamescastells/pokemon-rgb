@@ -121,4 +121,6 @@ InternalMapEntries:
 	internal_map AGATHAS_ROOM,                   0,  2, PokemonLeagueName
 	internal_map MT_SILVER_CAVE_1F,				 0,  6, MtSilverCaveName
 	internal_map MT_SILVER_CAVE_2F,				 0,  6, MtSilverCaveName
+	internal_map MT_SILVER_CAVE_3F,				 0,  6, MtSilverCaveName
+	internal_map CINNABAR_VOLCANO,				 2, 13, CinnabarVolcanoName
 	db -1 ; end

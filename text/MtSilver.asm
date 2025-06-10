@@ -7,7 +7,8 @@ _MtSilverTreeGuardText_Erika::
 	cont "GRASS-types well"
 	cont "to clear the way."
 
-	para "Know any masters?"
+	para "Do you know any"
+	line "masters?"
 	done
 
 _MtSilverTreeGuardText_Blaine::
@@ -41,7 +42,12 @@ _MtSilverCaveGuard1Text_Koga::
 	done
 	
 _MtSilverCaveGuard2Text_Done::
-	text "DONE"
+	text "KOGA slipped past"
+	line "me again..."
+
+	para "But the air is"
+	line "breathable now."
+	cont "You may proceed!"
 	done
 	
 _MtSilverErikaText_Done::
@@ -68,7 +74,16 @@ _MtSilverBlaineText_Done::
 	done
 
 _MtSilverKogaText_Done::
-	text "DONE"
+	text "The toxin is gone."
+	line "Breathe easy."
+	
+	para "I used a number of"
+	line "VENOMOTH’s scales"
+	cont "to drive away all"	
+	cont "the poison types."
+
+	para "My work is silent,"
+	line "my exit swifter."
 	done
 	
 _MtSilverWeezingText::

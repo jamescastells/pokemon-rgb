@@ -1998,7 +1998,7 @@ wRedsHouse2FCurScript:: db
 wViridianMartCurScript:: db
 wRoute22GateCurScript:: db
 wCeruleanCityCurScript:: db
-	ds 7
+	ds 1
 wSSAnneBowCurScript:: db
 wViridianForestCurScript:: db
 wMuseum1FCurScript:: db
@@ -2060,7 +2060,7 @@ wCeruleanCaveB1FCurScript:: db
 wVictoryRoad1FCurScript:: db
 	ds 1
 wLancesRoomCurScript:: db
-	ds 4
+	ds 1
 wSilphCo10FCurScript:: db
 wSilphCo11FCurScript:: db
 	ds 1
@@ -2082,7 +2082,10 @@ wSeafoamIslandsB4FCurScript:: db
 wRoute18Gate1FCurScript:: db
 wRoute28CurScript:: db
 wMtSilverCurScript:: db
-	ds 4
+wMtSilver1FCurScript:: db
+wMtSilver2FCurScript:: db
+wMtSilver3FCurScript:: db
+	ds 1
 wGameProgressFlagsEnd::
 
 wPlayerGender::
@@ -2106,7 +2109,19 @@ wObtainedHiddenCoinsFlags:: flag_array MAX_HIDDEN_COINS
 ; $02 = surfing
 wWalkBikeSurfState:: db
 wPlayerFlying:: db ; 0 = not a bird, 1 = bird
-	ds 9
+
+UNION
+
+ds 18
+
+NEXTU
+
+wExtraMissableObjectFlags:: flag_array NUM_EXTRA_HS_OBJECTS
+wExtraMissableObjectFlagsEnd::
+
+ENDU
+
+ds 9
 
 wTownVisitedFlag:: flag_array NUM_CITY_MAPS
 
@@ -2117,8 +2132,6 @@ wSafariSteps:: dw
 wFossilItem:: db
 ; mon that will result from the item
 wFossilMon:: db
-
-	ds 2
 
 ; trainer classes start at OPP_ID_OFFSET
 wEnemyMonOrTrainerClass:: db
@@ -2154,7 +2167,7 @@ wWhichDungeonWarp:: db
 
 wUnusedCardKeyGateID:: db
 
-	ds 8
+	ds 1
 
 wStatusFlags1:: db
 	ds 1

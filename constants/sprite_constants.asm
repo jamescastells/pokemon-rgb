@@ -94,7 +94,10 @@
 	const SPRITE_MEWTWO                  ; $-U
 	const SPRITE_MEW                     ; $-V
 	const SPRITE_WEEZING                 ; $-W
+	const SPRITE_HYPNO                   ; $-X
+	const SPRITE_WHIRLPOOL               ; $-Y
 DEF FIRST_STILL_SPRITE EQU const_value
+	const SPRITE_EMPTY                   ; $-Z
 	const SPRITE_POKE_BALL               ; $3d
 	const SPRITE_FOSSIL                  ; $3e
 	const SPRITE_BOULDER                 ; $3f

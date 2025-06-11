@@ -2,4 +2,8 @@ CinnabarVolcano_Script:
 	ret
 
 CinnabarVolcano_TextPointers:
-	ret
+	def_text_pointers
+	dw_const BoulderText,                    TEXT_CINNABARVOLCANO_BOULDER1
+	dw_const BoulderText,                    TEXT_CINNABARVOLCANO_BOULDER2
+	dw_const BoulderText,                    TEXT_CINNABARVOLCANO_BOULDER3
+	dw_const BoulderText,                    TEXT_CINNABARVOLCANO_BOULDER4

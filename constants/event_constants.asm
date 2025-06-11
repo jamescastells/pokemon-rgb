@@ -495,7 +495,6 @@
 	const EVENT_BEAT_VICTORY_ROAD_2_TRAINER_2
 	const EVENT_BEAT_VICTORY_ROAD_2_TRAINER_3
 	const EVENT_BEAT_VICTORY_ROAD_2_TRAINER_4
-	const EVENT_BEAT_MOLTRES
 	const EVENT_VICTORY_ROAD_2_BOULDER_ON_SWITCH2
 
 ; Route 24 events
@@ -782,10 +781,14 @@ DEF INDIGO_PLATEAU_EVENTS_END EQU const_value - 1
 	const EVENT_SEAFOAM4_BOULDER2_DOWN_HOLE
 	const_skip 8
 	const EVENT_BEAT_ARTICUNO
-	
+
+; Cinnabar Volcano Top events
+	const_next $9E0
+	const_skip
+ 	const EVENT_BEAT_MOLTRES
 	
 ; Post Game events
-	const_next $9E0
+	const_next $9E2
 	const EVENT_PLAYER_IS_CHAMPION
 	const EVENT_LT_SURGE_REMATCH
 	const EVENT_LT_SURGE_REMATCH_BEAT

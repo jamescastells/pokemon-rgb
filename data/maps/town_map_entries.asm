@@ -47,6 +47,7 @@ ExternalMapEntries:
 	external_map 11,  0, Route25Name
 	external_map  0,  8, Route28Name
 	external_map  0,  7, MtSilverName
+	external_map  2, 13, CinnabarVolcanoName
 	assert_table_length FIRST_INDOOR_MAP
 
 
@@ -123,4 +124,5 @@ InternalMapEntries:
 	internal_map MT_SILVER_CAVE_2F,				 0,  6, MtSilverCaveName
 	internal_map MT_SILVER_CAVE_3F,				 0,  6, MtSilverCaveName
 	internal_map CINNABAR_VOLCANO,				 2, 13, CinnabarVolcanoName
+	internal_map CINNABAR_VOLCANO_B1F,			 2, 13, CinnabarVolcanoName
 	db -1 ; end

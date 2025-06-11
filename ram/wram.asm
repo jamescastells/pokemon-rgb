@@ -2085,6 +2085,7 @@ wMtSilverCurScript:: db
 wMtSilver1FCurScript:: db
 wMtSilver2FCurScript:: db
 wMtSilver3FCurScript:: db
+wCinnabarVolcanoTopCurScript:: db
 	ds 1
 wGameProgressFlagsEnd::
 

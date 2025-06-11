@@ -40,6 +40,7 @@ MapHeaderPointers::
 	dw Route25_h
 	dw Route28_h
 	dw MtSilver_h
+	dw CinnabarVolcanoTop_h
 	dw RedsHouse1F_h
 	dw RedsHouse2F_h
 	dw BluesHouse_h
@@ -108,7 +109,7 @@ MapHeaderPointers::
 	dw SSAnne1FRooms_h
 	dw SSAnne2FRooms_h
 	dw SSAnneB1FRooms_h
-	dw LancesRoom_h ; UNUSED_MAP_69
+	dw CinnabarVolcanoB1F_h ; CINNABAR_VOLCANO_B1F
 	dw LancesRoom_h ; UNUSED_MAP_6A
 	dw LancesRoom_h ; UNUSED_MAP_6B
 	dw VictoryRoad1F_h

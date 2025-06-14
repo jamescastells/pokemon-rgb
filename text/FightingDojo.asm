@@ -37,8 +37,8 @@ _FightingDojoKarateMasterIWillGiveYouAPokemonText::
 _FightingDojoKarateMasterStayAndTrainWithUsText::
 	text "Ho!"
 
-	para "Stay and train"
-	line "with us!"
+	para "Stay and train at"
+	line "Karate with us!"
 	done
 
 _FightingDojoBlackbelt1BattleText::

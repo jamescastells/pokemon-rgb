@@ -42,9 +42,9 @@ PrepareOakSpeech:
 OakSpeech:
 	ld a, SFX_STOP_ALL_MUSIC
 	call PlaySound
-	ld a, 0
+	ld a, 0 ; BANK(Music_Routes2)
 	ld c, a
-	ld a, MUSIC_OAKS_INTRO
+	ld a, MUSIC_ROUTES2
 	call PlayMusic
 	call ClearScreen
 	call LoadTextBoxTilePatterns
@@ -261,15 +261,6 @@ FadeInIntroPic:
 	dec b
 	jr nz, .next
 	ret
-
-ObtainWhichTrackToPlay:
-    ld a, [wOptions]
-    and %00010000   ; mask bit 4
-    srl a           ; shift it into bit 3
-    srl a           ; into bit 2
-    srl a           ; into bit 1
-    srl a           ; into bit 0
-	ret 
 
 IntroFadePalettes:
 	dc 1, 1, 1, 0

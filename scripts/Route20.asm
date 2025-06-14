@@ -75,10 +75,9 @@ Route20_TextPointers:
 	dw_const Route20Swimmer8Text,           TEXT_ROUTE20_SWIMMER8
 	dw_const Route20Swimmer9Text,           TEXT_ROUTE20_SWIMMER9
 	dw_const Route20Swimmer10Text,          TEXT_ROUTE20_SWIMMER10
-	dw_const Route20Fisher1Text,   			TEXT_ROUTE20_FISHER1
+	dw_const Route20Fisher1Text,   	        TEXT_ROUTE20_FISHER1
 	dw_const Route20SeafoamIslandsSignText, TEXT_ROUTE20_SEAFOAM_ISLANDS_WEST_SIGN
 	dw_const Route20SeafoamIslandsSignText, TEXT_ROUTE20_SEAFOAM_ISLANDS_EAST_SIGN
-
 
 Route20TrainerHeaders:
 	def_trainers
@@ -163,12 +162,6 @@ Route20Swimmer8Text:
 Route20Swimmer9Text:
 	text_asm
 	ld hl, Route20TrainerHeader9
-	call TalkToTrainer
-	jp TextScriptEnd
-
-Route20Swimmer10Text:
-	text_asm
-	ld hl, Route20TrainerHeader10
 	call TalkToTrainer
 	jp TextScriptEnd
 
@@ -296,6 +289,12 @@ Route20SeafoamIslandsSignText:
 	text_far _Route20SeafoamIslandsSignText
 	text_end
 
+Route20Swimmer10Text:
+	text_asm
+	ld hl, Route20TrainerHeader10
+	call TalkToTrainer
+	jp TextScriptEnd
+
 Route20Swimmer10BattleText:
 	text_far _Route20Swimmer10BattleText
 	text_end
@@ -332,12 +331,12 @@ Route20Fisher1Text:
 	text_far _Route20Fisher1ThatsANugget
 	text_end
 
-.GiveNuggetText:
-	text_far _Route20Fisher1GiveNugget
-	text_end
-
 .NoRoomText:
 	text_far _Route20Fisher1NoRoomText
+	text_end
+
+.GiveNuggetText:
+	text_far _Route20Fisher1GiveNugget
 	text_end
 
 .GotNuggetText:

@@ -1,17 +1,15 @@
-EXPORT CheckForPlayerNameInSRAM
-EXPORT InitOptions
-
 MainMenu:
-; Moved to home\init.asm
-;	call InitOptions
-;	xor a
-;	ld [wOptionsInitialized], a
-;	inc a
-;	ld [wSaveFileStatus], a
-;	call CheckForPlayerNameInSRAM
-;	jr nc, .mainMenuLoop
-	
-;	predef LoadSAV
+; Check save file
+	call InitOptions
+	xor a
+	ld [wOptionsInitialized], a
+	inc a
+	ld [wSaveFileStatus], a
+	call CheckForPlayerNameInSRAM
+	jr nc, .mainMenuLoop
+
+	predef LoadSAV
+
 .mainMenuLoop
 	ld c, 20
 	call DelayFrames
@@ -131,19 +129,6 @@ InitOptions:
 	ld [wLetterPrintingDelayFlags], a
 	ld a, TEXT_DELAY_MEDIUM
 	ld [wOptions], a
-	xor a
-	ld [wOptionsInitialized], a
-	inc a
-	ld [wSaveFileStatus], a
-	ret
-
-InitOptions2:
-	ld a, $9c
-	ldh [hAutoBGTransferDest + 1], a
-	xor a
-	ldh [hAutoBGTransferDest], a
-	dec a
-	ld [wUpdateSpritesEnabled], a
 	ret
 
 LinkMenu:
@@ -756,8 +741,7 @@ SetCursorPositionsFromOptions:
 	ld [wOptionsMusicStyleCursorX], a
 	hlcoord 0, 14
 	call .placeUnfilledRightArrow
-
-	; cursor in front of Cancel
+; cursor in front of Cancel
 	hlcoord 0, 16
 	ld a, 1
 .placeUnfilledRightArrow

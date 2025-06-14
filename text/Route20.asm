@@ -148,13 +148,12 @@ _Route20Swimmer9EndBattleText::
 _Route20Swimmer9AfterBattleText::
 	text "There's a volcano"
 	line "near CINNABAR!"
-	text "There's a volcano"
-	line "near CINNABAR!"
 	done
 
 _Route20SeafoamIslandsSignText::
 	text "SEAFOAM ISLANDS"
 	done
+
 
 _Route20Swimmer10BattleText::
 	text "Wait! How did you"

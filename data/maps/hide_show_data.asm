@@ -3,17 +3,17 @@
 MapHSPointers:
 ; entries correspond to map ids
 	table_width 2
-	dw PalletTownHS		; PALLET_TOWN
-	dw ViridianCityHS	; VIRIDIAN_CITY
-	dw PewterCityHS		; PEWTER_CITY
-	dw CeruleanCityHS	; CERULEAN_CITY
-	dw NoHS				
+	dw PalletTownHS
+	dw ViridianCityHS
+	dw PewterCityHS
+	dw CeruleanCityHS
 	dw NoHS
 	dw NoHS
 	dw NoHS
 	dw NoHS
 	dw NoHS
-	dw SaffronCityHS	; SAFFRON_CITY
+	dw NoHS
+	dw SaffronCityHS
 	dw NoHS
 	dw NoHS
 	dw Route2HS
@@ -40,36 +40,36 @@ MapHSPointers:
 	dw NoHS
 	dw Route24HS
 	dw Route25HS
-	dw Route28HS		; ROUTE_28
-	dw MtSilverHS		; MT_SILVER
-	dw CinnabarVolcanoTopHS		; CINNABAR VOLCANO TOP
+	dw Route28HS
+	dw MtSilverHS
+	dw CinnabarVolcanoTopHS
 	dw NoHS
 	dw NoHS
-	dw BluesHouseHS		; BLUES_HOUSE
-	dw OaksLabHS		; OAKS_LAB
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw NoHS
-	dw ViridianGymHS	; VIRIDIAN_GYM
+	dw BluesHouseHS
+	dw OaksLabHS
 	dw NoHS
 	dw NoHS
 	dw NoHS
 	dw NoHS
+	dw ViridianGymHS
 	dw NoHS
-	dw ViridianForestHS	; VIRIDIAN_FOREST
+	dw NoHS
+	dw NoHS
+	dw NoHS
+	dw NoHS
+	dw ViridianForestHS
 	dw Museum1FHS
 	dw NoHS
-	dw PewterGymHS		; PETWER_GYM
+	dw PewterGymHS
 	dw NoHS
 	dw NoHS
 	dw NoHS
 	dw NoHS
-	dw MtMoon1FHS		; MT_MOON_1F
+	dw MtMoon1FHS
 	dw NoHS
 	dw MtMoonB2FHS
 	dw NoHS
-	dw CeruleanTradeHouseHS	; CERULEAN_TRADE_HOUSE
+	dw CeruleanTradeHouseHS
 	dw NoHS
 	dw CeruleanGymHS
 	dw NoHS
@@ -89,20 +89,20 @@ MapHSPointers:
 	dw NoHS
 	dw NoHS
 	dw NoHS
-	dw PowerPlantHS		; POWER_PLANT
+	dw PowerPlantHS
 	dw NoHS
 	dw NoHS
 	dw NoHS
 	dw NoHS
-	dw BillsHouseHS		; BILLS_HOUSE
+	dw BillsHouseHS
 	dw NoHS
 	dw NoHS
 	dw NoHS
-	dw VermilionGymHS	; VERMILION_GYM
+	dw VermilionGymHS
 	dw NoHS
-	dw VermilionDockHS	; VERMILION_DOCK
+	dw VermilionDockHS
 	dw NoHS
-	dw SSAnne2FHS		; SS_ANNE_2F
+	dw SSAnne2FHS
 	dw NoHS
 	dw NoHS
 	dw SSAnneBowHS
@@ -126,7 +126,7 @@ MapHSPointers:
 	dw NoHS
 	dw NoHS
 	dw NoHS
-	dw ChampionsRoomHS		; CHAMPIONS_ROOM
+	dw ChampionsRoomHS
 	dw NoHS
 	dw NoHS
 	dw NoHS
@@ -232,9 +232,9 @@ MapHSPointers:
 	dw NoHS
 	dw NoHS
 	dw NoHS
-	dw CeruleanCave2FHS				; CERULEAN_CAVE_2F
-	dw CeruleanCaveB1FHS			; CERULEAN_CAVE_B1F
-	dw CeruleanCaveHS				; CERULEAN_CAVE_1F
+	dw CeruleanCave2FHS
+	dw CeruleanCaveB1FHS
+	dw CeruleanCaveHS
 	dw NoHS
 	dw NoHS
 	dw NoHS
@@ -266,7 +266,6 @@ NoHS:
 
 MissableObjects:
 ; entries correspond to HS_* constants (see constants/hide_show_constants)
-	table_width 3
 	table_width 3
 ; format: map id, object id, HIDE/SHOW
 

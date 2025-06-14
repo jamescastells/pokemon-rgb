@@ -86,13 +86,9 @@ VermilionCityPlayerAllowedToPassScript:
 VermilionCityPlayerExitShipScript:
 	ld a, A_BUTTON | B_BUTTON | SELECT | START | D_RIGHT | D_LEFT | D_UP | D_DOWN
 	ld [wJoyIgnore], a
-	ld a, [wXCoord]
-	cp $13
-	jr nz, .justMoveUp
 	ld a, D_UP
 	ld [wSimulatedJoypadStatesEnd], a
 	ld [wSimulatedJoypadStatesEnd + 1], a
-	ld [wSimulatedJoypadStatesEnd + 2], a
 	ld a, [wXCoord]
 	cp $13
 	jr nz, .justMoveUp ;fallthrough
@@ -102,7 +98,7 @@ VermilionCityPlayerExitShipScript:
 	ld [wSimulatedJoypadStatesIndex], a
 	jr .startMove
 .justMoveUp
-	ld a, 3
+	ld a, 2
 	ld [wSimulatedJoypadStatesIndex], a
 .startMove
 	call StartSimulatingJoypadStates
@@ -223,7 +219,6 @@ VermilionCitySailor1Text:
 .ship_departed
 	ld hl, .ShipSetSailText
 	call PrintText
-	jr .end
 .end
 	jp TextScriptEnd
 
@@ -240,14 +235,10 @@ VermilionCitySailor1Text:
 	text_far _VermilionCitySailor1DoYouHaveATicketText
 	text_end
 
-.ShipHasReturnedText:
-	text_far _VermilionCitySailor1ShipReturnedText
-	text_end
-
 .DoYouHaveATicketTextAgain:
 	text_far _VermilionCitySailor1DoYouHaveATicketTextAgain
-	text_end	
-
+	text_end
+	
 .FlashedTicketText:
 	text_far _VermilionCitySailor1FlashedTicketText
 	text_end
@@ -258,6 +249,10 @@ VermilionCitySailor1Text:
 
 .ShipSetSailText:
 	text_far _VermilionCitySailor1ShipSetSailText
+	text_end
+
+.ShipHasReturnedText:
+	text_far _VermilionCitySailor1ShipReturnedText
 	text_end
 
 VermilionCityGambler2Text:

@@ -154,12 +154,7 @@ SECTION "Audio Engine 1", ROMX
 
 INCLUDE "crysaudio/engine.asm"
 
-INCLUDE "crysaudio/music_pointers_gen1.asm"
-INCLUDE "crysaudio/music_pointers_gen2.asm"
-
-.continue
-
-
+INCLUDE "crysaudio/music_pointers_red.asm"
 ;INCLUDE "crysaudio/music_pointers.asm"
 
 INCLUDE "crysaudio/music/nothing.asm"
@@ -513,7 +508,3 @@ SECTION "Cries", ROMX
 INCLUDE "crysaudio/cry_headers.asm"
 
 INCLUDE "crysaudio/cries.asm"
-
-
-SECTION "sounds_rom0", ROMX
-

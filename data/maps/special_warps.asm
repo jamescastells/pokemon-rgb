@@ -76,8 +76,6 @@ FlyWarpDataPtr:
 	fly_warp_spec ROUTE_4,         .Route4
 	fly_warp_spec ROUTE_10,        .Route10
 
-; Fly positions
-
 IF DEF(_BLUE)
 .PalletTown:     fly_warp PALLET_TOWN,     13,  6
 ELSE

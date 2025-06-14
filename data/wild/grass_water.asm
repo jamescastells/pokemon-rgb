@@ -39,8 +39,8 @@ WildDataPointers:
 	dw Route25WildMons         ; ROUTE_25
 	dw Route28WildMons		   ; ROUTE_28
 	dw MtSilverWildMons		   ; MT.SILVER
-	dw NothingWildMons		   ; CINNABAR VOLCANO TOP
 	dw NothingWildMons         ; REDS_HOUSE_1F
+	dw NothingWildMons		   ; CINNABAR VOLCANO TOP
 	dw NothingWildMons
 	dw NothingWildMons
 	dw NothingWildMons
@@ -251,10 +251,10 @@ WildDataPointers:
 	dw NothingWildMons
 	dw NothingWildMons
 	dw NothingWildMons
-	dw MtSilver1FWildMons		   ; MT.SILVER CAVE 1F
-	dw MtSilver2FWildMons		   ; MT.SILVER CAVE 2F
-	dw MtSilver3FWildMons		   ; MT.SILVER CAVE 3F
-	dw CinnabarVolcanoWildMons		; CINNABAR VOLCANO
+	dw MtSilver1FWildMons
+	dw MtSilver2FWildMons
+	dw MtSilver3FWildMons
+	dw CinnabarVolcanoWildMons
 	assert_table_length NUM_MAPS
 	dw -1 ; end
 

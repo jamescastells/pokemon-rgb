@@ -231,14 +231,6 @@ FightingDojoHitmonleePokeBallText:
 ;	call PrintText
 ;	jr .done
 ;.GetMon
-	;ld a, HITMONLEE
-	;call DisplayPokedex
-	;ld hl, WantHitmonleeText
-	;call PrintText
-	;call YesNoChoice
-	;ld a, [wCurrentMenuItem]
-	;and a
-	;jr nz, .done
 	ld a, HITMONLEE
 ;	call DisplayPokedex
 ;	ld hl, .Text
@@ -276,14 +268,6 @@ FightingDojoHitmonchanPokeBallText:
 ;	call PrintText
 ;	jr .done
 ;.GetMon
-	;ld a, HITMONCHAN
-	;call DisplayPokedex
-	;ld hl, WantHitmonchanText
-	;call PrintText
-	;call YesNoChoice
-	;ld a, [wCurrentMenuItem]
-	;and a
-	;jr nz, .done
 	ld a, HITMONCHAN
 ;	call DisplayPokedex
 ;	ld hl, .Text

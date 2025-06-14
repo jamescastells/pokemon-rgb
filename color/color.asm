@@ -256,6 +256,7 @@ ELSE ; _RED
 ENDC
 	jr .doneMap
 .boyMap
+
 	ld a, 2
 	ldh [rSVBK], a
 	ld hl, W2_SpritePaletteMap

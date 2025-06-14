@@ -44,7 +44,7 @@ Music_Cities1AlternateTempo::
 	ld c, 100
 	call DelayFrames ; wait for the fade-out to finish
 	ld c, 0 ; BANK(Music_Cities1)
-	ld a, MUSIC_VIRIDIAN
+	ld a, MUSIC_CITIES1
 	call PlayMusic
 	ld hl, wChannel1MusicAddress
 	call ObtainedStoredMusicOption

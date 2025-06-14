@@ -25,7 +25,7 @@ _Route22GateText_MtSilver::
 	line "to MT.SILVER."
 	para "However, it's still"
 	line "under"
-	cont "construction.
+	cont "construction."
 	
 	para "You should stay"
 	line "away for now."

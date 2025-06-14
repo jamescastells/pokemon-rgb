@@ -9,7 +9,6 @@ _Route22GateGuardNoBoulderbadgeText::
 
 _Route22GateGuardICantLetYouPassText::
 	text_start
-
 	para "The rules are"
 	line "rules. I can't"
 	cont "let you pass."
@@ -24,18 +23,35 @@ _Route22GateGuardGoRightAheadText::
 _Route22GateText_MtSilver::
 	text "This route leads"
 	line "to MT.SILVER."
-	para "However, it's"
-	line "still under"
-	cont "construction."
+	para "However, it's still"
+	line "under"
+	cont "construction.
+	
 	para "You should stay"
-	line "out for now."
+	line "away for now."
 	done
 
 _Route22GateText_MtSilverCome::
 	text "It's the CHAMPION"
 	line "of the LEAGUE!"
+	
 	para "This is MT.SILVER."
+	
 	para "Perhaps you could"
 	line "help us clear the"
 	cont "new route!"
+	done
+	
+_Route22GateText_MtSilverDone::
+	text "Unreal..."
+	para "Every GYM LEADER"
+	line "came through."
+
+	para "With their help,"
+	line "the mountain path"
+	cont "is finally clear."
+
+	para "Whatever's waiting"
+	line "up there..."
+	cont "Good luck."
 	done

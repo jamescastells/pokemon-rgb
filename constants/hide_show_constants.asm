@@ -34,7 +34,6 @@ DEF SHOW EQU $15
 	const HS_SAFFRON_CITY_D                ; 16
 	const HS_SAFFRON_CITY_E                ; 17
 	const HS_SAFFRON_CITY_F                ; 18
-	const HS_ROUTE_1_OAK		      	   ; 19 added
 	const HS_ROUTE_2_ITEM_1                ; 1A X
 	const HS_ROUTE_2_ITEM_2                ; 1B X
 	const HS_ROUTE_4_ITEM                  ; 1C X
@@ -62,10 +61,7 @@ DEF SHOW EQU $15
 	const HS_MT_SILVER_CAVE_WEEZING1 	   ; 32 Post game
 	const HS_MT_SILVER_CAVE_WEEZING2 	   ; 33 Post game
 	const HS_MT_SILVER_CAVE_FULL_RESTORE   ; 34 Post game
-	const HS_CINNABARVOLCANO_BOULDER1		; Cinnabar Volcano
-	const HS_CINNABARVOLCANO_BOULDER2		; Cinnabar Volcano
-	const HS_CINNABARVOLCANO_BOULDER3		; Cinnabar Volcano
-	const HS_CINNABARVOLCANO_BOULDER4		; Cinnabar Volcano
+	const HS_MOLTRES
 	const HS_DAISY_SITTING                 ; 35
 	const HS_DAISY_WALKING                 ; 36
 	const HS_TOWN_MAP                      ; 37
@@ -83,9 +79,7 @@ DEF SHOW EQU $15
 	const HS_OLD_AMBER                     ; 43
 	const HS_PEWTER_GYM_BROCK1             ; 44 added
 	const HS_PEWTER_GYM_BROCK2             ; 45 added
-	const HS_CERULEAN_CAVE_1F_ITEM_1       ; 46 X
-	const HS_CERULEAN_CAVE_1F_ITEM_2       ; 47 X
-	const HS_CERULEAN_CAVE_1F_ITEM_3       ; 48 X
+; Cerulean Cave 1F moved
 	const HS_POKEMON_TOWER_2F_RIVAL        ; 49
 	const HS_POKEMON_TOWER_3F_ITEM         ; 4A X
 	const HS_POKEMON_TOWER_4F_ITEM_1       ; 4B X
@@ -111,6 +105,7 @@ DEF SHOW EQU $15
 	const HS_CINNABAR_GYM_BLAINE2          ; 5F added
 	const HS_FIGHTING_DOJO_GIFT_1          ; 60
 	const HS_FIGHTING_DOJO_GIFT_2          ; 61
+	const HS_SAFFRON_GYM_SABRINA
 	const HS_SILPH_CO_1F_RECEPTIONIST      ; 62
 	const HS_VOLTORB_1                     ; 63 X
 	const HS_VOLTORB_2                     ; 64 X
@@ -126,7 +121,7 @@ DEF SHOW EQU $15
 	const HS_POWER_PLANT_ITEM_3            ; 6E X
 	const HS_POWER_PLANT_ITEM_4            ; 6F X
 	const HS_POWER_PLANT_ITEM_5            ; 70 X
-	const HS_MOLTRES                       ; 71 X
+	const HS_VICTORY_ROAD_2F_ITEM_0        ; 71 X
 	const HS_VICTORY_ROAD_2F_ITEM_1        ; 72 X
 	const HS_VICTORY_ROAD_2F_ITEM_2        ; 73 X
 	const HS_VICTORY_ROAD_2F_ITEM_3        ; 74 X
@@ -149,10 +144,13 @@ DEF SHOW EQU $15
 	const HS_MT_MOON_B2F_ITEM_1            ; 85 X
 	const HS_MT_MOON_B2F_ITEM_2            ; 86 X
 	const HS_CERULEAN_BULBASAUR            ; 87 added
+	const HS_CERULEAN_GYM_MISTY1
+	const HS_CERULEAN_GYM_MISTY2
 	const HS_VERMILION_GYM_LT_SURGE1       ; 88 added
 	const HS_VERMILION_GYM_LT_SURGE2       ; 89 added
 	const HS_VERMILION_DOCK_MEW            ; 8A added
 	const HS_SS_ANNE_2F_RIVAL              ; 8B
+	const HS_SS_ANNE_BOW_OAK
 	const HS_SS_ANNE_1F_ROOMS_ITEM         ; 8C X
 	const HS_SS_ANNE_2F_ROOMS_ITEM_1       ; 8D X
 	const HS_SS_ANNE_2F_ROOMS_ITEM_2       ; 8E X
@@ -249,7 +247,20 @@ DEF SHOW EQU $15
 	const HS_MT_SILVER1F_BOULDER1A
 	const HS_MT_SILVER1F_BOULDER2A
 	const HS_MT_SILVER1F_BOULDER3A
-	const HS_SAFFRON_GYM_SABRINA           ; FE added
+	const HS_MT_SILVER2F_WHIRLPOOL1
+	const HS_MT_SILVER2F_WHIRLPOOL2
+	const HS_MT_SILVER2F_MISTY
+	const HS_MT_SILVER2F_ESCAPE_ROPE
+	const HS_MT_SILVER2F_TM_DRAGON_RAGE
+	const HS_MT_SILVER3F_GIOVANNI
+	const HS_MT_SILVER3F_ROCKET1
+	const HS_MT_SILVER3F_ROCKET2
+	const HS_MT_SILVER3F_ROCKET3
+	const HS_CINNABARVOLCANO_BOULDER1
+	const HS_CINNABARVOLCANO_BOULDER2
+	const HS_CINNABARVOLCANO_BOULDER3
+	const HS_CINNABARVOLCANO_BOULDER4
+	const HS_CINNABARVOLCANO_FIRE_STONE
 	
 DEF NUM_HS_OBJECTS EQU const_value
 
@@ -275,6 +286,9 @@ DEF NUM_HS_OBJECTS EQU const_value
 	const HS_POKEMON_MANSION_B1F_ITEM_5    ; D8 X
 	const HS_VICTORY_ROAD_1F_ITEM_1        ; EA X
 	const HS_VICTORY_ROAD_1F_ITEM_2        ; EB X
+	const HS_CERULEAN_CAVE_1F_ITEM_1       ; 46 X
+	const HS_CERULEAN_CAVE_1F_ITEM_2       ; 47 X
+	const HS_CERULEAN_CAVE_1F_ITEM_3       ; 48 X
 	const HS_CERULEAN_CAVE_2F_ITEM_1       ; E4 X
 	const HS_CERULEAN_CAVE_2F_ITEM_2       ; E5 X
 	const HS_CERULEAN_CAVE_2F_ITEM_3       ; E6 X
@@ -286,5 +300,7 @@ DEF NUM_HS_OBJECTS EQU const_value
 	const HS_ROCKET_HIDEOUT_B2F_ITEM_4     ; 9A X
 	const HS_ROCKET_HIDEOUT_B3F_ITEM_1     ; 9B X
 	const HS_ROCKET_HIDEOUT_B3F_ITEM_2     ; 9C X
+	const HS_CINNABARVOLCANOB1F_ITEM_1
+	const HS_CINNABARVOLCANOB1F_ITEM_2
 	
 DEF	NUM_EXTRA_HS_OBJECTS EQU const_value

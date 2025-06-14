@@ -6,7 +6,7 @@ CinnabarVolcanoWildMons:
 	db  30, WEEZING
 	db  34, GRAVELER
 	db  31, GRAVELER
-	db  35, VULPIX
+	db  35, KOFFING
 	db  30, ZUBAT
 	db  28, GEODUDE
 	db  30, GEODUDE

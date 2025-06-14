@@ -2086,7 +2086,7 @@ wMtSilver1FCurScript:: db
 wMtSilver2FCurScript:: db
 wMtSilver3FCurScript:: db
 wCinnabarVolcanoTopCurScript:: db
-	ds 1
+wCinnabarVolcanoCurScript:: db
 wGameProgressFlagsEnd::
 
 wPlayerGender::

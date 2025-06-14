@@ -18,8 +18,8 @@ MtSilver_ScriptPointers:
 
 MtSilverErikaScript:
 	CheckEvent EVENT_ERIKA_REMATCH_BEAT
-	ret nz ; set to nz for debug
-	ld hl, MtSilverScriptErikaCoords
+	ret z ; set to nz for debug
+	ld hl, MtSilverErikaCoords
 	call ArePlayerCoordsInArray
 	ret nc
 	xor a
@@ -64,7 +64,7 @@ MtSilverErikaScript:
 	db NPC_MOVEMENT_UP
 	db -1 ; end
 	
-MtSilverScriptErikaCoords:
+MtSilverErikaCoords:
 	dbmapcoord  35,   22
 	dbmapcoord  35,   23
 	db -1 ; end
@@ -127,11 +127,11 @@ MtSilverErikaExitScript:
 	
 MtSilverBlaineScript:
 	CheckEvent EVENT_BLAINE_REMATCH_BEAT
-	jr z, .BlaineWalk ; set to z for debug
+	jr nz, .BlaineWalk ; set to z for debug
 	call MtSilverStumpsScript
 	ret
 .BlaineWalk
-	ld hl, MtSilverScriptBlaineCoords
+	ld hl, MtSilverBlaineCoords
 	call ArePlayerCoordsInArray
 	ret nc
 	xor a
@@ -172,7 +172,7 @@ MtSilverBlaineScript:
 	db NPC_MOVEMENT_RIGHT
 	db -1 ; end
 	
-MtSilverScriptBlaineCoords:
+MtSilverBlaineCoords:
 	dbmapcoord  31,   24
 	dbmapcoord  31,   25
 	db -1 ; end
@@ -247,7 +247,7 @@ MtSilverKogaScript:
 	call MtSilverBurnedScript
 	CheckEvent EVENT_KOGA_REMATCH_BEAT
 	ret z
-	ld hl, MtSilverScriptKogaCoords
+	ld hl, MtSilverKogaCoords
 	call ArePlayerCoordsInArray
 	ret nc
 	xor a
@@ -288,7 +288,7 @@ MtSilverKogaScript:
 	db NPC_MOVEMENT_DOWN
 	db -1 ; end
 	
-MtSilverScriptKogaCoords:
+MtSilverKogaCoords:
 	dbmapcoord  14, 8
 	dbmapcoord  15, 8
 	db -1 ; end
@@ -374,6 +374,8 @@ MtSilverStumpsScript:
 	ld b, 12
 	ld c, 11
 	predef ReplaceTileBlock
+	xor a
+    ld [wSkipRedraw], a
 	ld a, [wXCoord] ; Dont redraw if too far right
 	cp $1e
 	ret nc
@@ -423,6 +425,8 @@ MtSilverBurnedScript:
 	ld b, 12
 	ld c, 11
 	predef ReplaceTileBlock
+	xor a
+    ld [wSkipRedraw], a
 	ld a, [wXCoord] ; Dont redraw if too far right
 	cp $1e
 	ret nc

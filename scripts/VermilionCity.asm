@@ -51,8 +51,8 @@ VermilionCityDefaultScript:
 	ld a, TEXT_VERMILIONCITY_SAILOR1
 	ldh [hTextID], a
 	call DisplayTextID
-	CheckEvent EVENT_PLAYER_IS_CHAMPION
-	jr z, .check_ticket			; set z for debug
+	CheckEvent EVENT_GIOVANNI_REMATCH_BEAT
+	jr nz, .check_ticket	
 	CheckEvent EVENT_SS_ANNE_LEFT
 	jr nz, .ship_departed
 .check_ticket
@@ -175,10 +175,8 @@ VermilionCityGambler1Text:
 
 VermilionCitySailor1Text:
 	text_asm
-	CheckEvent EVENT_PLAYER_IS_CHAMPION
-	jr z, .welcome		; set z for debug
-	CheckEvent EVENT_PLAYER_IS_CHAMPION
-	jr z, .welcome		; set z for debug
+	CheckEvent EVENT_GIOVANNI_REMATCH_BEAT
+	jr nz, .welcome	
 	CheckEvent EVENT_SS_ANNE_LEFT
 	jr nz, .ship_departed
 .welcome
@@ -189,8 +187,8 @@ VermilionCitySailor1Text:
 	call ArePlayerCoordsInArray
 	jr nc, .greet_player_and_check_ticket
 .greet_player
-	CheckEvent EVENT_PLAYER_IS_CHAMPION
-	jr z, .greet_player_ship_has_returned	; set z for debug
+	CheckEvent EVENT_GIOVANNI_REMATCH_BEAT
+	jr nz, .greet_player_ship_has_returned
 	ld hl, .WelcomeToSSAnneText
 	call PrintText
 	jr .end
@@ -199,8 +197,8 @@ VermilionCitySailor1Text:
 	call PrintText
 	jr .end
 .greet_player_and_check_ticket
-	CheckEvent EVENT_PLAYER_IS_CHAMPION
-	jr z, .greet_player_ship_has_returned_and_check_ticket	; set z for debug
+	CheckEvent EVENT_GIOVANNI_REMATCH_BEAT
+	jr nz, .greet_player_ship_has_returned_and_check_ticket
 	ld hl, .DoYouHaveATicketText
 	call PrintText
 	jr .check_ticket
@@ -260,6 +258,10 @@ VermilionCitySailor1Text:
 
 .ShipSetSailText:
 	text_far _VermilionCitySailor1ShipSetSailText
+	text_end
+
+.ShipHasReturnedText:
+	text_far _VermilionCitySailor1ShipReturnedText
 	text_end
 
 VermilionCityGambler2Text:

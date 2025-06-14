@@ -41,6 +41,7 @@ MapHeaderPointers::
 	dw Route28_h
 	dw MtSilver_h
 	dw CinnabarVolcanoTop_h
+	dw CinnabarVolcanoTop_h
 	dw RedsHouse1F_h
 	dw RedsHouse2F_h
 	dw BluesHouse_h

@@ -2066,7 +2066,6 @@ wSilphCo11FCurScript:: db
 	ds 1
 wFuchsiaGymCurScript:: db
 wSaffronGymCurScript:: db
-	ds 1
 wCinnabarGymCurScript:: db
 wGameCornerCurScript:: db
 wRoute16Gate1FCurScript:: db
@@ -2074,7 +2073,6 @@ wBillsHouseCurScript:: db
 wRoute5GateCurScript:: db
 wPowerPlantCurScript:: ; overload
 wRoute7GateCurScript:: db
-wRoute1CurScript:: db
 wSSAnne2FCurScript:: db
 wSeafoamIslandsB3FCurScript:: db
 wRoute23CurScript:: db
@@ -2085,8 +2083,9 @@ wMtSilverCurScript:: db
 wMtSilver1FCurScript:: db
 wMtSilver2FCurScript:: db
 wMtSilver3FCurScript:: db
+wCinnabarVolcanoCurScript:: db
+wCinnabarVolcanoB1FCurScript:: db
 wCinnabarVolcanoTopCurScript:: db
-	ds 1
 wGameProgressFlagsEnd::
 
 wPlayerGender::

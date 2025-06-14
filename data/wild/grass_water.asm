@@ -41,6 +41,7 @@ WildDataPointers:
 	dw MtSilverWildMons		   ; MT.SILVER
 	dw NothingWildMons			; CINNABAR VOLCANO TOP
 	dw NothingWildMons         ; REDS_HOUSE_1F
+	dw NothingWildMons		   ; CINNABAR VOLCANO TOP
 	dw NothingWildMons
 	dw NothingWildMons
 	dw NothingWildMons
@@ -108,6 +109,7 @@ WildDataPointers:
 	dw NothingWildMons
 	dw NothingWildMons
 	dw NothingWildMons
+	dw CinnabarVolcanoB1FWildMons	; CINNABAR VOLCANO B1F
 	dw CinnabarVolcanoB1FWildMons	; CINNABAR VOLCANO B1F
 	dw NothingWildMons
 	dw NothingWildMons

@@ -283,12 +283,9 @@ UpdateMovingBgTiles::
 	ret c
 	cp 21
 	jr z, .flower
-
+	
 	ld b, 0
-
-; water
 .water
-
 	ld a, b
 	and a 			; b=0, watertileset
 	jr z, .watertileset

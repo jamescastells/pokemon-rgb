@@ -9,6 +9,7 @@
 	const_export ROUTE20_SWIMMER7
 	const_export ROUTE20_SWIMMER8
 	const_export ROUTE20_SWIMMER9
+	const_export ROUTE20_SWIMMER10
 
 Route20_Object:
 	db $43 ; border block

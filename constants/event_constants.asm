@@ -454,9 +454,6 @@
 	const EVENT_BEAT_ROUTE_20_TRAINER_10
 	const EVENT_GOT_NUGGET_OF_WISDOM
 	const_skip 1
-	const EVENT_BEAT_ROUTE_20_TRAINER_10
-	const EVENT_GOT_NUGGET_OF_WISDOM
-	const_skip 1
 	const EVENT_SEAFOAM1_BOULDER1_DOWN_HOLE
 	const EVENT_SEAFOAM1_BOULDER2_DOWN_HOLE
 
@@ -785,11 +782,6 @@ DEF INDIGO_PLATEAU_EVENTS_END EQU const_value - 1
 	const EVENT_SEAFOAM4_BOULDER2_DOWN_HOLE
 	const_skip 8
 	const EVENT_BEAT_ARTICUNO
-
-; Cinnabar Volcano Top events
-	const_next $9E0
-	const_skip
- 	const EVENT_BEAT_MOLTRES
 	
 ; Post Game events and Volcano events
 	const_next $9E0

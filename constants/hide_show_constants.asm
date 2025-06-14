@@ -61,10 +61,6 @@ DEF SHOW EQU $15
 	const HS_MT_SILVER_CAVE_WEEZING1 	   ; 32 Post game
 	const HS_MT_SILVER_CAVE_WEEZING2 	   ; 33 Post game
 	const HS_MT_SILVER_CAVE_FULL_RESTORE   ; 34 Post game
-	const HS_CINNABARVOLCANO_BOULDER1		; Cinnabar Volcano
-	const HS_CINNABARVOLCANO_BOULDER2		; Cinnabar Volcano
-	const HS_CINNABARVOLCANO_BOULDER3		; Cinnabar Volcano
-	const HS_CINNABARVOLCANO_BOULDER4		; Cinnabar Volcano
 	const HS_MOLTRES
 	const HS_DAISY_SITTING                 ; 35
 	const HS_DAISY_WALKING                 ; 36

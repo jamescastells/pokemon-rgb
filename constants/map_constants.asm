@@ -263,7 +263,7 @@ DEF FIRST_INDOOR_MAP EQU const_value
 	map_const UNUSED_MAP_EE,                  0,  0 ; $F2
 	map_const TRADE_CENTER,                   5,  4 ; $F3
 	map_const COLOSSEUM,                      5,  4 ; $F4
-	map_const UNUSED_MAP_F1,                  0,  0 ; $F5
+	map_const MT_SILVER_HIDDEN_FLOOR,         7,  5 ; $F5
 	map_const UNUSED_MAP_F2,                  0,  0 ; $F6
 	map_const UNUSED_MAP_F3,                  0,  0 ; $F7
 	map_const UNUSED_MAP_F4,                  0,  0 ; $F8

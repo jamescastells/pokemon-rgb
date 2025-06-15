@@ -12,6 +12,7 @@ MtSilver2F_Object:
 	def_warp_events
 	warp_event 19, 33, MT_SILVER_CAVE_1F, 3
 	warp_event  7,  5, MT_SILVER_CAVE_3F, 1
+	warp_event 21,  3, MT_SILVER_HIDDEN_FLOOR, 1
 
 	def_bg_events
 

@@ -541,9 +541,8 @@ GiovanniData:
 	db $FF, 37, NIDORINO, 35, KANGASKHAN, 37, RHYHORN, 41, NIDOQUEEN, 0
 ; Viridian Gym
 	db $FF, 45, RHYHORN, 42, DUGTRIO, 44, NIDOQUEEN, 45, NIDOKING, 50, RHYDON, 0
-; MtSilver 3F
+; MtSilver Hidden Floor
 	db $FF, 76, PERSIAN, 75, KANGASKHAN, 74, NIDOQUEEN, 77, DUGTRIO, 75, TAUROS, 78, RHYDON, 0
-
 
 RocketData:
 ; Mt. Moon B2F
@@ -607,10 +606,6 @@ RocketData:
 ; Silph Co. 11F
 	db 25, RATTATA, RATTATA, ZUBAT, RATTATA, EKANS, 0
 	db 32, CUBONE, DROWZEE, MAROWAK, 0
-; Mt Silver 3F
-	db 55, MACHOKE, MAROWAK, 0
-	db 57, RATICATE, GOLBAT, WEEZING, 0
-	db 59, SANDSLASH, HYPNO, ARBOK, 0
 			
 CooltrainerMData:
 ; Viridian Gym

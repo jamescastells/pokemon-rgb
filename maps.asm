@@ -1259,3 +1259,8 @@ INCLUDE "data/maps/headers/CinnabarVolcanoB1F.asm"
 INCLUDE "scripts/CinnabarVolcanoB1F.asm"
 INCLUDE "data/maps/objects/CinnabarVolcanoB1F.asm"
 CinnabarVolcanoB1F_Blocks: INCBIN "maps/CinnabarVolcanoB1F.blk"
+
+INCLUDE "data/maps/headers/MtSilverHiddenFloor.asm"
+INCLUDE "scripts/MtSilverHiddenFloor.asm"
+INCLUDE "data/maps/objects/MtSilverHiddenFloor.asm"
+MtSilverHiddenFloor_Blocks: INCBIN "maps/MtSilverHiddenFloor.blk"

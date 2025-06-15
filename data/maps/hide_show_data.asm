@@ -15,7 +15,7 @@ MapHSPointers:
 	dw NoHS
 	dw SaffronCityHS	; SAFFRON_CITY
 	dw NoHS
-	dw NoHS			; ROUTE_1
+	dw NoHS				; ROUTE_1
 	dw Route2HS			; ROUTE_2
 	dw NoHS				; ROUTE_3
 	dw Route4HS			; ROUTE_4
@@ -111,7 +111,7 @@ MapHSPointers:
 	dw SSAnne1FRoomsHS
 	dw SSAnne2FRoomsHS
 	dw SSAnneB1FRoomsHS
-	dw CinnabarVolcaonB1FHS
+	dw CinnabarVolcanoB1FHS
 	dw NoHS
 	dw NoHS
 	dw VictoryRoad1FHS
@@ -247,7 +247,7 @@ MapHSPointers:
 	dw NoHS							; Unused map
 	dw NoHS							; TRADE_CENTER
 	dw NoHS							; COLOSSEUM
-	dw NoHS							; Unused map
+	dw MtSilverHiddenFloorHS		; MT_SILVER_HIDDEN_FLOOR
 	dw NoHS							; Unused map
 	dw NoHS							; Unused map
 	dw UnusedMapF4HS				; Unused map
@@ -255,7 +255,7 @@ MapHSPointers:
 	dw NoHS							; BRUNOS_ROOM
 	dw NoHS							; AGATHAS_ROOM
 	dw MtSilver1FHS					; MT_SILVER_CAVE_1F
-	dw NoHS							; MT_SILVER_CAVE_2F
+	dw MtSilver2FHS					; MT_SILVER_CAVE_2F
 	dw NoHS							; MT_SILVER_CAVE_3F
 	dw CinnabarVolcanoHS			; CINNABAR_VOLCANO
 	assert_table_length NUM_MAPS
@@ -589,11 +589,8 @@ MtSilver2FHS:
 	db MT_SILVER_CAVE_2F, MT_SILVER2F_MISTY,          HIDE
 	db MT_SILVER_CAVE_2F, MT_SILVER2F_ESCAPE_ROPE,    SHOW
 	db MT_SILVER_CAVE_2F, MT_SILVER2F_TM_DRAGON_RAGE, SHOW
-MtSilver3FHS:
-	db MT_SILVER_CAVE_3F, MT_SILVER3F_GIOVANNI, SHOW
-	db MT_SILVER_CAVE_3F, MT_SILVER3F_ROCKET1,  SHOW
-	db MT_SILVER_CAVE_3F, MT_SILVER3F_ROCKET2,  SHOW
-	db MT_SILVER_CAVE_3F, MT_SILVER3F_ROCKET3,  SHOW
+MtSilverHiddenFloorHS:
+	db MT_SILVER_HIDDEN_FLOOR, MT_SILVERHIDDENFLOOR_GIOVANNI, SHOW
 CinnabarVolcanoHS:
 	db CINNABAR_VOLCANO, CINNABARVOLCANO_BOULDER1,   SHOW
 	db CINNABAR_VOLCANO, CINNABARVOLCANO_BOULDER2,   SHOW
@@ -657,7 +654,7 @@ RocketHideoutB2FHS:
 RocketHideoutB3FHS:
 	db ROCKET_HIDEOUT_B3F, ROCKETHIDEOUTB3F_TM_DOUBLE_EDGE, SHOW
 	db ROCKET_HIDEOUT_B3F, ROCKETHIDEOUTB3F_RARE_CANDY,     SHOW
-CinnabarVolcaonB1FHS:
+CinnabarVolcanoB1FHS:
 	db CINNABAR_VOLCANO_B1F, CINNABARVOLCANOB1F_MAX_ETHER, SHOW
 	db CINNABAR_VOLCANO_B1F, CINNABARVOLCANOB1F_X_SPECIAL, SHOW
 	db $FF, $01, SHOW ; end

@@ -290,7 +290,7 @@ UpdateMovingBgTiles::
 .water
 
 	ld a, b
-	and a 			; b=0, watertileset
+	and a 						; b=0, watertileset
 	jr z, .watertileset
 	ld hl, vTileset tile $00	; b=1, lavatileset
 	jr .continueAnimation
@@ -332,6 +332,11 @@ UpdateMovingBgTiles::
 	ret z
 
 	inc b
+	
+	ld a, [hTileAnimations]
+	cp TILEANIM_WATER_LAVA
+	ret nz
+
 	jr .water
 
 .flower

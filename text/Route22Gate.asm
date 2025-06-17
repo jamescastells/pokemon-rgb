@@ -23,8 +23,8 @@ _Route22GateGuardGoRightAheadText::
 _Route22GateText_MtSilver::
 	text "This route leads"
 	line "to MT.SILVER."
-	para "However, it's still"
-	line "under"
+	para "However, it's"
+	line "still under"
 	cont "construction."
 	
 	para "You should stay"

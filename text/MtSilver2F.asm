@@ -1,5 +1,6 @@
 _MtSilver2FWhirlpoolText::
-	text "Woosh, woosh!"
+	text "It's a vicious"
+	line "whirlpool!"
 	
 	para "GUARD: Hold up!"
 	line "It's not safe."

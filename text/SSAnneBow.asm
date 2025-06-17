@@ -52,61 +52,109 @@ _SSAnneBowSailor3AfterBattleText::
 	done
 
 _SSAnneBowOakPreBattleText::
-	text "Ah, <PLAYER>..."
-	para "I knew we'd meet"
-	line "again, someday."
+	text "Hello, <PLAYER>."
 
-	para "You’ve climbed"
-	line "every mountain,"
-	cont "tamed every sky."
+	para "I see that he"
+	line "told you to"
+	cont "come here."
 
-	para "The world of"
-	line "#MON is vast,"
-	cont "but you've made"
-	cont "it feel small."
+	para "That's right."
+	line "GIOVANNI sent you"
+	cont "here, correct?"
 
-	para "To think, you were"
-	line "once a kid from"
-	cont "PALLET TOWN..."
+	para "You look"
+	line "surprised."
 
-	para "It seems you’ve"
-	line "gone farther than"
-	cont "anyone had ever"
-	cont "thought possible."
+	para "How would I know"
+	line "that?"
 
-	para "Badges, titles..."
-	line "They are just"
-	cont "tokens, words."
+	para "It's because this"
+	line "is just part of"
+	cont "the story,"
+	cont "<PLAYER>."
 
-	para "What matters is"
-	line "bonds between you"
-	cont "and your #MON."
+	para "You see..."
+	line "I know what's"
+	cont "been troubling"
+	cont "you."
 
-	para "Now show me what"
-	line "those bonds have"
-	cont "become."
+	para "You feel that"
+	line "you've done all of"
+	cont "this before, just"
+	cont "a bit"
+	cont "differently."
+
+	para "I'm here to tell"
+	line "you that you're"
+	cont "right."
+
+	para "The GYM LEADERS,"
+	line "the TRAINERS,"
+	cont "the LEAGUE..."
+	cont "you've done all"
+	cont "those things."
+
+	para "And I was always"
+	line "watching you."
+	cont "Maybe... in a"
+	cont "colorless world."
+
+	para "We've done all of"
+	line "those things."
+	cont "Perhaps we're"
+	cont "destined to do"
+	cont "this, over and"
+	cont "over again."
+
+	para "But this is"
+	line "where that"
+	cont "classic tale"
+	cont "diverges."
+
+	para "I'll do what I"
+	line "must to see"
+	cont "you fulfill your"
+	cont "destiny."
+
+	para "...Because you"
+	line "have to be there"
+	cont "when he arrives."
+
+	para "And you must be"
+	line "the greatest"
+	cont "trainer there is."
+
+	para "So here I am,"
+	line "helping you"
+	cont "become that."
 	
-	para "I challenge you"
-	line "<PLAYER>!"
+	para "I, PROF. OAK,"
+	line "will battle you,"
+	cont "so you become the"
+	cont "legend you're"
+	cont "supposed to be."
 	done
 
 _SSAnneBowOakEndBattleText::
-	text "Guess"
-	line "I'm better at"
-	cont "research than"
-	cont "battling!"
+	text "Everything"
+	line "is coming"
+	cont "together."
 	prompt
 	
 _SSAnneBowOakPostBattleText::
-	text "Oh my, I have"
-	line "really lost track"
-	cont "of the time."
+	text "We've done it,"
+	line "<PLAYER>."
+	cont "We had our long"
+	cont "awaited and lost"
+	cont "battle."
+
+	para "Now that it is"
+	line "done, go to"
+	cont "where you must"
+	cont "be."
+
+	para "So he finds you"
+	line "there."
 	
-	para "I have to run"
-	line "back to the lab."
-	
-	para "Stop by to visit"
-	line "whenever you can"
-	cont "to show me your"
-	cont "#DEX!"
+	para "Farewell."
 	done

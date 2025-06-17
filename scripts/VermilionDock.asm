@@ -15,10 +15,6 @@ VermilionDock_Script:
 	jr z, .exitingSSAnne
 	ld a, [wDestinationWarpID]
 	cp $3
-	cp $2
-	jr z, .exitingSSAnne
-	ld a, [wDestinationWarpID]
-	cp $3
 	ret nz
 .exitingSSAnne	
 	CheckEventReuseHL EVENT_SS_ANNE_LEFT

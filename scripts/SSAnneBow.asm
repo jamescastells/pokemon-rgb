@@ -41,11 +41,15 @@ SSAnneBowOakPostBattleScript:
 	ld a, SCRIPT_SSANNEBOW_OAK_EXIT
 	ld [wSSAnneBowCurScript], a	
 	ld [wCurMapScript], a
+	SetEvent EVENT_BEAT_PROF_OAK
 	ret
 	
 .OakWalkAroundMovement:
 	db NPC_MOVEMENT_DOWN
 .OakWalkRightMovement:
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
+	db NPC_MOVEMENT_RIGHT
 	db NPC_MOVEMENT_RIGHT
 	db NPC_MOVEMENT_RIGHT
 	db NPC_MOVEMENT_RIGHT

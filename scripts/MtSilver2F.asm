@@ -1,4 +1,5 @@
 MtSilver2F_Script:
+	call ReplaceSpaceWithStairs
 	call EnableAutoTextBoxDrawing
 	ld hl, MtSilver2F_ScriptPointers
 	ld a, [wMtSilver2FCurScript]
@@ -13,6 +14,19 @@ MtSilver2F_ScriptPointers:
 
 MtSilver2FNoopScript:
 ret
+
+ReplaceSpaceWithStairs:
+	ld hl, wCurrentMapScriptFlags
+	bit BIT_CUR_MAP_LOADED_1, [hl]
+	res BIT_CUR_MAP_LOADED_1, [hl]
+	ret z
+	CheckEvent EVENT_BEAT_PROF_OAK
+	ret nz 	; set to nz for debug
+	ld a, $7C
+	ld [wNewTileBlockID], a
+	ld b, 2
+	ld c, 3
+	predef_jump ReplaceTileBlock
 
 MtSilver2FDefaultScript:
 	CheckEvent EVENT_MISTY_REMATCH_BEAT
@@ -59,8 +73,8 @@ MtSilver2FDefaultScript:
 	db -1 ; end
 	
 MtSilver2FMistyCoords:
-	dbmapcoord  1,   20
-	dbmapcoord  2,   20
+	dbmapcoord  1,   18
+	dbmapcoord  2,   18
 	db -1 ; end
 	
 MtSilver2FMistyTalkScript:

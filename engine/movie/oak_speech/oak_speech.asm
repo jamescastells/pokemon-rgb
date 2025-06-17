@@ -262,15 +262,6 @@ FadeInIntroPic:
 	jr nz, .next
 	ret
 
-ObtainWhichTrackToPlay:
-    ld a, [wOptions]
-    and %00010000   ; mask bit 4
-    srl a           ; shift it into bit 3
-    srl a           ; into bit 2
-    srl a           ; into bit 1
-    srl a           ; into bit 0
-	ret 
-
 IntroFadePalettes:
 	dc 1, 1, 1, 0
 	dc 2, 2, 2, 0

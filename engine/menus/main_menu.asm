@@ -107,6 +107,8 @@ MainMenu:
 	jp nz, .mainMenuLoop
 	jr .inputLoop
 .pressedA
+	ld a, [wSavedIntroTileAnimations]
+	ldh [hTileAnimations], a
 	call GBPalWhiteOutWithDelay3
 	call ClearScreen
 	ld a, PLAYER_DIR_DOWN

@@ -104,6 +104,10 @@ DEF rLCDC_DEFAULT EQU (1 << rLCDC_ENABLE) | (1 << rLCDC_WINDOW_TILEMAP) | (1 << 
 	call CheckForPlayerNameInSRAM
 	jr nc, .continue
 	predef LoadSAV
+	ldh a, [hTileAnimations]
+	ld [wSavedIntroTileAnimations], a
+	xor a
+	ldh [hTileAnimations], a
 .continue
 	predef LoadSGB
 		
@@ -126,11 +130,6 @@ DEF rLCDC_DEFAULT EQU (1 << rLCDC_ENABLE) | (1 << rLCDC_WINDOW_TILEMAP) | (1 << 
 	ld a, rLCDC_DEFAULT
 	ldh [rLCDC], a
 	
-	call CheckForPlayerNameInSRAM
-	jr nc, .noSave
-	predef LoadSAV
-.noSave
-
 	jp PrepareTitleScreen
 
 ClearVram::

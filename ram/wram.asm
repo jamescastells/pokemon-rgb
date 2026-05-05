@@ -1404,6 +1404,9 @@ wSubAnimCounter:: db
 ; 2 = save file exists and no corruption has been detected
 wSaveFileStatus:: db
 
+; saved tile animation state (restored after intro when Continue is selected)
+wSavedIntroTileAnimations:: db
+
 ; number of tiles in current battle animation frame block
 wNumFBTiles:: db
 

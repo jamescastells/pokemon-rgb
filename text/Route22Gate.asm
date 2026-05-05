@@ -23,12 +23,14 @@ _Route22GateGuardGoRightAheadText::
 _Route22GateText_MtSilver::
 	text "This route leads"
 	line "to MT.SILVER."
-	para "However, it's"
-	line "still under"
-	cont "construction."
+	para "It's full of"
+	line "powerful #MON."
 	
-	para "You should stay"
-	line "away for now."
+	para "Only the LEAGUE"
+	line "CHAMPION can"
+	cont "access here."
+	cont "Sorry, you can't"
+	cont "go through."
 	done
 
 _Route22GateText_MtSilverCome::

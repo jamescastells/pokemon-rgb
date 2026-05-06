@@ -293,8 +293,6 @@ OverworldLoopLessDelay::
 	ld a, [wWalkBikeSurfState] 	; Prevent running while surfing
 	cp $02
 	jr z, .notRunning
-	CheckEvent EVENT_GOT_RUNNING_SHOES 	; Prevent running before receiving shoes
-	jr z, .notRunning
 	ld a, [hJoyHeld]
 	and B_BUTTON
 	jr nz, .checkIfWalking

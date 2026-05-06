@@ -339,7 +339,7 @@ _CinnabarGymQuizIntroText::
 
 _CinnabarQuizQuestionsText1::
 	text "CATERPIE evolves"
-	line "into BUTTERFREE?"
+	line "into METAPOD?"
 	done
 
 _CinnabarQuizQuestionsText2::

@@ -61,6 +61,7 @@ OakEntryMovement:
 	db NPC_MOVEMENT_UP
 	db NPC_MOVEMENT_UP
 	db NPC_MOVEMENT_UP
+	db NPC_MOVEMENT_UP
 	db -1 ; end
 
 OaksLabHideShowOaksScript:
@@ -469,6 +470,7 @@ OaksLabRivalStartsExitScript:
 	db NPC_MOVEMENT_DOWN
 	db NPC_MOVEMENT_DOWN
 	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
 	db -1 ; end
 
 OaksLabPlayerWatchRivalExitScript:
@@ -598,7 +600,6 @@ OaksLabOakGivesPokedexScript:
 	ldh [hTextID], a
 	call DisplayTextID
 	SetEvent EVENT_GOT_POKEDEX
-	SetEvent EVENT_GOT_RUNNING_SHOES
 	SetEvent EVENT_OAK_GOT_PARCEL
 	ld a, HS_LYING_OLD_MAN
 	ld [wMissableObjectIndex], a
@@ -680,23 +681,23 @@ OaksLabCalcRivalMovementScript:
 	ld a, [wYCoord]
 	cp 3
 	jr nz, .not_below_oak
-	ld a, $4
+	ld a, $5
 	ld [wNPCMovementDirections2Index], a
 	ld a, $30
-	ld b, 11
+	ld b, 12
 	jr .done
 .not_below_oak
 	cp 1
 	jr nz, .not_above_oak
-	ld a, $2
-	ld [wNPCMovementDirections2Index], a
-	ld a, $30
-	ld b, 9
-	jr .done
-.not_above_oak
 	ld a, $3
 	ld [wNPCMovementDirections2Index], a
+	ld a, $30
 	ld b, 10
+	jr .done
+.not_above_oak
+	ld a, $4
+	ld [wNPCMovementDirections2Index], a
+	ld b, 11
 	ld a, [wXCoord]
 	cp 4
 	jr nz, .not_left_of_oak

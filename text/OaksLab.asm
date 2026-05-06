@@ -105,18 +105,11 @@ _OaksLabOak1DeliverParcelText::
 	text_end
 
 _OaksLabOak1ParcelThanksText::
-;	text_start
-;	para "Ah! This is the"
-;	line "custom # BALL"
-;	cont "I ordered!"
-;	cont "Thank you!"
-;	done
 	text_start
-	para "Hm? RUNNING SHOES?"
-	line "This isn't what I"
-	cont "ordered. Oh well,"
-	cont "you can take them."
-	cont "I don't run!"
+	para "Ah! This is the"
+	line "custom # BALL"
+	cont "I ordered!"
+	cont "Thank you!"
 	done
 	
 _OaksLabOak1ByTheWayText::
@@ -156,7 +149,7 @@ _OaksLabGivePokeballsExplanationText::
 
 	para "Just throw a #"
 	line "BALL at it and"
-	line "try to catch it!"
+	cont "try to catch it!"
 
 	para "This won't always"
 	line "work, though."

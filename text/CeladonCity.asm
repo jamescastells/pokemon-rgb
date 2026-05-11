@@ -41,7 +41,7 @@ _CeladonCityGramps3Text::
 
 _CeladonCityGramps3ReceivedTM41Text::
 	text "<PLAYER> received"
-	line "@"
+	line '@'
 	text_ram wStringBuffer
 	text "!@"
 	text_end

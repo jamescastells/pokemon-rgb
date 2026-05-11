@@ -194,7 +194,7 @@ StatusAilmentText2:
 	next " FRZ"
 	next " QUIT@"
 
-	db "@" ; unused
+	db '@' ; unused
 
 ViridianBlackboardStatusPointers:
 	dw ViridianBlackboardSleepText

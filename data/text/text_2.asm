@@ -27,7 +27,7 @@ _TradeWentToText::
 
 _TradeForText::
 	text "For <PLAYER>'s"
-	line "@"
+	line '@'
 	text_ram wStringBuffer
 	text ","
 	done
@@ -35,7 +35,7 @@ _TradeForText::
 _TradeSendsText::
 	text_ram wLinkEnemyTrainerName
 	text " sends"
-	line "@"
+	line '@'
 	text_ram wNameBuffer
 	text "."
 	done
@@ -54,7 +54,7 @@ _TradeTransferredText::
 
 _TradeTakeCareText::
 	text "Take good care of"
-	line "@"
+	line '@'
 	text_ram wNameBuffer
 	text "."
 	done
@@ -69,7 +69,7 @@ _TradeWillTradeText::
 
 _TradeforText::
 	text "for <PLAYER>'s"
-	line "@"
+	line '@'
 	text_ram wStringBuffer
 	text "."
 	done
@@ -759,7 +759,7 @@ _VermilionGymTrashFailText::
 
 _FoundHiddenItemText::
 	text "<PLAYER> found"
-	line "@"
+	line '@'
 	text_ram wNameBuffer
 	text "!@"
 	text_end
@@ -772,14 +772,14 @@ _HiddenItemBagFullText::
 
 _FoundHiddenCoinsText::
 	text "<PLAYER> found"
-	line "@"
+	line '@'
 	text_bcd hCoins, 2 | LEADING_ZEROES | LEFT_ALIGN
 	text " coins!@"
 	text_end
 
 _FoundHiddenCoins2Text::
 	text "<PLAYER> found"
-	line "@"
+	line '@'
 	text_bcd hCoins, 2 | LEADING_ZEROES | LEFT_ALIGN
 	text " coins!@"
 	text_end
@@ -882,7 +882,7 @@ _MoneyForWinningText::
 
 _TrainerDefeatedText::
 	text "<PLAYER> defeated"
-	line "@"
+	line '@'
 	text_ram wTrainerName
 	text "!"
 	prompt
@@ -912,7 +912,7 @@ _PlayerBlackedOutText2::
 
 _LinkBattleLostText::
 	text "<PLAYER> lost to"
-	line "@"
+	line '@'
 	text_ram wTrainerName
 	text "!"
 	prompt
@@ -921,7 +921,7 @@ _TrainerAboutToUseText::
 	text_ram wTrainerName
 	text " is"
 	line "about to use"
-	cont "@"
+	cont '@'
 	text_ram wEnemyMonNick
 	text "!"
 
@@ -985,7 +985,7 @@ _NoMovesLeftText::
 
 _MultiHitText::
 	text "Hit the enemy"
-	line "@"
+	line '@'
 	text_decimal wPlayerNumHits, 1, 1
 	text " times!"
 	prompt
@@ -1078,7 +1078,7 @@ _CantMoveText::
 
 _MoveIsDisabledText::
 	text "<USER>'s"
-	line "@"
+	line '@'
 	text_ram wNameBuffer
 	text " is"
 	cont "disabled!"
@@ -1100,12 +1100,12 @@ _Used2Text::
 
 _InsteadText::
 	text "instead,"
-	cont "@"
+	cont '@'
 	text_end
 
 _MoveNameText::
 	text_ram wStringBuffer
-	text "@"
+	text '@'
 
 _ExclamationPoint1Text::
 	text "!"
@@ -1216,17 +1216,17 @@ _HitXTimesText::
 _GainedText::
 	text_ram wNameBuffer
 	text " gained"
-	line "@"
+	line '@'
 	text_end
 
 _WithExpAllText::
 	text "with EXP.ALL,"
-	cont "@"
+	cont '@'
 	text_end
 
 _BoostedText::
 	text "a boosted"
-	cont "@"
+	cont '@'
 	text_end
 
 _ExpPointsText::
@@ -1251,7 +1251,7 @@ _WildMonAppearedText::
 
 _HookedMonAttackedText::
 	text "The hooked"
-	line "@"
+	line '@'
 	text_ram wEnemyMonNick
 	text_start
 	cont "attacked!"
@@ -1522,7 +1522,7 @@ _WithdrawHowManyText::
 
 _WithdrewItemText::
 	text "Withdrew"
-	line "@"
+	line '@'
 	text_ram wNameBuffer
 	text "."
 	prompt
@@ -1614,7 +1614,7 @@ _ReleaseWhichMonText::
 
 _OnceReleasedText::
 	text "Once released,"
-	line "@"
+	line '@'
 	text_ram wStringBuffer
 	text " is"
 	cont "gone forever. OK?"
@@ -1650,7 +1650,7 @@ _HereYouGoText::
 
 _SoYouWantPrizeText::
 	text "So, you want"
-	line "@"
+	line '@'
 	text_ram wNameBuffer
 	text "?"
 	done
@@ -1788,7 +1788,7 @@ _HisNameIsText::
 _WillBeTradedText::
 	text_ram wNameOfPlayerMonToBeTraded
 	text " and"
-	line "@"
+	line '@'
 	text_ram wNameBuffer
 	text " will"
 	cont "be traded."

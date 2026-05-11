@@ -42,6 +42,7 @@ MapSpriteSets:
 	db SPRITESET_INDIGO          ; ROUTE_28
 	db SPRITESET_INDIGO          ; MT.SILVER
 	db SPRITESET_CYCLING_ROAD	 ; CINNABAR_VOLCANO_TOP
+	db SPRITESET_INDIGO          ; UNKNOWN_ROUTE
 	assert_table_length FIRST_INDOOR_MAP
 
 ; Format:

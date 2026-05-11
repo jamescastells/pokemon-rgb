@@ -43,8 +43,9 @@ MapHSPointers:
 	dw Route28HS		; ROUTE_28
 	dw MtSilverHS		; MT_SILVER
 	dw CinnabarVolcanoTopHS		; CINNABAR VOLCANO TOP
-	dw NoHS
-	dw NoHS
+	dw NoHS	; UNKNOWN_ROUTE
+	dw NoHS				; RED'S HOUSE 1F
+	dw NoHS				; RED'S HOUSE 2F
 	dw BluesHouseHS		; BLUES_HOUSE
 	dw OaksLabHS		; OAKS_LAB
 	dw NoHS
@@ -111,8 +112,7 @@ MapHSPointers:
 	dw SSAnne1FRoomsHS
 	dw SSAnne2FRoomsHS
 	dw SSAnneB1FRoomsHS
-	dw CinnabarVolcanoB1FHS
-	dw NoHS
+	dw CinnabarVolcanoB1FHS		; CINNNABAR_VOLCANO_B1F
 	dw NoHS
 	dw VictoryRoad1FHS
 	dw NoHS

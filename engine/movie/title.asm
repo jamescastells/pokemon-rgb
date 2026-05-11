@@ -359,7 +359,7 @@ DrawPlayerCharacter:
 ClearBothBGMaps:
 	ld hl, vBGMap0
 	ld bc, $400 * 2
-	ld a, " "
+	ld a, ' '
 	jp FillMemory
 
 LoadTitleMonSprite:
@@ -392,7 +392,7 @@ CopyrightTextString:
 	db   $60,$61,$62,$61,$63,$61,$64,$7F,$65,$66,$67,$68,$69,$6A             ; ©'95.'96.'98 Nintendo
 	next $60,$61,$62,$61,$63,$61,$64,$7F,$6B,$6C,$6D,$6E,$6F,$70,$71,$72     ; ©'95.'96.'98 Creatures inc.
 	next $60,$61,$62,$61,$63,$61,$64,$7F,$73,$74,$75,$76,$77,$78,$79,$7A,$7B ; ©'95.'96.'98 GAME FREAK inc.
-	db   "@"
+	db   '@'
 
 INCLUDE "data/pokemon/title_mons.asm"
 
@@ -404,7 +404,7 @@ PrintGameVersionOnTitleScreen:
 
 ; these point to special tiles specifically loaded for that purpose and are not usual text
 VersionOnTitleScreenText:
-	db $61,$62,$63,$64,$65,$66,$67,$68,"@" ; "Blue Version"
+	db $61,$62,$63,$64,$65,$66,$67,$68,'@' ; "Blue Version"
 
 DebugNewGamePlayerName:
 	db "NINTEN@"

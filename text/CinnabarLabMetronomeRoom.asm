@@ -8,7 +8,7 @@ _CinnabarLabMetronomeRoomScientist1Text::
 
 _CinnabarLabMetronomeRoomScientist1ReceivedTM35Text::
 	text "<PLAYER> received "
-	line "@"
+	line '@'
 	text_ram wStringBuffer
 	text "!@"
 	text_end

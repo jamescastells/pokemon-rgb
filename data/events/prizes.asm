@@ -10,13 +10,13 @@ PrizeMenuMon1Entries:
 	db ABRA
 	db CLEFAIRY
 	db EEVEE
-	db "@"
+	db '@'
 
 PrizeMenuMon1Cost:
 	bcd2 120
 	bcd2 500
 	bcd2 1200
-	db "@"
+	db '@'
 
 PrizeMenuMon2Entries:
 IF DEF(_RED)
@@ -27,22 +27,22 @@ IF DEF(_BLUE)
 ENDC
 	db DRATINI
 	db PORYGON
-	db "@"
+	db '@'
 
 PrizeMenuMon2Cost:
 	bcd2 2500
 	bcd2 4600
 	bcd2 6500
-	db "@"
+	db '@'
 
 PrizeMenuTMsEntries:
 	db TM_DRAGON_RAGE
 	db TM_HYPER_BEAM
 	db TM_SUBSTITUTE
-	db "@"
+	db '@'
 
 PrizeMenuTMsCost:
 	bcd2 3300
 	bcd2 5500
 	bcd2 7700
-	db "@"
+	db '@'

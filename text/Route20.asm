@@ -200,7 +200,7 @@ _Route20Fisher1GiveNugget::
 
 _Route20Fisher1GotNuggetText::
 	text "<PLAYER> got"
-	line "@"
+	line '@'
 	text_ram wStringBuffer
 	text "!@"
 	text_end

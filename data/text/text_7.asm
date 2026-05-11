@@ -28,14 +28,14 @@ _GotOffBicycleText2::
 
 _ThrewAwayItemText::
 	text "Threw away"
-	line "@"
+	line '@'
 	text_ram wNameBuffer
 	text "."
 	prompt
 
 _IsItOKToTossItemText::
 	text "Is it OK to toss"
-	line "@"
+	line '@'
 	text_ram wStringBuffer
 	text "?"
 	prompt
@@ -48,7 +48,7 @@ _TooImportantToTossText::
 _AlreadyKnowsText::
 	text_ram wNameBuffer
 	text " knows"
-	line "@"
+	line '@'
 	text_ram wStringBuffer
 	text "!"
 	prompt
@@ -60,22 +60,22 @@ _ConnectCableText::
 
 _TradedForText::
 	text "<PLAYER> traded"
-	line "@"
+	line '@'
 	text_ram wInGameTradeGiveMonName
 	text " for"
-	cont "@"
+	cont '@'
 	text_ram wInGameTradeReceiveMonName
 	text "!@"
 	text_end
 
 _WannaTrade1Text::
 	text "I'm looking for"
-	line "@"
+	line '@'
 	text_ram wInGameTradeGiveMonName
 	text "! Wanna"
 
 	para "trade one for"
-	line "@"
+	line '@'
 	text_ram wInGameTradeReceiveMonName
 	text "? "
 	done
@@ -87,7 +87,7 @@ _NoTrade1Text::
 
 _WrongMon1Text::
 	text "What? That's not"
-	line "@"
+	line '@'
 	text_ram wInGameTradeGiveMonName
 	text "!"
 
@@ -101,7 +101,7 @@ _Thanks1Text::
 
 _AfterTrade1Text::
 	text "Isn't my old"
-	line "@"
+	line '@'
 	text_ram wInGameTradeReceiveMonName
 	text " great?"
 	done
@@ -125,7 +125,7 @@ _NoTrade2Text::
 
 _WrongMon2Text::
 	text "Hmmm? This isn't"
-	line "@"
+	line '@'
 	text_ram wInGameTradeGiveMonName
 	text "."
 
@@ -148,7 +148,7 @@ _AfterTrade2Text::
 
 _WannaTrade3Text::
 	text "Hi! Do you have"
-	line "@"
+	line '@'
 	text_ram wInGameTradeGiveMonName
 	text "?"
 
@@ -164,7 +164,7 @@ _NoTrade3Text::
 
 _WrongMon3Text::
 	text "...This is no"
-	line "@"
+	line '@'
 	text_ram wInGameTradeGiveMonName
 	text "."
 
@@ -178,7 +178,7 @@ _Thanks3Text::
 
 _AfterTrade3Text::
 	text "How is my old"
-	line "@"
+	line '@'
 	text_ram wInGameTradeReceiveMonName
 	text "?"
 

@@ -14,7 +14,7 @@ _Route1Youngster1MartSampleText::
 
 _Route1Youngster1GotPotionText::
 	text "<PLAYER> got"
-	line "@"
+	line '@'
 	text_ram wStringBuffer
 	text "!@"
 	text_end

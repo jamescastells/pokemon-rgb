@@ -10,7 +10,7 @@ _MtMoonB2FHelixFossilYouWantText::
 
 _MtMoonB2FReceivedFossilText::
 	text "<PLAYER> got the"
-	line "@"
+	line '@'
 	text_ram wStringBuffer
 	text "!@"
 	text_end

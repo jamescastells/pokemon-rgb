@@ -11,7 +11,7 @@ SilphCo2FSilphWorkerFPleaseTakeThisText::
 
 _SilphCo2FSilphWorkerFReceivedTM36Text::
 	text "<PLAYER> got"
-	line "@"
+	line '@'
 	text_ram wStringBuffer
 	text "!@"
 	text_end

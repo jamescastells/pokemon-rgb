@@ -9,7 +9,7 @@ _CeladonMart3FClerkTM18PreReceiveText::
 
 _CeladonMart3FClerkReceivedTM18Text::
 	text "<PLAYER> received"
-	line "@"
+	line '@'
 	text_ram wStringBuffer
 	text "!@"
 	text_end

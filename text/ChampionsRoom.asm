@@ -95,7 +95,7 @@ _ChampionsRoomOakCongratulatesPlayerText::
 	para "You've grown up so"
 	line "much since you"
 	cont "first left with"
-	cont "@"
+	cont '@'
 	text_ram wNameBuffer
 	text "!"
 

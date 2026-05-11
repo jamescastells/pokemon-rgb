@@ -1,6 +1,3 @@
-EXPORT CheckForPlayerNameInSRAM
-EXPORT InitOptions
-
 MainMenu:
 ; Moved to home\init.asm
 ;	call InitOptions
@@ -129,6 +126,7 @@ MainMenu:
 	jp SpecialEnterMap
 
 InitOptions:
+	EXPORT InitOptions
 	ld a, 1 << BIT_FAST_TEXT_DELAY
 	ld [wLetterPrintingDelayFlags], a
 	ld a, TEXT_DELAY_MEDIUM
@@ -244,9 +242,9 @@ LinkMenu:
 	ld a, START_TRANSFER_INTERNAL_CLOCK
 	ldh [rSC], a
 .skipStartingTransfer
-	ld b, " "
-	ld c, " "
-	ld d, "▷"
+	ld b, ' '
+	ld c, ' '
+	ld d, '▷'
 	ld a, [wLinkMenuSelectionSendBuffer]
 	and B_BUTTON << 2 ; was B button pressed?
 	jr nz, .updateCursorPosition
@@ -766,7 +764,7 @@ SetCursorPositionsFromOptions:
 	ld e, a
 	ld d, 0
 	add hl, de
-	ld [hl], "▷"
+	ld [hl], '▷'
 	ret
 
 ; table that indicates how the 3 text speed options affect frame delays
@@ -783,6 +781,7 @@ CheckForPlayerNameInSRAM::
 ; Check if the player name data in SRAM has a string terminator character
 ; (indicating that a name may have been saved there) and return whether it does
 ; in carry.
+	EXPORT CheckForPlayerNameInSRAM
 	ld a, SRAM_ENABLE
 	ld [MBC1SRamEnable], a
 	ld a, $1
@@ -792,7 +791,7 @@ CheckForPlayerNameInSRAM::
 	ld hl, sPlayerName
 .loop
 	ld a, [hli]
-	cp "@"
+	cp '@'
 	jr z, .found
 	dec b
 	jr nz, .loop

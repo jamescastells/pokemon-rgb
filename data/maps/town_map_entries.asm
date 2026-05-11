@@ -48,6 +48,7 @@ ExternalMapEntries:
 	external_map  0,  8, Route28Name
 	external_map  0,  8, MtSilverName
 	external_map  3, 14, CinnabarVolcanoName
+	external_map  3, 15, UnknownRouteName
 	assert_table_length FIRST_INDOOR_MAP
 
 

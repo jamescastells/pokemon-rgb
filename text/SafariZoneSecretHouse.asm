@@ -16,7 +16,7 @@ _SafariZoneSecretHouseFishingGuruYouHaveWonText::
 
 _SafariZoneSecretHouseFishingGuruReceivedHM03Text::
 	text "<PLAYER> received"
-	line "@"
+	line '@'
 	text_ram wStringBuffer
 	text "!@"
 	text_end

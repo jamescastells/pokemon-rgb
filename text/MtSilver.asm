@@ -18,7 +18,7 @@ _MtSilverTreeGuardText_Blaine::
 	para "But without a"
 	line "FIRE-type expert,"
 	cont "it'd spread out"
-	cont "of controll!"
+	cont "of control!"
 	done
 
 _MtSilverTreeGuardText_Done::

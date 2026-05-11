@@ -28,7 +28,7 @@ _ItemUseBallText04::
 
 _ItemUseBallText05::
 	text "All right!"
-	line "@"
+	line '@'
 	text_ram wEnemyMonNick
 	text " was"
 	cont "caught!@"
@@ -51,14 +51,14 @@ _ItemUseBallText08::
 _ItemUseBallText06::
 	text "New #DEX data"
 	line "will be added for"
-	cont "@"
+	cont '@'
 	text_ram wEnemyMonNick
 	text "!@"
 	text_end
 
 _SurfingGotOnText::
 	text "<PLAYER> got on"
-	line "@"
+	line '@'
 	text_ram wNameBuffer
 	text "!"
 	prompt
@@ -71,7 +71,7 @@ _SurfingNoPlaceToGetOffText::
 _VitaminStatRoseText::
 	text_ram wNameBuffer
 	text "'s"
-	line "@"
+	line '@'
 	text_ram wStringBuffer
 	text " rose."
 	prompt
@@ -111,9 +111,9 @@ _PlayedFluteHadEffectText::
 
 _CoinCaseNumCoinsText::
 	text "Coins"
-	line "@"
+	line '@'
 	text_bcd wPlayerCoins, 2 | LEADING_ZEROES | LEFT_ALIGN
-	text " "
+	text ' '
 	prompt
 
 _ItemfinderFoundItemText::
@@ -163,7 +163,7 @@ _BootedUpHMText::
 
 _TeachMachineMoveText::
 	text "It contained"
-	line "@"
+	line '@'
 	text_ram wStringBuffer
 	text "!"
 
@@ -177,12 +177,12 @@ _MonCannotLearnMachineMoveText::
 	text_ram wNameBuffer
 	text " is not"
 	line "compatible with"
-	cont "@"
+	cont '@'
 	text_ram wStringBuffer
 	text "."
 
 	para "It can't learn"
-	line "@"
+	line '@'
 	text_ram wStringBuffer
 	text "."
 	prompt
@@ -219,7 +219,7 @@ _NoCyclingAllowedHereText::
 
 _NoSurfingHereText::
 	text "No SURFing on"
-	line "@"
+	line '@'
 	text_ram wNameBuffer
 	text " here!"
 	prompt

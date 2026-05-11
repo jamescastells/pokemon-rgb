@@ -28,7 +28,7 @@ _CopycatsHouse2FCopycatTM31PreReceiveText::
 
 _CopycatsHouse2FCopycatReceivedTM31Text::
 	text "<PLAYER> received"
-	line "@"
+	line '@'
 	text_ram wStringBuffer
 	text "!@"
 	text_end

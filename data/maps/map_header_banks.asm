@@ -41,6 +41,7 @@ MapHeaderBanks::
 	db BANK(Route28_h)
 	db BANK(MtSilver_h)
 	db BANK(CinnabarVolcanoTop_h)
+	db BANK(UnknownRoute_h)
 	db BANK(RedsHouse1F_h)
 	db BANK(RedsHouse2F_h)
 	db BANK(BluesHouse_h)
@@ -110,7 +111,6 @@ MapHeaderBanks::
 	db BANK(SSAnne2FRooms_h)
 	db BANK(SSAnneB1FRooms_h)
 	db BANK(CinnabarVolcanoB1F_h)
-	db $1D ; UNUSED_MAP_6A
 	db $1D ; UNUSED_MAP_6B
 	db BANK(VictoryRoad1F_h)
 	db $1D ; UNUSED_MAP_6D

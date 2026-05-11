@@ -34,7 +34,7 @@ _NameRatersHouseNameRaterWhatShouldWeNameItText::
 _NameRatersHouseNameRaterPokemonHasBeenRenamedText::
 	text "OK! This #MON"
 	line "has been renamed"
-	cont "@"
+	cont '@'
 	text_ram wBuffer
 	text "!"
 
@@ -54,7 +54,7 @@ _NameRatersHouseNameRaterATrulyImpeccableNameText::
 	cont "impeccable name!"
 
 	para "Take good care of"
-	line "@"
+	line '@'
 	text_ram wNameBuffer
 	text "!"
 	done

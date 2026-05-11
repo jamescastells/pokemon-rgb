@@ -74,7 +74,7 @@ _CannotGetOffHereText::
 
 _GotMonText::
 	text "<PLAYER> got"
-	line "@"
+	line '@'
 	text_ram wNameBuffer
 	text "!@"
 	text_end
@@ -82,7 +82,7 @@ _GotMonText::
 _SentToBoxText::
 	text "There's no more"
 	line "room for #MON!"
-	cont "@"
+	cont '@'
 	text_ram wBoxMonNicks
 	text " was"
 	cont "sent to #MON"

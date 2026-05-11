@@ -16,7 +16,7 @@ _CeladonMartRoofLittleGirlYayFreshWaterText::
 
 _CeladonMartRoofLittleGirlReceivedTM13Text::
 	text "<PLAYER> received"
-	line "@"
+	line '@'
 	text_ram wStringBuffer
 	text "!@"
 	text_end
@@ -24,7 +24,7 @@ _CeladonMartRoofLittleGirlReceivedTM13Text::
 _CeladonMartRoofLittleGirlTM13ExplanationText::
 	text_start
 
-	para "@"
+	para '@'
 	text_ram wStringBuffer
 	text " contains"
 	line "ICE BEAM!"
@@ -46,7 +46,7 @@ _CeladonMartRoofLittleGirlYaySodaPopText::
 
 _CeladonMartRoofLittleGirlReceivedTM48Text::
 	text "<PLAYER> received"
-	line "@"
+	line '@'
 	text_ram wStringBuffer
 	text "!@"
 	text_end
@@ -54,7 +54,7 @@ _CeladonMartRoofLittleGirlReceivedTM48Text::
 _CeladonMartRoofLittleGirlTM48ExplanationText::
 	text_start
 
-	para "@"
+	para '@'
 	text_ram wStringBuffer
 	text " contains"
 	line "ROCK SLIDE!"

@@ -1,6 +1,6 @@
 _DaycareGentlemanAllRightThenText::
 	text "All right then."
-	line "@"
+	line '@'
 	text_end
 
 _DaycareGentlemanComeAgainText::

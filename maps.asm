@@ -1264,3 +1264,8 @@ INCLUDE "data/maps/headers/MtSilverHiddenFloor.asm"
 INCLUDE "scripts/MtSilverHiddenFloor.asm"
 INCLUDE "data/maps/objects/MtSilverHiddenFloor.asm"
 MtSilverHiddenFloor_Blocks: INCBIN "maps/MtSilverHiddenFloor.blk"
+
+INCLUDE "data/maps/headers/UnknownRoute.asm"
+INCLUDE "scripts/UnknownRoute.asm"
+INCLUDE "data/maps/objects/UnknownRoute.asm"
+UnknownRoute_Blocks: INCBIN "maps/UnknownRoute.blk"

@@ -6,7 +6,7 @@ _Route23YouDontHaveTheBadgeYetText::
 	text "!"
 
 	para "You don't have the"
-	line "@"
+	line '@'
 	text_ram wNameBuffer
 	text " yet!"
 
@@ -23,7 +23,7 @@ _Route23OhThatIsTheBadgeText::
 	text "!"
 
 	para "Oh! That is the"
-	line "@"
+	line '@'
 	text_ram wNameBuffer
 	text "!@"
 	text_end

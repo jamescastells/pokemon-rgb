@@ -33,7 +33,7 @@ _SSAnneCaptainsRoomCaptainIFeelMuchBetterText::
 
 _SSAnneCaptainsRoomCaptainReceivedHM01Text::
 	text "<PLAYER> got"
-	line "@"
+	line '@'
 	text_ram wStringBuffer
 	text "!@"
 	text_end

@@ -37,12 +37,12 @@ _CinnabarLabFossilRoomScientist1FossilIsBackToLifeText::
 
 _CinnabarLabFossilRoomScientist1SeesFossilText::
 	text "Oh! That is"
-	line "@"
+	line '@'
 	text_ram wNameBuffer
 	text "!"
 
 	para "It is fossil of"
-	line "@"
+	line '@'
 	text_ram wStringBuffer
 	text ", a"
 	cont "#MON that is"

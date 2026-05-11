@@ -47,7 +47,7 @@ _DaycareGentlemanOweMoneyText::
 
 _DaycareGentlemanGotMonBackText::
 	text "<PLAYER> got"
-	line "@"
+	line '@'
 	text_ram wDayCareMonName
 	text " back!"
 	done

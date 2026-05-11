@@ -79,7 +79,7 @@ UnusedPlayerNameLengthFunc:
 	lb bc, $ff, $00
 .loop
 	ld a, [hli]
-	cp "@"
+	cp '@'
 	ret z
 	dec c
 	jr .loop
@@ -98,13 +98,13 @@ DiplomaTextPointersAndCoords:
 	diploma_text  9, 16, DiplomaGameFreak
 
 DiplomaText:
-	db CIRCLE_TILE_ID, "Diploma", CIRCLE_TILE_ID, "@"
+	db CIRCLE_TILE_ID, "Diploma", CIRCLE_TILE_ID, '@'
 
 DiplomaPlayer:
 	db "Player@"
 
 DiplomaEmptyText:
-	db "@"
+	db '@'
 
 DiplomaCongrats:
 	db   "Congrats! This"

@@ -9,7 +9,7 @@
 	charmap "<SCROLL>",  $4c
 	charmap "<NEXT>",    $4e
 	charmap "<LINE>",    $4f
-	charmap "@",         $50 ; string terminator
+	charmap '@',         $50 ; string terminator
 	charmap "<PARA>",    $51
 	charmap "<PLAYER>",  $52 ; wPlayerName
 	charmap "<RIVAL>",   $53 ; wRivalName
@@ -60,7 +60,7 @@
 	charmap "│",         $7c
 	charmap "└",         $7d
 	charmap "┘",         $7e
-	charmap " ",         $7f
+	charmap ' ',         $7f
 
 ; Actual characters (from gfx/font/font_battle_extra.png)
 

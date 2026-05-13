@@ -134,7 +134,7 @@ InitOptions:
 	xor a
 	ld [wOptionsInitialized], a
 	inc a
-	ld [wSaveFileStatus], a
+	;ld [wSaveFileStatus], a
 	ret
 
 InitOptions2:

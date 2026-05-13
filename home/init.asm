@@ -100,7 +100,7 @@ DEF rLCDC_DEFAULT EQU (1 << rLCDC_ENABLE) | (1 << rLCDC_WINDOW_TILEMAP) | (1 << 
 	xor a
 	ld [wOptionsInitialized], a
 	inc a
-	ld [wSaveFileStatus], a
+	;ld [wSaveFileStatus], a
 	call CheckForPlayerNameInSRAM
 	jr nc, .continue
 	predef LoadSAV

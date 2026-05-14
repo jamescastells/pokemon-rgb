@@ -1,6 +1,6 @@
 _CinnabarVolcanoHeatText_Warning::
-	text "You feel hot air"
-	line "blast upward."
+	text "There's hot air"
+	line "blasting upward!"
 	
 	para "Better not get"
 	line "any closer."
@@ -13,5 +13,6 @@ _CinnabarVolcanoSign1Text::
 	
 _CinnabarVolcanoSign2Text::
 	text "CINNABAR VOLCANO"
-	line "Cave exit."
+	line "Beware of the"
+	cont "lava."
 	done

@@ -765,6 +765,8 @@ ExtraWarpCheck::
 	jr z, .useFunction2
 	cp VIRIDIAN_FOREST
 	jr z, .useFunction2
+	cp CINNABAR_VOLCANO
+	jr z, .useFunction2
 	cp SAFARI_ZONE_CENTER
 	jr z, .useFunction2
 	cp SAFARI_ZONE_EAST

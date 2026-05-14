@@ -63,11 +63,12 @@ BikeShopClerkText:
 	call PlaceString
 	ld hl, BikeShopClerkDoYouLikeItText
 	call PrintText
+	; This fixes the bike shop instatext glitch
+	ld hl, wStatusFlags5
+	res BIT_NO_TEXT_DELAY, [hl]
 	call HandleMenuInput
 	bit BIT_B_BUTTON, a
 	jr nz, .cancel
-	ld hl, wStatusFlags5
-	res BIT_NO_TEXT_DELAY, [hl]
 	ld a, [wCurrentMenuItem]
 	and a
 	jr nz, .cancel

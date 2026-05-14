@@ -11,7 +11,7 @@ WildDataPointers:
 	dw NothingWildMons         ; CINNABAR_ISLAND
 	dw NothingWildMons         ; INDIGO_PLATEAU
 	dw NothingWildMons         ; SAFFRON_CITY
-	dw NothingWildMons         ; unused
+	dw NothingWildMons         ; UNUSED_MAP_0B
 	dw Route1WildMons          ; ROUTE_1
 	dw Route2WildMons          ; ROUTE_2
 	dw Route3WildMons          ; ROUTE_3
@@ -40,21 +40,22 @@ WildDataPointers:
 	dw Route28WildMons		   ; ROUTE_28
 	dw MtSilverWildMons		   ; MT.SILVER
 	dw NothingWildMons         ; CINNABAR VOLCANO TOP
+	dw NothingWildMons		   ; UNKNOWN_ROUTE
 	dw NothingWildMons		   ; REDS_HOUSE_1F
-	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
-	dw NothingWildMons
-	dw ViridianForestWildMons ; ViridianForest
+	dw NothingWildMons         ; REDS_HOUSE_2F
+	dw NothingWildMons		   ; BLUES_HOUSE
+	dw NothingWildMons		   ; OAKS_LAB
+	dw NothingWildMons		   ; VIRIDIAN_POKECENTER
+	dw NothingWildMons         ; VIRIDIAN_MART
+	dw NothingWildMons		   ; VIRIDIAN_SCHOOL_HOUSE
+	dw NothingWildMons         ; VIRIDIAN_NICKNAME_HOUSE
+	dw NothingWildMons         ; VIRIDIAN_GYM
+	dw NothingWildMons		   ; DIGLETTS_CAVE_ROUTE_2
+	dw NothingWildMons		   ; VIRIDIAN_FOREST_NORTH_GATE
+	dw NothingWildMons         ; ROUTE_2_TRADE_HOUSE
+	dw NothingWildMons         ; ROUTE_2_GATE
+	dw NothingWildMons		   ; VIRIDIAN_FOREST_SOUTH_GATE
+	dw ViridianForestWildMons  ; VIRIDIAN_FOREST
 	dw NothingWildMons
 	dw NothingWildMons
 	dw NothingWildMons
@@ -109,7 +110,6 @@ WildDataPointers:
 	dw NothingWildMons
 	dw NothingWildMons
 	dw CinnabarVolcanoB1FWildMons	; CINNABAR VOLCANO B1F
-	dw NothingWildMons
 	dw NothingWildMons
 	dw VictoryRoad1FWildMons
 	dw NothingWildMons

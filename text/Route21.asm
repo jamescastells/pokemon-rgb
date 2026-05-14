@@ -138,7 +138,7 @@ _Route21Fisher4AfterBattleText::
 	
 _Route21Sign1Text::
 	text "CINNABAR VOLCANO"
-	line "Cave Entrance."
+	line "South Entrance"
 	done
 	
 _Route21Sign2Text::

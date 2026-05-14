@@ -40,8 +40,8 @@ Route22GateDefaultScript:
 	jp DisplayTextID
 
 Route22GateScriptCoords:
-	dbmapcoord  8,  2
-	dbmapcoord  9,  2
+	dbmapcoord  20,  2
+	dbmapcoord  21,  2
 	db -1 ; end
 
 Route22GateScriptCoords2:

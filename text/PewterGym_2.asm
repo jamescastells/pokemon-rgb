@@ -3,12 +3,19 @@ _PewterGymBrockPostBattleAdviceText::
 	line "kinds of trainers"
 	cont "in the world!"
 
-	para "You appear to be"
-	line "very gifted as a"
-	cont "#MON trainer!"
+	para "Some raise #MON"
+	line "for fights. Some"
+	cont "see them as pets."
 
-	para "Go to the GYM in"
-	line "CERULEAN and test"
+	para "I'm in training to"
+	line "become a #MON"
+	cont "breeder."
+
+	para "If you take your"
+	line "#MON training"
+	cont "seriously, go"
+	cont "visit the GYM in"
+	cont "CERULEAN and test"
 	cont "your abilities!"
 	done
 

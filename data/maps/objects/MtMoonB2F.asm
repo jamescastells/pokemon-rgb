@@ -10,7 +10,7 @@
 	const_export MTMOONB2F_TM_MEGA_PUNCH
 
 MtMoonB2F_Object:
-	db $3 ; border block
+	db $7D ; border block
 
 	def_warp_events
 	warp_event 25,  9, MT_MOON_B1F, 2

@@ -86,6 +86,7 @@ MovementData_PewterMuseumGuyExit:
 	db NPC_MOVEMENT_DOWN
 	db NPC_MOVEMENT_DOWN
 	db NPC_MOVEMENT_DOWN
+	db NPC_MOVEMENT_DOWN
 	db -1 ; end
 
 PewterCityHideSuperNerd1Script:

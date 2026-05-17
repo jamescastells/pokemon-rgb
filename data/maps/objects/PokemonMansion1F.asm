@@ -13,8 +13,8 @@ PokemonMansion1F_Object:
 	warp_event  7, 27, LAST_MAP, 1
 	warp_event  5, 10, POKEMON_MANSION_2F, 1
 	warp_event 21, 23, POKEMON_MANSION_B1F, 1
-	warp_event 26, 27, LAST_MAP, 1
-	warp_event 27, 27, LAST_MAP, 1
+	warp_event 29, 22, LAST_MAP, 6
+	warp_event 29, 23, LAST_MAP, 7
 
 	def_bg_events
 

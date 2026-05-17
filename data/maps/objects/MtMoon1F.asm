@@ -14,7 +14,7 @@
 	const_export MTMOON1F_TM_WATER_GUN
 
 MtMoon1F_Object:
-	db $3 ; border block
+	db $7D ; border block
 
 	def_warp_events
 	warp_event 14, 35, LAST_MAP, 2

@@ -21,8 +21,8 @@ Mansion1CheckReplaceSwitchDoorBlocks:
 	call Mansion1LoadHorizontalGateBlock
 	lb bc, 8, 10
 	call Mansion1LoadHorizontalGateBlock
-	lb bc, 13, 13
-	jp Mansion1LoadHorizontalGateBlock
+	lb bc, 11, 13
+	jp Mansion1LoadVerticalGateBlock
 .switchTurnedOn
 	lb bc, 6, 12
 	call Mansion1LoadHorizontalGateBlock
@@ -30,11 +30,16 @@ Mansion1CheckReplaceSwitchDoorBlocks:
 	call Mansion1LoadEmptyFloorTileBlock
 	lb bc, 8, 10
 	call Mansion1LoadEmptyFloorTileBlock
-	lb bc, 13, 13
+	lb bc, 11, 13
 	jp Mansion1LoadEmptyFloorTileBlock
 
 Mansion1LoadHorizontalGateBlock:
 	ld a, $2d
+	ld [wNewTileBlockID], a
+	jr Mansion1ReplaceBlock
+
+Mansion1LoadVerticalGateBlock:
+	ld a, $5f
 	ld [wNewTileBlockID], a
 	jr Mansion1ReplaceBlock
 
